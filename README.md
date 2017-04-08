@@ -5,10 +5,10 @@
 Set your preferences
 
 ```sh
-DOTFILES_PATH='$HOME/.dotfiles'
+DOTFILES_PATH="$HOME/.dotfiles"
 GITUSER=bboykov
 GITREPO=dotfiles
-ALIAS_LOCATION='$HOME/.bashrc'
+ALIAS_LOCATION="$HOME/.bashrc"
 ```
 
 Configure dotfiles repo and alias
