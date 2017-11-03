@@ -5,17 +5,9 @@ export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME="my_brainy"
-# export BASH_IT_THEME='brainy'
-# THEME_SHOW_TODO=true
-# THEME_SHOW_BATTERY=true
-# ___BRAINY_TOP_LEFT="user_info scm dir"
-# THEME_SHOW_SUDO=true
-# ___BRAINY_TOP_LEFT="dir scm"
-___BRAINY_TOP_LEFT="dir tf_env scm"
-___BRAINY_TOP_RIGHT="python ruby todo clock battery"
-___BRAINY_BOTTOM="exitcode char"
 
+# https://github.com/nojhan/liquidpromp://github.com/nojhan/liquidprompt
+export BASH_IT_THEME='liquidprompt'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -49,8 +41,7 @@ export SCM_CHECK=true
 # after enabling or disabling aliases, plugins, and completions.
 export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 
-
-export BASH_IT_CUSTOM=~/.bash_it_custom
+export BASH_IT_CUSTOM=~/bash_it_custom
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
