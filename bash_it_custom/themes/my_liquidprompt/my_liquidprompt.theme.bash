@@ -15,7 +15,7 @@ cd "$cwd"
 
 export LP_ENABLE_TIME=1
 export LP_HOSTNAME_ALWAYS=0
-export LP_USER_ALWAYS=0
+# export LP_USER_ALWAYS=0
 export LP_BATTERY_THRESHOLD=${LP_BATTERY_THRESHOLD:-75}
 export LP_LOAD_THRESHOLD=${LP_LOAD_THRESHOLD:-60}
 export LP_TEMP_THRESHOLD=${LP_TEMP_THRESHOLD:-80}
@@ -29,7 +29,8 @@ export LP_PS1_POSTFIX="\n└▪ "
 
 _lp_time() {
     if (( LP_ENABLE_TIME )) && (( ! LP_TIME_ANALOG )); then
-        LP_TIME="${gray}$(date +%F-%H:%M:%S) ${normal}"
+        # LP_TIME="${gray}$(date +%F-%H:%M:%S) ${normal}"
+        LP_TIME="${gray}$(date +%H:%M:%S) ${normal}"
     else
         LP_TIME=""
     fi
