@@ -23,3 +23,7 @@ export BASH_IT_CUSTOM=~/.bash_it_custom
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
+
+# https://github.com/chriskempson/base16-shell
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
