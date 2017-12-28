@@ -19,8 +19,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   ### }
 
-  eval "$(scmpuff init -s)"
-
   if [ -f ~/.bashrc ]; then
     . ~/.bashrc
   fi
