@@ -12,6 +12,7 @@
   keepBackup = false
 [alias]
   fcommit = commit --fixup
+  fpush= push --force-with-lease
   unstage = reset HEAD --
   last = log -1 HEAD
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 10
