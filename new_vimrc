@@ -1,0 +1,129 @@
+"" Plugins {
+call plug#begin('~/.vim/plugged')
+
+" Sensible - VIM defaults that everybody agrees on {
+Plug 'tpope/vim-sensible'
+
+" }
+
+" NERDTree {
+Plug 'scrooloose/nerdtree'
+map <F2> :NERDTreeToggle<CR>
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" }
+
+" Commentary - Comment stuff out. {
+Plug 'tpope/vim-commentary'
+autocmd FileType terraform setlocal commentstring=#\ %s
+
+" }
+
+" Colorscheme Plugins {
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
+
+" }
+
+" TMUX Plugins {
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
+" }
+
+" Tabular - Align text {
+" https://github.com/godlygeek/tabular
+" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+Plug 'godlygeek/tabular'
+
+" }
+
+" todo-txt {
+" https://github.com/todotxt/todo.txt-cli
+" https://github.com/todotxt/todo.txt-cli/blob/master/USAGE.md
+" https://github.com/freitass/todo.txt-vim
+Plug 'freitass/todo.txt-vim'
+
+" }
+
+" vim-better-whitespace - Strip whitespaces {
+" https://github.com/ntpeters/vim-better-whitespace
+Plug 'ntpeters/vim-better-whitespace'
+
+" }
+
+" vim-terraform - Plugin from HashiVim {
+Plug 'hashivim/vim-terraform'
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+
+" }
+
+" vim-gitgutter - A Vim plugin which shows a git diff in the 'gutter' {
+Plug 'airblade/vim-gitgutter'
+
+" }
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+"" }
+
+"" Basic Configuration {
+
+set number 	" Line numbers on
+set modeline 	" Read infile vim settings
+set cursorline  " Highlight current line
+
+" Tabs {
+" Ref and more settings here: http://tedlogan.com/techblog3.html
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+" }
+
+" Show hidden characters {
+set list
+set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
+
+" }
+
+" Folds {
+set foldenable
+set foldmethod=marker
+set foldmarker={,}
+set foldcolumn=3
+" }
+
+" End of basic configuration }
+
+"" Re-mappings {
+
+" Source and Edit vimrc {
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" }
+
+"" }
+
+"" Clipboard {
+if has('unnamedplus')
+  set clipboard=unnamedplus,unnamed
+else
+  set clipboard+=unnamed
+endif
+
+"" }
+
+"" Colorscheme Configuration {
+silent! colorscheme molokai
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+"" }
+
+" vim: foldmethod=marker foldcolumn=4
