@@ -74,8 +74,13 @@ call plug#end()
 set number 	" Line numbers on
 set modeline 	" Read infile vim settings
 set cursorline  " Highlight current line
+" Search
 set ignorecase  " Ignore case sensitive search
 set smartcase   " Case sensitive search when uc present
+" Backup
+set nobackup
+set noswapfile
+set nowritebackup
 
 " Tabs {
 " Ref and more settings here: http://tedlogan.com/techblog3.html
