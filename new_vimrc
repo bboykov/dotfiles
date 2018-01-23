@@ -99,11 +99,18 @@ set foldcolumn=3
 
 " End of basic configuration }
 
-"" Re-mappings {
+"" Remappings - Custom shortcuts {
 
-" Source and Edit vimrc {
+" Source and Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Quit vim without saving
+nnoremap <Leader>q  :q<CR>
+nnoremap <Leader>Q  :qa!<CR>
+
+" Quick command mode
+nnoremap ; :
 
 " }
 
