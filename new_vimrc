@@ -1,3 +1,36 @@
+"" Basic Configuration {
+
+set number     " Line numbers on
+set modeline   " Read infile vim settings
+set cursorline " Highlight current line
+" Search {
+set ignorecase  " Ignore case sensitive search
+set smartcase   " Case sensitive search when uc present
+" }
+" Backup {
+set nobackup
+set noswapfile
+set nowritebackup
+" }
+" Tabs {
+" Ref and more settings here: http://tedlogan.com/techblog3.html
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+" }
+" Show hidden characters {
+set list
+set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
+" }
+" Folds {
+set foldenable
+set foldmethod=marker
+set foldmarker={,}
+set foldcolumn=3
+" }
+
+" End of basic configuration }
+
 "" Plugins {
 call plug#begin('~/.vim/plugged')
 
@@ -69,41 +102,6 @@ Plug 'airblade/vim-gitgutter'
 call plug#end()
 "" }
 
-"" Basic Configuration {
-
-set number 	" Line numbers on
-set modeline 	" Read infile vim settings
-set cursorline  " Highlight current line
-" Search
-set ignorecase  " Ignore case sensitive search
-set smartcase   " Case sensitive search when uc present
-" Backup
-set nobackup
-set noswapfile
-set nowritebackup
-
-" Tabs {
-" Ref and more settings here: http://tedlogan.com/techblog3.html
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-" }
-
-" Show hidden characters {
-set list
-set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
-
-" }
-
-" Folds {
-set foldenable
-set foldmethod=marker
-set foldmarker={,}
-set foldcolumn=3
-" }
-
-" End of basic configuration }
-
 "" Remappings - Custom shortcuts {
 
 " Source and Edit vimrc
@@ -116,8 +114,6 @@ nnoremap <Leader>Q  :qa!<CR>
 
 " Quick command mode
 nnoremap ; :
-
-" }
 
 "" }
 
