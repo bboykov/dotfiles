@@ -105,6 +105,11 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " }
 
+" tomtom/tinykeymap_vim - Use single key shortcuts to trigger commands {
+" https://github.com/tomtom/tinykeymap_vim
+Plug 'tomtom/tinykeymap_vim'
+
+" }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
