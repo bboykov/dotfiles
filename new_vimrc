@@ -98,6 +98,14 @@ Plug 'airblade/vim-gitgutter'
 
 " }
 
+
+" vim-tmux-navigator - Navigate seamlessly between vim and tmux splits {
+" Provides C-hjkl shortcuts in vim
+Plug 'christoomey/vim-tmux-navigator'
+
+" }
+
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "" }
