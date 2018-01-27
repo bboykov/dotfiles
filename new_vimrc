@@ -157,6 +157,9 @@ nnoremap <Leader>Q  :qa!<CR>
 " Quick command mode
 nnoremap ; :
 
+" Insert date
+nnoremap <leader>id "=strftime("%F")<CR>p
+
 "" }
 
 "" Clipboard {
