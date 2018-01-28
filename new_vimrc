@@ -109,7 +109,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " tomtom/tinykeymap_vim - Use single key shortcuts to trigger commands {
 " https://github.com/tomtom/tinykeymap_vim
 Plug 'tomtom/tinykeymap_vim'
-let g:tinykeymap#timeout=1000
+let g:tinykeymap#map#tabs#map='<leader>gt'
 
 " }
 
@@ -123,7 +123,8 @@ let g:vim_markdown_new_list_item_indent = 2
 Plug 'jamshedvesuna/vim-markdown-preview'
 let vim_markdown_preview_hotkey='<C-m>'          " Mapping Control M
 let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_github=1                " GitHub flavoured markdown you need to install Python grip `pip install grip`
+" GitHub flavoured markdown you need to install Python grip `pip install grip`
+let vim_markdown_preview_github=1
 let vim_markdown_preview_temp_file=1             " Remove the rendered preview file
 
 " Generate table of contents for Markdown files
