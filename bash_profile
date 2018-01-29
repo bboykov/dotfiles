@@ -5,7 +5,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     . ~/.bashrc
   fi
 
-  alias todo='todo-txt -d $HOME/Dropbox/todo-txt/todo.cfg'
+  alias todo='todo-txt -d $HOME/Dropbox/todo-txt/todo.cfg -a'
 
 fi
 ### MacOS
@@ -29,6 +29,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   eval $(thefuck --alias)
 
-  alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg'
+  alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
 
 fi
