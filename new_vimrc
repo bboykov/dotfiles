@@ -4,6 +4,10 @@ set modeline   " Read infile vim settings
 set cursorline " Highlight current line
 set mouse=a    " Automatically enable mouse usage
 set mousehide  " Hide the mouse cursor while typing
+set autoindent                 " Indentation
+set autoread                   " Automatically read a file changed outside of vim
+set splitright               " Puts new vsplit windows to the right of the current
+set splitbelow               " Puts new split windows to the bottom of the current
 " Search {
 set ignorecase  " Ignore case sensitive search
 set smartcase   " Case sensitive search when uc present
@@ -116,9 +120,10 @@ let g:tinykeymap#map#tabs#map='<leader>gt'
 " Markdown Plugins {
 "
 " Syntax highlighting, matching rules and mappings
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_fenced_languages = ['viml=vim', 'bash=sh', 'ansible=yml']
-let g:vim_markdown_new_list_item_indent = 2
+" https://github.com/gabrielelana/vim-markdown
+Plug 'gabrielelana/vim-markdown'
+let g:markdown_enable_folding = 1
+let g:markdown_enable_conceal = 1
 
 Plug 'jamshedvesuna/vim-markdown-preview'
 let vim_markdown_preview_hotkey='<C-m>'          " Mapping Control M
@@ -131,8 +136,8 @@ let vim_markdown_preview_temp_file=1             " Remove the rendered preview f
 " https://github.com/mzlogin/vim-markdown-toc
 Plug 'mzlogin/vim-markdown-toc'
 
-" }
 
+" }
 
 " Supertab - use <Tab> for all your insert completion needs {
 " https://github.com/ervandew/supertab
@@ -140,6 +145,16 @@ Plug 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " }
+
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim. {
+" https://github.com/ctrlpvim/ctrlp.vim
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'ra'
+" https://coderwall.com/p/5xv7sq/ctrlp-root-markers
+let g:ctrlp_root_markers = ['.ctrlp']
+
+" }
+
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -160,6 +175,13 @@ nnoremap ; :
 
 " Insert date
 nnoremap <leader>id "=strftime("%F")<CR>p
+
+" Redo
+nnoremap U <C-r>
+
+" Visual shifting (does not exit Visual mode). Keeps the selection in place
+vnoremap < <gv
+vnoremap > >gv
 
 "" }
 
