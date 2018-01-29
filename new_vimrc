@@ -124,6 +124,10 @@ let g:tinykeymap#map#tabs#map='<leader>gt'
 " }
 
 " Markdown Plugins {
+" https://github.com/rhysd/vim-gfm-syntax
+Plug 'rhysd/vim-gfm-syntax'
+" https://github.com/vitalk/vim-simple-todo
+Plug 'vitalk/vim-simple-todo'
 Plug 'jamshedvesuna/vim-markdown-preview'
 let vim_markdown_preview_hotkey='<C-m>'          " Mapping Control M
 let vim_markdown_preview_browser='Google Chrome'
