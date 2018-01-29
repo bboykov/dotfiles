@@ -34,6 +34,12 @@ set foldmethod=syntax
 set foldmarker={,}
 set foldcolumn=3
 " }
+" `gx` to opening url on Mac {
+let g:netrw_browsex_viewer="google"
+
+" }
+
+" set conceallevel=2
 
 " End of basic configuration }
 
@@ -118,13 +124,6 @@ let g:tinykeymap#map#tabs#map='<leader>gt'
 " }
 
 " Markdown Plugins {
-"
-" Syntax highlighting, matching rules and mappings
-" https://github.com/gabrielelana/vim-markdown
-Plug 'gabrielelana/vim-markdown'
-let g:markdown_enable_folding = 1
-let g:markdown_enable_conceal = 1
-
 Plug 'jamshedvesuna/vim-markdown-preview'
 let vim_markdown_preview_hotkey='<C-m>'          " Mapping Control M
 let vim_markdown_preview_browser='Google Chrome'
