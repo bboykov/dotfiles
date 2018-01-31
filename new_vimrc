@@ -158,6 +158,17 @@ let g:ctrlp_root_markers = ['.ctrlp']
 
 " }
 
+" Provides mappings to easily delete, change and add such surroundings in pairs. {
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
+
+" }
+
+" Repeat.vim remaps . in a way that plugins can tap into it. {
+" https://github.com/tpope/vim-repeat
+Plug 'tpope/vim-repeat'
+
+" }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
