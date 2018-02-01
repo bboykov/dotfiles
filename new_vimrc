@@ -5,6 +5,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " }
+"
+
+" Spell check and grammar {
+set nospell
+" Toggle spell check
+" http://hacktux.com/vim-spell-check/
+" TODO: add spellfile in dropbox
+nmap <silent> <leader>sp :setlocal spell!<CR>
+set spelllang=en_us
+" https://github.com/rhysd/vim-grammarous
+Plug 'rhysd/vim-grammarous'
+
+" }
 
 " NERDTree {
 " https://github.com/scrooloose/nerdtree
@@ -220,12 +233,21 @@ endif
 "" Colorscheme Configuration {
 silent! colorscheme molokai
 
+" Take the base16 colortheme
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
+  " Check highlighting with `:verbose hi <SpellBad>`
+  " highlight SpellBad cterm=underline ctermbg=0 ctermfg=1 gui=undercurl
+  " Error highlight need to be changed due to highlighted cursorline
+  " https://github.com/chriskempson/base16-vim/issues/151
+  highlight Error term=reverse ctermfg=6 ctermbg=1
+  " Spell highlighting do not show with base16
+  highlight SpellBad term=reverse cterm=underline ctermbg=9 guisp=Red
+  highlight SpellLocal term=reverse ctermbg=9 gui=undercurl guisp=Red
+  highlight SpellCap term=reverse ctermbg=12 gui=undercurl guisp=Blue
+  highlight SpellRare term=reverse ctermbg=13 gui=undercurl guisp=Magenta
 endif
-
-"" }
 
 "" Show text rulers - Highlight column 80 as well as 120 and onward {
 "" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
@@ -233,6 +255,9 @@ let &colorcolumn="80,".join(range(120,999),",")
 "" Alternatives, example:
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn=join(range(81,999),",")
+"" }
+
+
 "" }
 
 " vim: foldmethod=marker foldcolumn=4 foldenable
