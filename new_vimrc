@@ -23,7 +23,9 @@ Plug 'rhysd/vim-grammarous'
 " https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
-
+" Store the bookmarks file
+let NERDTreeBookmarksFile=expand("$HOME/Dropbox/vim/NERDTreeBookmarks")
+" https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " }
