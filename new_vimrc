@@ -100,6 +100,7 @@ let g:tinykeymap#map#tabs#map='<leader>gt'
 " You can view a list when you try to autocomplete on :setfiletype (i.e. with
 " Tab after a space).
 let g:markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform']
+let g:markdown_folding = 1
 
 " https://github.com/rhysd/vim-gfm-syntax
 Plug 'rhysd/vim-gfm-syntax'
