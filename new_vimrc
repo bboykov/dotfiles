@@ -197,8 +197,8 @@ let g:netrw_browsex_viewer="google"
 
 " End of basic configuration }
 
-
-"" Remappings - Custom shortcuts {
+"" Maps {
+" Remappings - Custom shortcuts {
 
 " Source and Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -211,18 +211,19 @@ nnoremap <Leader>Q  :qa!<CR>
 " Quick command mode
 nnoremap ; :
 
-" Insert date
-nnoremap <leader>id "=strftime("%F")<CR>p
-
 " Redo
 nnoremap U <C-r>
 
 " Visual shifting (does not exit Visual mode). Keeps the selection in place
 vnoremap < <gv
 vnoremap > >gv
-
+" }
+"" Abbreviations {
+" Insert date
+inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>
+" }
 "" }
-
+"
 "" Clipboard {
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
