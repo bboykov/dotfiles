@@ -1,11 +1,9 @@
 "" vim-plug Plugins {
 call plug#begin('~/.vim/plugged')
-
 " Sensible - VIM defaults that everybody agrees on {
 Plug 'tpope/vim-sensible'
 
 " }
-
 " Spell check and grammar {
 set nospell
 " Toggle spell check
@@ -17,7 +15,6 @@ set spelllang=en_us
 Plug 'rhysd/vim-grammarous'
 
 " }
-
 " NERDTree {
 " https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree'
@@ -28,13 +25,11 @@ let NERDTreeBookmarksFile=expand("$HOME/Dropbox/vim/NERDTreeBookmarks")
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " }
-
 " Commentary - Comment stuff out. {
 Plug 'tpope/vim-commentary'
 autocmd FileType terraform setlocal commentstring=#\ %s
 
 " }
-
 " Colorscheme Plugins {
 " https://github.com/flazz/vim-colorschemes
 Plug 'flazz/vim-colorschemes'
@@ -42,20 +37,17 @@ Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 
 " }
-
 " TMUX Plugins {
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " }
-
 " Tabular - Align text {
 " https://github.com/godlygeek/tabular
 " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 Plug 'godlygeek/tabular'
 
 " }
-
 " todo-txt {
 " https://github.com/todotxt/todo.txt-cli
 " https://github.com/todotxt/todo.txt-cli/blob/master/USAGE.md
@@ -63,38 +55,32 @@ Plug 'godlygeek/tabular'
 Plug 'freitass/todo.txt-vim'
 
 " }
-
 " vim-better-whitespace - Strip whitespaces {
 " https://github.com/ntpeters/vim-better-whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
 " }
-
 " vim-terraform - Plugin from HashiVim {
 Plug 'hashivim/vim-terraform'
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
 " }
-
 " vim-gitgutter - A Vim plugin which shows a git diff in the 'gutter' {
 Plug 'airblade/vim-gitgutter'
 
 " }
-
 " vim-tmux-navigator - Navigate seamlessly between vim and tmux splits {
 " Provides C-hjkl shortcuts in vim
 Plug 'christoomey/vim-tmux-navigator'
 
 " }
-
 " tomtom/tinykeymap_vim - Use single key shortcuts to trigger commands {
 " https://github.com/tomtom/tinykeymap_vim
 Plug 'tomtom/tinykeymap_vim'
 let g:tinykeymap#map#tabs#map='<leader>gt'
 
 " }
-
 " Markdown Plugins {
 " You can view a list when you try to autocomplete on :setfiletype (i.e. with
 " Tab after a space).
@@ -118,14 +104,12 @@ Plug 'mzlogin/vim-markdown-toc'
 
 
 " }
-
 " Supertab - use <Tab> for all your insert completion needs {
 " https://github.com/ervandew/supertab
 Plug 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " }
-
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim. {
 " https://github.com/ctrlpvim/ctrlp.vim
 Plug 'ctrlpvim/ctrlp.vim'
@@ -134,7 +118,6 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
 
 " }
-
 " Provides mappings to easily delete, change and add such surroundings in pairs. {
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
@@ -148,11 +131,9 @@ Plug 'tpope/vim-repeat'
 " https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
 " }
-
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "" }
-
 "" Basic Configuration {
 set number     " Line numbers on
 set modeline   " Read infile vim settings
@@ -191,14 +172,11 @@ set foldmethod=syntax
 set foldmarker={,}
 set foldcolumn=3
 " }
-
 " `gx` to opening url on Mac {
 let g:netrw_browsex_viewer="google"
 
 " }
-
 " End of basic configuration }
-
 "" Maps {
 " Remappings - Custom shortcuts {
 
@@ -225,7 +203,6 @@ vnoremap > >gv
 inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>
 " }
 "" }
-"
 "" Clipboard {
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
@@ -234,7 +211,6 @@ else
 endif
 
 "" }
-
 "" Colorscheme Configuration {
 silent! colorscheme molokai
 
@@ -261,8 +237,6 @@ let &colorcolumn="80,".join(range(120,999),",")
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn=join(range(81,999),",")
 "" }
-
-
 "" }
 
 " vim: foldmethod=marker foldcolumn=4 foldenable
