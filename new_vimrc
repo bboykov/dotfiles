@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " }
-"
 
 " Spell check and grammar {
 set nospell
@@ -141,11 +140,13 @@ let g:ctrlp_root_markers = ['.ctrlp']
 Plug 'tpope/vim-surround'
 
 " }
-
 " Repeat.vim remaps . in a way that plugins can tap into it. {
 " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-repeat'
-
+" }
+" A light and configurable statusline/tabline plugin {
+" https://github.com/itchyny/lightline.vim
+Plug 'itchyny/lightline.vim'
 " }
 
 " List ends here. Plugins become visible to Vim after this call.
