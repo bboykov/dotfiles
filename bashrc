@@ -133,6 +133,8 @@ shopt -s cdable_vars
 
 export dotfiles="$HOME/dotfiles"
 export dropbox="$HOME/Dropbox"
+export notes="$HOME/Dropbox/notes/2018/@drafts"
+
 
 # End of sensible bash defaults }
 # Liquid Prompt {
