@@ -38,4 +38,5 @@ gitmessage.txt
 gitignore_global
 bash_it_custom
 vimrc
+liquidpromptrc
 EOL

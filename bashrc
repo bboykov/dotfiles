@@ -33,6 +33,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 # }
 
+# Liquid Prompt {
+# https://github.com/nojhan/liquidprompt
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+# }
+
+
+
 # base16-shell {
 # https://github.com/chriskempson/base16-shell
 BASE16_SHELL=$HOME/.config/base16-shell/
