@@ -1,5 +1,32 @@
 #!/usr/bin/env bash
 
+# Configuring your login sessions with dot files
+# http://mywiki.wooledge.org/DotFiles
+
+### Linux specific
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+  alias todo='todo-txt -d $HOME/Dropbox/todo-txt/todo.cfg -a'
+
+fi
+### MacOS specific
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+
+  ### Bash Completion on OS X
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+  fi
+
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+  eval $(thefuck --alias)
+
+  alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
+
+fi
+
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
 
