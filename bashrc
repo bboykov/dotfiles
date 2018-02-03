@@ -18,7 +18,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
 
-  ### Bash Completion on OS X
+  ### Bash and git Completion on OS X
+  # brew install git && brew install bash-completion
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
   fi
