@@ -148,13 +148,13 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 set -o vi
 # }
 # Aliases {
-## Refresh bashrc {
+## Reload bashrc {
 case $OSTYPE in
   darwin*)
-    alias refresh='source ~/.bash_profile'
+    alias reload='source ~/.bash_profile'
     ;;
   *)
-    alias refresh='source ~/.bashrc'
+    alias reload='source ~/.bashrc'
     ;;
 esac
 # }
