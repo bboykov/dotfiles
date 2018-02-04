@@ -27,6 +27,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
   eval $(thefuck --alias)
+  # https://github.com/nvbn/thefuck
+  alias fuck='eval $(thefuck $(fc -ln -1))'
+  alias please='fuck'
 
   alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
 
@@ -44,7 +47,7 @@ then
   echo "sensible.bash: Keep your software up-to-date!"
 fi
 
-## GENERAL OPTIONS ##
+## GENERAL OPTIONS ## {
 
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
@@ -65,8 +68,8 @@ shopt -s globstar 2> /dev/null
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
-
-## SMARTER TAB-COMPLETION (Readline bindings) ##
+# }
+## SMARTER TAB-COMPLETION (Readline bindings) ## {
 
 # Perform file completion in a case insensitive fashion
 bind "set completion-ignore-case on"
@@ -79,8 +82,8 @@ bind "set show-all-if-ambiguous on"
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
 bind "set mark-symlinked-directories on"
-
-## SANE HISTORY DEFAULTS ##
+# }
+## SANE HISTORY DEFAULTS ## {
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
@@ -112,8 +115,8 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\e[C": forward-char'
 bind '"\e[D": backward-char'
-
-## BETTER DIRECTORY NAVIGATION ##
+# }
+## BETTER DIRECTORY NAVIGATION ## {
 
 # Prepend cd to directory names automatically
 shopt -s autocd 2> /dev/null
@@ -134,7 +137,7 @@ shopt -s cdable_vars
 export dotfiles="$HOME/dotfiles"
 export dropbox="$HOME/Dropbox"
 export notes="$HOME/Dropbox/notes/2018/@drafts"
-
+# }
 
 # End of sensible bash defaults }
 # Liquid Prompt {
@@ -151,6 +154,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 set -o vi
 # }
 # Aliases {
+alias tmuxls='tmux ls'
+alias tmuxa='tmux a -t'
 ## Reload bashrc {
 case $OSTYPE in
   darwin*)
@@ -160,6 +165,25 @@ case $OSTYPE in
     alias reload='source ~/.bashrc'
     ;;
 esac
+# }
+## ls settings {
+if ls --color -d . &> /dev/null
+then
+  alias ls="ls --color=auto"
+elif ls -G -d . &> /dev/null
+then
+  alias ls='ls -G'        # Compact view, show colors
+fi
+# List directory contents
+alias sl=ls
+alias la='ls -AF'       # Compact view, show hidden
+alias ll='ls -al'
+alias l='ls -a'
+alias l1='ls -1'
+# }
+## grep {
+alias grep='grep --color=auto'
+export GREP_COLOR='1;33'
 # }
 # Aliases end }
 
