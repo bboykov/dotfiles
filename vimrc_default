@@ -131,6 +131,19 @@ Plug 'tpope/vim-repeat'
 " https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
 " }
+" Syntax plugin for Ansible 2.0 {
+" https://github.com/pearofducks/ansible-vim
+Plug 'pearofducks/ansible-vim'
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_extra_keywords_highlight = 1
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_with_keywords_highlight = 'Constant'
+" detect a custom pattern
+au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
+au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+
+
+" }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "" }
