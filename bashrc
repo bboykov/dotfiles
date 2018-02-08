@@ -187,4 +187,8 @@ export GREP_COLOR='1;33'
 # }
 # Aliases end }
 
+# PATH {
+PATH=$PATH:$HOME/bin
+export PATH
+#}
 # vim: foldmethod=marker foldcolumn=4 foldenable
