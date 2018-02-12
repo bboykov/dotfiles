@@ -148,15 +148,11 @@ Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
-" Same prefix
+" Same prefix to all commands
 let g:fzf_command_prefix = 'Fz'
 imap <C-f> <plug>(fzf-complete-line)
 " Build-in completion
-nnoremap <leader>t :FzFiles<CR>
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-k> <c-n>
-
-"Ref
+nnoremap <c-p> :FzFiles<CR>
 " }
 
 
