@@ -72,6 +72,7 @@ Plug 'airblade/vim-gitgutter'
 " }
 " vim-tmux-navigator - Navigate seamlessly between vim and tmux splits {
 " Provides C-hjkl shortcuts in vim
+" https://github.com/christoomey/vim-tmux-navigator
 Plug 'christoomey/vim-tmux-navigator'
 
 " }
@@ -104,20 +105,6 @@ Plug 'mzlogin/vim-markdown-toc'
 
 
 " }
-" Supertab - use <Tab> for all your insert completion needs {
-" https://github.com/ervandew/supertab
-Plug 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" }
-" Full path fuzzy file, buffer, mru, tag, ... finder for Vim. {
-" https://github.com/ctrlpvim/ctrlp.vim
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'ra'
-" https://coderwall.com/p/5xv7sq/ctrlp-root-markers
-let g:ctrlp_root_markers = ['.ctrlp']
-
-" }
 " Provides mappings to easily delete, change and add such surroundings in pairs. {
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
@@ -141,9 +128,38 @@ let g:ansible_with_keywords_highlight = 'Constant'
 " detect a custom pattern
 au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
-
+" }
+" " CtrlP - Full path fuzzy file, buffer, mru, tag, ... finder for Vim. {
+" " https://github.com/ctrlpvim/ctrlp.vim
+" Plug 'ctrlpvim/ctrlp.vim'
+" let g:ctrlp_working_path_mode = 'ra'
+" " https://coderwall.com/p/5xv7sq/ctrlp-root-markers
+" let g:ctrlp_root_markers = ['.ctrlp']
 
 " }
+" Supertab - use <Tab> for all your insert completion needs {
+" https://github.com/ervandew/supertab
+Plug 'ervandew/supertab'
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" }
+" fzf is a general-purpose command-line fuzzy finder. {
+" https://github.com/junegunn/fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf.vim'
+" Same prefix
+let g:fzf_command_prefix = 'Fz'
+imap <C-f> <plug>(fzf-complete-line)
+" Build-in completion
+nnoremap <leader>t :FzFiles<CR>
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-k> <c-n>
+
+"Ref
+" }
+
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "" }
@@ -214,6 +230,13 @@ nnoremap U <C-r>
 vnoremap < <gv
 vnoremap > >gv
 " }
+
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
+
+" avoid reaching for Esc
+imap kj <Esc>
+
 "" Abbreviations {
 " Insert date
 inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>

@@ -140,6 +140,9 @@ export notes="$HOME/Dropbox/notes/2018/@drafts"
 # }
 
 # End of sensible bash defaults }
+# fzf {
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# }
 # Liquid Prompt {
 # https://github.com/nojhan/liquidprompt
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
@@ -149,9 +152,6 @@ export notes="$HOME/Dropbox/notes/2018/@drafts"
 # https://github.com/chriskempson/base16-shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-# }
-# Set vi mode {
-set -o vi
 # }
 # Aliases {
 alias tmuxls='tmux ls'
@@ -192,3 +192,4 @@ PATH=$PATH:$HOME/bin
 export PATH
 #}
 # vim: foldmethod=marker foldcolumn=4 foldenable
+

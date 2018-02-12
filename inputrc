@@ -1,4 +1,12 @@
 # Neither sound a beep nor flash the screen when trying to ring the bell.
 set bell-style none
 
+# vi settings
+set editing-mode vi
+
+$if mode=vi
+  set keymap vi-insert
+  "kj": vi-movement-mode # remap escape
+$endif
+
 
