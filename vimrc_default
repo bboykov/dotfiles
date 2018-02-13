@@ -170,8 +170,6 @@ set mouse=a    " Automatically enable mouse usage
 set mousehide  " Hide the mouse cursor while typing
 set autoindent                 " Indentation
 set autoread                   " Automatically read a file changed outside of vim
-set splitright               " Puts new vsplit windows to the right of the current
-set splitbelow               " Puts new split windows to the bottom of the current
 set t_Co=256
 " Search {
 set ignorecase  " Ignore case sensitive search
