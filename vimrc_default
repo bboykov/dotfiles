@@ -228,9 +228,6 @@ vnoremap > >gv
 " vv to generate new vertical split
 nnoremap <silent> vv <C-w>v
 
-" avoid reaching for Esc
-imap kj <Esc>
-
 "" Abbreviations {
 " Insert date
 inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>
