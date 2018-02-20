@@ -163,14 +163,15 @@ call plug#end()
 " Leader
 " let mapleader = " "
 
-set number     " Line numbers on
-set modeline   " Read infile vim settings
-set cursorline " Highlight current line
-set mouse=a    " Automatically enable mouse usage
-set mousehide  " Hide the mouse cursor while typing
-set autoindent                 " Indentation
-set autoread                   " Automatically read a file changed outside of vim
+set number       "  Line numbers on
+set modeline     "  Read infile vim settings
+set cursorline   "  Highlight current line
+set mouse=a      "  Automatically enable mouse usage
+set mousehide    "  Hide the mouse cursor while typing
+set autoindent   "  Indentation
+set autoread     "  Automatically read a file changed outside of vim
 set t_Co=256
+set iskeyword+=- "  Treat dashes as part of word
 " Search {
 set ignorecase  " Ignore case sensitive search
 set smartcase   " Case sensitive search when uc present
