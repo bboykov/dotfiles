@@ -2,6 +2,12 @@
 # Configuring your login sessions with dot files
 # http://mywiki.wooledge.org/DotFiles
 
+# .bashrc_local {
+# Stores local configs that should not be in the git repo
+if [ -n "$BASH" ] && [ -r ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
+# }
 # Linux specific {
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
