@@ -154,6 +154,24 @@ imap <C-f> <plug>(fzf-complete-line)
 " Build-in completion
 nnoremap <c-p> :FzFiles<CR>
 " }
+" Indent markers {
+" Guides is a plugin for visually displaying indent levels in Vim.
+" https://github.com/nathanaelkane/vim-indent-guides
+" Plug 'nathanaelkane/vim-indent-guides'
+" let g:indent_guides_enable_on_vim_startup = 1
+"
+" indentLinea This plugin is used for displaying thin vertical lines at
+" each indentation level for code indented with spaces
+" https://github.com/yggdroot/indentline
+Plug 'yggdroot/indentline'
+" }
+" Very simple folding configuration for YAML, and others {
+" https://github.com/digitalrounin/vim-yaml-folds
+Plug 'digitalrounin/vim-yaml-folds'
+" }
+
+
+
 
 
 " List ends here. Plugins become visible to Vim after this call.
@@ -194,10 +212,14 @@ set list
 set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
 " }
 " Folds {
-set nofoldenable
-set foldmethod=syntax
+" set nofoldenable
+set foldenable
+set foldmethod=indent
+set foldlevel=10
 set foldmarker={,}
 set foldcolumn=3
+" http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
+" autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 " }
 " `gx` to opening url on Mac {
 let g:netrw_browsex_viewer="google"
