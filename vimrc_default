@@ -215,7 +215,7 @@ set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
 " set nofoldenable
 set foldenable
 set foldmethod=indent
-set foldlevel=10
+set foldlevelstart=20
 set foldmarker={,}
 set foldcolumn=3
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
