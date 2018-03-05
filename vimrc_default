@@ -85,7 +85,7 @@ let g:tinykeymap#map#tabs#map='<leader>gt'
 " Markdown Plugins {
 " You can view a list when you try to autocomplete on :setfiletype (i.e. with
 " Tab after a space).
-let g:markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform']
+let g:markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
 let g:markdown_folding = 1
 
 " https://github.com/rhysd/vim-gfm-syntax
@@ -93,11 +93,11 @@ Plug 'rhysd/vim-gfm-syntax'
 " https://github.com/vitalk/vim-simple-todo
 Plug 'vitalk/vim-simple-todo'
 Plug 'jamshedvesuna/vim-markdown-preview'
-let vim_markdown_preview_hotkey='<C-m>'          " Mapping Control M
+let vim_markdown_preview_hotkey='<C-m>'      " Mapping Control M
 let vim_markdown_preview_browser='Google Chrome'
 " GitHub flavoured markdown you need to install Python grip `pip install grip`
 let vim_markdown_preview_github=1
-let vim_markdown_preview_temp_file=1             " Remove the rendered preview file
+let vim_markdown_preview_temp_file=1  " Remove the rendered preview file
 
 " Generate table of contents for Markdown files
 " https://github.com/mzlogin/vim-markdown-toc
