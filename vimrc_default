@@ -254,6 +254,22 @@ nnoremap <silent> vv <C-w>v
 "" Abbreviations {
 " Insert date
 inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>
+" Insert github md style checkbox
+iab -[ - [ ]
+" Insert week days for my journal file
+iab Tweekd <CR># Su
+\<CR>
+\<CR># Sa
+\<CR>
+\<CR># Fr
+\<CR>
+\<CR># Th
+\<CR>
+\<CR># We
+\<CR>
+\<CR># Tu
+\<CR>
+\<CR># Mo
 " }
 "" }
 "" Clipboard {
