@@ -1,3 +1,53 @@
+"" Basic Configuration {
+" Leader
+" let mapleader = " "
+
+set nocompatible "  Make Vim behave in a more useful way
+set number       "  Line numbers on
+set modeline     "  Read infile vim settings
+set cursorline   "  Highlight current line
+set mouse=a      "  Automatically enable mouse usage
+set mousehide    "  Hide the mouse cursor while typing
+set autoindent   "  Indentation
+set autoread     "  Automatically read a file changed outside of vim
+set t_Co=256
+set iskeyword+=- "  Treat dashes as part of word
+" Search {
+set ignorecase " Ignore case sensitive search
+set smartcase  " Case sensitive search when uc present
+set hlsearch   " Highlight search results
+set incsearch  " Find as you type search               "
+" }
+" Backup {
+set nobackup
+set noswapfile
+set nowritebackup
+" }
+" Tabs {
+" Ref and more settings here: http://tedlogan.com/techblog3.html
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+" }
+" Show hidden characters {
+set list
+set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
+" }
+" Folds {
+" set nofoldenable
+set foldenable
+set foldmethod=indent
+set foldlevelstart=20
+set foldmarker={,}
+set foldcolumn=3
+" http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
+" autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
+" }
+" `gx` to opening url on Mac {
+let g:netrw_browsex_viewer="google"
+
+" }
+" End of basic configuration }
 "" vim-plug Plugins {
 call plug#begin('~/.vim/plugged')
 " Sensible - VIM defaults that everybody agrees on {
@@ -177,55 +227,6 @@ Plug 'digitalrounin/vim-yaml-folds'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "" }
-"" Basic Configuration {
-" Leader
-" let mapleader = " "
-
-set number       "  Line numbers on
-set modeline     "  Read infile vim settings
-set cursorline   "  Highlight current line
-set mouse=a      "  Automatically enable mouse usage
-set mousehide    "  Hide the mouse cursor while typing
-set autoindent   "  Indentation
-set autoread     "  Automatically read a file changed outside of vim
-set t_Co=256
-set iskeyword+=- "  Treat dashes as part of word
-" Search {
-set ignorecase  " Ignore case sensitive search
-set smartcase   " Case sensitive search when uc present
-set hlsearch                   " Highlight search results
-set incsearch                  " Find as you type search"
-" }
-" Backup {
-set nobackup
-set noswapfile
-set nowritebackup
-" }
-" Tabs {
-" Ref and more settings here: http://tedlogan.com/techblog3.html
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-" }
-" Show hidden characters {
-set list
-set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
-" }
-" Folds {
-" set nofoldenable
-set foldenable
-set foldmethod=indent
-set foldlevelstart=20
-set foldmarker={,}
-set foldcolumn=3
-" http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
-" autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-" }
-" `gx` to opening url on Mac {
-let g:netrw_browsex_viewer="google"
-
-" }
-" End of basic configuration }
 "" Maps {
 " Remappings - Custom shortcuts {
 
