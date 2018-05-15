@@ -137,11 +137,19 @@ let g:tinykeymap#map#tabs#map='<leader>gt'
 " Markdown Plugins {
 " You can view a list when you try to autocomplete on :setfiletype (i.e. with
 " Tab after a space).
-let g:markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
-let g:markdown_folding = 1
+" The default support configuration
+" let g:markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+" let g:markdown_folding = 1
 
-" https://github.com/rhysd/vim-gfm-syntax
-Plug 'rhysd/vim-gfm-syntax'
+" GitHub markdown
+"https://github.com/plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_style_pythonic = 1
+
+
 " https://github.com/vitalk/vim-simple-todo
 Plug 'vitalk/vim-simple-todo'
 Plug 'jamshedvesuna/vim-markdown-preview'
@@ -154,7 +162,6 @@ let vim_markdown_preview_temp_file=1  " Remove the rendered preview file
 " Generate table of contents for Markdown files
 " https://github.com/mzlogin/vim-markdown-toc
 Plug 'mzlogin/vim-markdown-toc'
-
 
 " }
 " Provides mappings to easily delete, change and add such surroundings in pairs. {
@@ -211,6 +218,8 @@ nnoremap <c-p> :FzFiles<CR>
 " https://github.com/nathanaelkane/vim-indent-guides
 " Plug 'nathanaelkane/vim-indent-guides'
 " let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "
 " indentLinea This plugin is used for displaying thin vertical lines at
 " each indentation level for code indented with spaces
