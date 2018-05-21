@@ -18,7 +18,7 @@ set iskeyword+=- " Treat dashes as part of word
 set ignorecase " Ignore case sensitive search
 set smartcase  " Case sensitive search when uc present
 set hlsearch   " Highlight search results
-set incsearch  " Find as you type search               "
+set incsearch  " Find as you type search"
 " }
 " Backup {
 set nobackup
@@ -231,10 +231,10 @@ Plug 'yggdroot/indentline'
 Plug 'digitalrounin/vim-yaml-folds'
 " }
 
+" Ruby plugins {
+Plug 'vim-ruby/vim-ruby'
 
-
-
-
+" }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 "" }
