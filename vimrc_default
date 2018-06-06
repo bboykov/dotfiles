@@ -185,8 +185,8 @@ let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
 " detect a custom pattern
-au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
-au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+au BufRead,BufNewFile */ansible/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 " }
 " " CtrlP - Full path fuzzy file, buffer, mru, tag, ... finder for Vim. {
 " " https://github.com/ctrlpvim/ctrlp.vim
