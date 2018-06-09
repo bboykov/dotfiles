@@ -230,6 +230,28 @@ Plug 'yggdroot/indentline'
 " https://github.com/digitalrounin/vim-yaml-folds
 Plug 'digitalrounin/vim-yaml-folds'
 " }
+" ALE (Asynchronous Lint Engine) {
+Plug 'w0rp/ale'
+" Linters
+" let g:ale_linters = {
+"   \ 'sh': ['shellcheck'] ,
+"   \ }
+" Fixers
+let g:ale_fixers = {
+\   'sh': ['shfmt'],
+\}
+
+let g:ale_sh_shfmt_options='-i 2'
+" let g:ale_sh_shfmt_options='-i 2 -ci' # Google style
+
+" key bindings
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+nmap <silent> <leader>af :ALEFix<cr>
+" Autofix
+let g:ale_fix_on_save = 1
+" }
+
 
 " Ruby plugins {
 Plug 'vim-ruby/vim-ruby'
