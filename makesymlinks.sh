@@ -19,8 +19,7 @@ echo -n "Changing to the $DOTFILES_DIR directory ..."
 cd $DOTFILES_DIR
 echo "done"
 
-while read file
-do
+while read file; do
   # Move only if there is a file and it is not a symlink
   echo "Check symlink of $file"
   if [ -f "$HOME/.$file" ] && [ ! -h "$HOME/.$file" ]; then
@@ -35,8 +34,8 @@ do
     echo "done"
   fi
 
-# list of files/dirs to symlink at $HOME
-done << EOL
+  # list of files/dirs to symlink at $HOME
+done <<EOL
 bash_profile
 bashrc
 tmux.conf
@@ -61,9 +60,7 @@ echo -n "Changing to the $SCRIPT_SRC directory ..."
 cd $SCRIPT_SRC
 echo "done"
 
-
-for script in "$SCRIPT_SRC"/*
-do
+for script in "$SCRIPT_SRC"/*; do
   scriptname="$(basename $script)"
   echo "Check symlink of $scriptname"
   if [ ! -f "$SCRIPT_DEST/$scriptname" ]; then
