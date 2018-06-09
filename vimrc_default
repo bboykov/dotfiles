@@ -233,12 +233,14 @@ Plug 'digitalrounin/vim-yaml-folds'
 " ALE (Asynchronous Lint Engine) {
 Plug 'w0rp/ale'
 " Linters
-" let g:ale_linters = {
-"   \ 'sh': ['shellcheck'] ,
-"   \ }
+let g:ale_linters = {
+  \ 'sh': ['shellcheck'] ,
+  \ 'python': ['flake8'] ,
+  \ }
 " Fixers
 let g:ale_fixers = {
 \   'sh': ['shfmt'],
+\   'python': ['isort', 'yapf'],
 \}
 
 let g:ale_sh_shfmt_options='-i 2'
