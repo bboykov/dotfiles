@@ -1,8 +1,4 @@
 # Read the bashrc
-if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
 case "$OSTYPE" in
   darwin*)
     # echo "OSX" # debug
@@ -39,3 +35,7 @@ case "$OSTYPE" in
     ;;
   *)        echo "unknown: $OSTYPE" ;;
 esac
+
+if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
+    . ~/.bashrc
+fi
