@@ -5,7 +5,7 @@
 # .bashrc_local {
 # Stores local configs that should not be in the git repo
 if [ -n "$BASH" ] && [ -r ~/.bashrc_local ]; then
-    . ~/.bashrc_local
+  . ~/.bashrc_local
 fi
 # }
 # Sensible Bash defaults {
@@ -13,8 +13,7 @@ fi
 # http://mrzool.cc/writing/sensible-bash/
 
 # Unique Bash version check
-if ((BASH_VERSINFO[0] < 4))
-then
+if ((BASH_VERSINFO[0] < 4)); then
   echo "sensible.bash: Looks like you're running an older version of Bash."
   echo "sensible.bash: You need at least bash-4.0 or some options will not work correctly."
   echo "sensible.bash: Keep your software up-to-date!"
@@ -37,10 +36,10 @@ PROMPT_DIRTRIM=2
 bind Space:magic-space
 
 # Turn on recursive globbing (enables ** to recurse all directories)
-shopt -s globstar 2> /dev/null
+shopt -s globstar 2>/dev/null
 
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
+shopt -s nocaseglob
 # }
 ## SMARTER TAB-COMPLETION (Readline bindings) ## {
 
@@ -92,11 +91,11 @@ bind '"\e[D": backward-char'
 ## BETTER DIRECTORY NAVIGATION ## {
 
 # Prepend cd to directory names automatically
-shopt -s autocd 2> /dev/null
+shopt -s autocd 2>/dev/null
 # Correct spelling errors during tab-completion
-shopt -s dirspell 2> /dev/null
+shopt -s dirspell 2>/dev/null
 # Correct spelling errors in arguments supplied to cd
-shopt -s cdspell 2> /dev/null
+shopt -s cdspell 2>/dev/null
 
 # This defines where cd looks for targets
 # Add the directories you want to have fast access to, separated by colon
@@ -115,11 +114,6 @@ export notes="$HOME/Dropbox/notes/2018/@drafts"
 # End of sensible bash defaults }
 # fzf {
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# }
-# Liquid Prompt {
-# https://github.com/nojhan/liquidprompt
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 # }
 # base16-shell {
 # https://github.com/chriskempson/base16-shell
@@ -140,16 +134,14 @@ case $OSTYPE in
 esac
 # }
 ## ls settings {
-if ls --color -d . &> /dev/null
-then
+if ls --color -d . &>/dev/null; then
   alias ls="ls --color=auto"
-elif ls -G -d . &> /dev/null
-then
-  alias ls='ls -G'        # Compact view, show colors
+elif ls -G -d . &>/dev/null; then
+  alias ls='ls -G' # Compact view, show colors
 fi
 # List directory contents
 alias sl=ls
-alias la='ls -AF'       # Compact view, show hidden
+alias la='ls -AF' # Compact view, show hidden
 alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
@@ -164,5 +156,10 @@ export GREP_COLOR='1;33'
 PATH=$PATH:$HOME/bin
 export PATH
 #}
-# vim: foldmethod=marker foldcolumn=4 foldenable
+# Liquid Prompt {
+# https://github.com/nojhan/liquidprompt
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- == *i* ]] && source ~/liquidprompt/liquidprompt
+# }
 
+# vim: foldmethod=marker foldcolumn=4 foldenable
