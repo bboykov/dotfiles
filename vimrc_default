@@ -263,6 +263,8 @@ call plug#end()
 "" }
 "" Maps {
 " Remappings - Custom shortcuts {
+" Escape
+inoremap jj <ESC>
 
 " Source and Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
