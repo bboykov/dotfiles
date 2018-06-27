@@ -252,6 +252,9 @@ nmap <silent> <leader>af :ALEFix<cr>
 " Autofix
 let g:ale_fix_on_save = 1
 " }
+" Git wrapper {
+Plug 'tpope/vim-fugitive'
+" }
 
 
 " Ruby plugins {
