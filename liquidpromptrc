@@ -8,4 +8,6 @@ PS2=" ┃ "
 LP_PS1_PREFIX="┌─"
 LP_PS1_POSTFIX="\n└▪ "
 
+LP_MARK_STASH=" +"
+
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
