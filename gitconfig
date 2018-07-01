@@ -11,6 +11,7 @@
   prompt = false
   keepBackup = false
 [alias]
+  merge-no-ff = merge --no-ff
   fcommit = commit --fixup
   fpush= push --force-with-lease
   unstage = reset HEAD --
