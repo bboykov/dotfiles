@@ -26,10 +26,15 @@ case "$OSTYPE" in
     alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
     ;;
   linux*)
-    # echo "LINUX" # debug
     # Use bash-completion, if available
     [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
       . /usr/share/bash-completion/bash_completion
+
+    export PATH="${HOME}/.pyenv/bin:$PATH"
+    if command -v pyenv 1>/dev/null 2>&1; then
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+    fi
 
     alias todo='todo-txt -d $HOME/Dropbox/todo-txt/todo.cfg -a'
     ;;
