@@ -124,14 +124,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 alias tmuxls='tmux ls'
 alias tmuxa='tmux a -t'
 ## Reload bashrc {
-case $OSTYPE in
-  darwin*)
-    alias reload='source ~/.bash_profile'
-    ;;
-  *)
-    alias reload='source ~/.bashrc'
-    ;;
-esac
+alias reload='source ~/.bash_profile'
 # }
 ## ls settings {
 if ls --color -d . &>/dev/null; then
