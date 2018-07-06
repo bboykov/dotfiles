@@ -13,6 +13,7 @@
     # layer
     colorscheme = "gruvbox"
     background = "dark"
+
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
@@ -23,8 +24,10 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = false
-    #
-    bootstrap_before = "myspacevim#before"
+    # Checkers
+    enable_neomake = true
+    enable_ale = true
+    lint_on_the_fly = true
 
 # Enable autocomplete layer
 [[layers]]
@@ -32,10 +35,15 @@ name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
 auto-completion-tab-key-behavior = "smart"
 
-[[layers]]
 name = 'shell'
 default_position = 'top'
 default_height = 30
 
-[[layers]]
+name = "colorscheme"
+name = "default"
+name = "denite"
+name = "checkers"
+name = "tools"
 name = "tmux"
+name = "lang#python"
+
