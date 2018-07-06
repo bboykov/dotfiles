@@ -3,7 +3,7 @@
 set -o errexit
 
 DOTFILES_PATH=$HOME/dotfiles
-OLD_DOTFILES_BKP_DIR="$HOME/old_dotfiles_bkp_dir"
+OLD_DOTFILES_BKP_DIR="$HOME/.old_dotfiles_bkp_dir"
 SCRIPT_SRC="$DOTFILES_PATH/scripts"
 SCRIPT_DEST=$HOME/bin
 
