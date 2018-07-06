@@ -24,6 +24,8 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_display_mode = false
+    # File manager
+    filemanager = "nerdtree"
     # Checkers
     enable_neomake = true
     enable_ale = true
