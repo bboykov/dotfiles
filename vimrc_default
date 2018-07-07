@@ -1,6 +1,4 @@
 "" Basic Configuration {
-" Leader
-" let mapleader = " "
 
 set nocompatible "  Make Vim behave in a more useful way
 set number       "  Line numbers on
@@ -255,8 +253,9 @@ let g:ale_fix_on_save = 1
 " Git wrapper {
 Plug 'tpope/vim-fugitive'
 " }
-
-
+" Insert or delete brackets, parens, quotes in pair. {
+Plug 'jiangmiao/auto-pairs'
+"}
 " Ruby plugins {
 Plug 'vim-ruby/vim-ruby'
 
@@ -268,14 +267,15 @@ call plug#end()
 " Remappings - Custom shortcuts {
 " Escape
 inoremap jj <ESC>
+inoremap jk <ESC>
 
 " Source and Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Quit vim without saving
-nnoremap <Leader>q  :q<CR>
-nnoremap <Leader>Q  :qa!<CR>
+nnoremap <space>q  :q<CR>
+nnoremap <space>Q  :qa!<CR>
 
 " Quick command mode
 nnoremap ; :
