@@ -1,39 +1,40 @@
-"" Basic Configuration {
-
-set nocompatible "  Make Vim behave in a more useful way
-set number       "  Line numbers on
-set modeline     "  Read infile vim settings
-set cursorline   "  Highlight current line
-set mouse=a      "  Automatically enable mouse usage
-set mousehide    "  Hide the mouse cursor while typing
-set autoindent   " Indentation
+"# { Basics
+" General
+set nocompatible " Make Vim behave in a more useful way
+set modeline     " Read infile vim settings
 set autoread     " Automatically read a file changed outside of vim
+set t_Co=256     " Enable 256 colors
 set splitright   " Puts new vsplit windows to the right of the current
 set splitbelow   " Puts new split windows to the bottom of the current
-set t_Co=256
+set mouse=a      " Automatically enable mouse usage
+set mousehide    " Hide the mouse cursor while typing
+set number       " Line numbers on
+set cursorline   " Highlight current line
+set autoindent   " Indentation
 set iskeyword+=- " Treat dashes as part of word
-" Search {
-set ignorecase " Ignore case sensitive search
-set smartcase  " Case sensitive search when uc present
-set hlsearch   " Highlight search results
-set incsearch  " Find as you type search"
-" }
-" Backup {
+
+" Backup
 set nobackup
 set noswapfile
 set nowritebackup
-" }
-" Tabs {
+
+" Search
+set ignorecase   " Ignore case sensitive search
+set smartcase    " Case sensitive search when uc present
+set hlsearch     " Highlight search results
+set incsearch    " Find as you type search                             "
+
+" Tabs
 " Ref and more settings here: http://tedlogan.com/techblog3.html
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-" }
-" Show hidden characters {
+
+" Show hidden characters
 set list
 set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
-" }
-" Folds {
+
+" Folds
 " set nofoldenable
 set foldenable
 set foldmethod=indent
@@ -42,193 +43,79 @@ set foldmarker={,}
 set foldcolumn=3
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
 " autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-" }
-" `gx` to opening url on Mac {
+
+" `gx` to opening URL
 let g:netrw_browsex_viewer="google"
+"#} End of basics
 
-" }
-" End of basic configuration }
-"" vim-plug Plugins {
+"# { Plugins
 call plug#begin('~/.vim/plugged')
-" Sensible - VIM defaults that everybody agrees on {
-Plug 'tpope/vim-sensible'
-
-" }
-" Spell check and grammar {
-set nospell
-" Toggle spell check
-" http://hacktux.com/vim-spell-check/
-" TODO: add spellfile in dropbox
-nmap <silent> <leader>sp :setlocal spell!<CR>
-set spelllang=en_us
-" https://github.com/rhysd/vim-grammarous
-Plug 'rhysd/vim-grammarous'
-
-" }
-" NERDTree {
-" https://github.com/scrooloose/nerdtree
-Plug 'scrooloose/nerdtree'
-map <F2> :NERDTreeToggle<CR>
-" Store the bookmarks file
-let NERDTreeBookmarksFile=expand("$HOME/Dropbox/vim/NERDTreeBookmarks")
-" https://github.com/Xuyuanp/nerdtree-git-plugin
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" }
-" Commentary - Comment stuff out. {
+"" Tools
+Plug 'tpope/vim-sensible'             " VIM Sensible defaults that everybody agrees on
+Plug 'jiangmiao/auto-pairs'           " Insert or delete brackets, parens, quotes in pair
+Plug 'godlygeek/tabular'              " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+Plug 'freitass/todo.txt-vim'
+Plug 'ntpeters/vim-better-whitespace' " Strip whitespaces
+Plug 'airblade/vim-gitgutter'         " A Vim plugin which shows a git diff in the 'gutter'
+Plug 'yggdroot/indentline'
+Plug 'tpope/vim-surround' " Provides mappings to delete, change and add surroundings in pairs.
+Plug 'tpope/vim-repeat'
+"""{ Commentary - Comment stuff out
 Plug 'tpope/vim-commentary'
 autocmd FileType terraform setlocal commentstring=#\ %s
+"""}
+"""{ Spell check and grammar
+" http://hacktux.com/vim-spell-check/
+" TODO: add spellfile in dropbox
 
-" }
-" Colorscheme Plugins {
-" https://github.com/flazz/vim-colorschemes
+Plug 'rhysd/vim-grammarous'
+
+set nospell
+set spelllang=en_us
+
+nmap <silent> <space>sp :setlocal spell!<CR>
+"""}
+"""{ fzf is a general-purpose command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+let g:fzf_command_prefix = 'Fz' " Same prefix to all commands
+
+imap <C-f> <plug>(fzf-complete-line)
+nnoremap <c-p> :FzFiles<CR>
+"""}
+" UI
+"""{ NERDTree
+Plug 'scrooloose/nerdtree'
+" Store the bookmarks file
+let NERDTreeBookmarksFile=expand("$HOME/Dropbox/vim/NERDTreeBookmarks")
+" Automatically close a tab if the only remaining window is NerdTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Open on right
+let g:NERDTreeWinPos = "right"
+" Making it prettier
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+map <F2> :NERDTreeToggle<CR>
+map <space>tn :NERDTreeToggle<CR>
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"""}
+Plug 'itchyny/lightline.vim' "A light and configurable statusline/tabline plugin
+Plug 'tpope/vim-fugitive' " Git wrapper
+
+" Colorschemes
 Plug 'flazz/vim-colorschemes'
-" https://github.com/chriskempson/base16-vim
 Plug 'chriskempson/base16-vim'
 
-" }
-" TMUX Plugins {
+" TMUX
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator' " Provides C-hjkl shortcuts in vim
 
-" }
-" Tabular - Align text {
-" https://github.com/godlygeek/tabular
-" http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-Plug 'godlygeek/tabular'
-
-" }
-" todo-txt {
-" https://github.com/todotxt/todo.txt-cli
-" https://github.com/todotxt/todo.txt-cli/blob/master/USAGE.md
-" https://github.com/freitass/todo.txt-vim
-Plug 'freitass/todo.txt-vim'
-
-" }
-" vim-better-whitespace - Strip whitespaces {
-" https://github.com/ntpeters/vim-better-whitespace
-Plug 'ntpeters/vim-better-whitespace'
-
-" }
-" vim-terraform - Plugin from HashiVim {
-Plug 'hashivim/vim-terraform'
-let g:terraform_align=1
-let g:terraform_fmt_on_save=1
-
-" }
-" vim-gitgutter - A Vim plugin which shows a git diff in the 'gutter' {
-Plug 'airblade/vim-gitgutter'
-
-" }
-" vim-tmux-navigator - Navigate seamlessly between vim and tmux splits {
-" Provides C-hjkl shortcuts in vim
-" https://github.com/christoomey/vim-tmux-navigator
-Plug 'christoomey/vim-tmux-navigator'
-
-" }
-" tomtom/tinykeymap_vim - Use single key shortcuts to trigger commands {
-" https://github.com/tomtom/tinykeymap_vim
-Plug 'tomtom/tinykeymap_vim'
-let g:tinykeymap#map#tabs#map='<leader>gt'
-
-" }
-" Markdown Plugins {
-" You can view a list when you try to autocomplete on :setfiletype (i.e. with
-" Tab after a space).
-" The default support configuration
-" let g:markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
-" let g:markdown_folding = 1
-
-" GitHub markdown
-"https://github.com/plasticboy/vim-markdown
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
-let g:vim_markdown_new_list_item_indent = 2
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_folding_style_pythonic = 1
-
-
-" https://github.com/vitalk/vim-simple-todo
-Plug 'vitalk/vim-simple-todo'
-Plug 'jamshedvesuna/vim-markdown-preview'
-let vim_markdown_preview_hotkey='<C-m>'      " Mapping Control M
-let vim_markdown_preview_browser='Google Chrome'
-" GitHub flavoured markdown you need to install Python grip `pip install grip`
-let vim_markdown_preview_github=1
-let vim_markdown_preview_temp_file=1  " Remove the rendered preview file
-
-" Generate table of contents for Markdown files
-" https://github.com/mzlogin/vim-markdown-toc
-Plug 'mzlogin/vim-markdown-toc'
-
-" }
-" Provides mappings to easily delete, change and add such surroundings in pairs. {
-" https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'
-
-" }
-" Repeat.vim remaps . in a way that plugins can tap into it. {
-" https://github.com/tpope/vim-repeat
-Plug 'tpope/vim-repeat'
-" }
-" A light and configurable statusline/tabline plugin {
-" https://github.com/itchyny/lightline.vim
-Plug 'itchyny/lightline.vim'
-" }
-" Syntax plugin for Ansible 2.0 {
-" https://github.com/pearofducks/ansible-vim
-Plug 'pearofducks/ansible-vim'
-let g:ansible_attribute_highlight = "ob"
-let g:ansible_extra_keywords_highlight = 1
-let g:ansible_normal_keywords_highlight = 'Constant'
-let g:ansible_with_keywords_highlight = 'Constant'
-" detect a custom pattern
-au BufRead,BufNewFile */ansible/*.yml set filetype=yaml.ansible
-au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
-" }
-" " CtrlP - Full path fuzzy file, buffer, mru, tag, ... finder for Vim. {
-" " https://github.com/ctrlpvim/ctrlp.vim
-" Plug 'ctrlpvim/ctrlp.vim'
-" let g:ctrlp_working_path_mode = 'ra'
-" " https://coderwall.com/p/5xv7sq/ctrlp-root-markers
-" let g:ctrlp_root_markers = ['.ctrlp']
-
-" }
-" Supertab - use <Tab> for all your insert completion needs {
-" https://github.com/ervandew/supertab
-Plug 'ervandew/supertab'
-" let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" }
-" fzf is a general-purpose command-line fuzzy finder. {
-" https://github.com/junegunn/fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" https://github.com/junegunn/fzf.vim
-Plug 'junegunn/fzf.vim'
-" Same prefix to all commands
-let g:fzf_command_prefix = 'Fz'
-imap <C-f> <plug>(fzf-complete-line)
-" Build-in completion
-nnoremap <c-p> :FzFiles<CR>
-" }
-" Indent markers {
-" Guides is a plugin for visually displaying indent levels in Vim.
-" https://github.com/nathanaelkane/vim-indent-guides
-" Plug 'nathanaelkane/vim-indent-guides'
-" let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-"
-" indentLinea This plugin is used for displaying thin vertical lines at
-" each indentation level for code indented with spaces
-" https://github.com/yggdroot/indentline
-Plug 'yggdroot/indentline'
-" }
-" Very simple folding configuration for YAML, and others {
-" https://github.com/digitalrounin/vim-yaml-folds
-Plug 'digitalrounin/vim-yaml-folds'
-" }
-" ALE (Asynchronous Lint Engine) {
+" Languages
+"""{ ALE (Asynchronous Lint Engine)
 Plug 'w0rp/ale'
 let g:ale_linters = {
 \ 'sh': ['shellcheck'] ,
@@ -240,38 +127,78 @@ let g:ale_fixers = {
 \   'python': ['isort', 'yapf'],
 \}
 
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 let g:ale_sh_shfmt_options='-i 2'
 " let g:ale_sh_shfmt_options='-i 2 -ci' " Google style
 
 " key bindings
-nmap <silent> <leader>aj :ALENext<cr>
-nmap <silent> <leader>ak :ALEPrevious<cr>
-nmap <silent> <leader>af :ALEFix<cr>
+nmap <silent> <space>aj :ALENext<cr>
+nmap <silent> <space>ak :ALEPrevious<cr>
+nmap <silent> <space>af :ALEFix<cr>
 " Autofix
 let g:ale_fix_on_save = 1
 " }
-" Git wrapper {
-Plug 'tpope/vim-fugitive'
+"""{ Terraform
+Plug 'hashivim/vim-terraform'
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 " }
-" Insert or delete brackets, parens, quotes in pair. {
-Plug 'jiangmiao/auto-pairs'
-"}
-" Ruby plugins {
-Plug 'vim-ruby/vim-ruby'
+"""{ Ansible
+" https://github.com/pearofducks/ansible-vim
+Plug 'pearofducks/ansible-vim'
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_extra_keywords_highlight = 1
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_with_keywords_highlight = 'Constant'
+" Detect a custom pattern
+au BufRead,BufNewFile */ansible/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+"""}
+"""{ Markdown
+"https://github.com/plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown'
 
+let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_style_pythonic = 1
+
+" https://github.com/JamshedVesuna/vim-markdown-preview
+Plug 'jamshedvesuna/vim-markdown-preview'
+
+let vim_markdown_preview_hotkey='<C-m>'      " Mapping Control M
+let vim_markdown_preview_browser='Google Chrome'
+" GitHub flavoured markdown you need to install Python grip `pip install grip`
+let vim_markdown_preview_github=1
+let vim_markdown_preview_temp_file=1  " Remove the rendered preview file
+
+Plug 'mzlogin/vim-markdown-toc'
 " }
+Plug 'vim-ruby/vim-ruby'
+Plug 'digitalrounin/vim-yaml-folds' " Folding config for YAML
+
+""" { Autocompletion
+" https://github.com/ervandew/supertab
+Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-n>"
+""" }
+"""} Markdown
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-"" }
-"" Maps {
-" Remappings - Custom shortcuts {
+"#}
+
+"# { Configurations
+
+"" { Shortcuts
 " Escape
 inoremap jj <ESC>
 inoremap jk <ESC>
 
 " Source and Edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <space>ve :vsplit $MYVIMRC<cr>
+nnoremap <space>vs :source $MYVIMRC<cr>
 
 " Quit vim without saving
 nnoremap <space>q  :q<CR>
@@ -286,31 +213,22 @@ nnoremap U <C-r>
 " Visual shifting (does not exit Visual mode). Keeps the selection in place
 vnoremap < <gv
 vnoremap > >gv
-" }
 
 " vv to generate new vertical split
 nnoremap <silent> vv <C-w>v
 
-"" Abbreviations {
+"" Abbreviations
 " Insert date
 inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>
-" Insert github md style checkbox
-iab -[ - [ ]
-" Insert week days for my journal file
-iab Tweekd <CR>##Su ## Sa ## Fr ## Th ## We ## Tu
-\<CR>
-\<CR>## Mo
-" }
 "" }
-"" Clipboard {
+"" { Clipboard
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
 else
   set clipboard+=unnamed
 endif
-
-"" }
-"" Colorscheme Configuration {
+""}
+"" { Colorscheme
 silent! colorscheme molokai
 
 " Take the base16 colortheme
@@ -329,13 +247,15 @@ if filereadable(expand("~/.vimrc_background"))
   highlight SpellRare term=reverse ctermbg=13 gui=undercurl guisp=Magenta
 endif
 
-"" Show text rulers - Highlight column 80, 100 as well as 120 and onward {
+"" Show text rulers - Highlight column 80, 100 as well as 120 and onward
 "" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
 let &colorcolumn="80,100,".join(range(120,999),",")
 "" Alternatives, example:
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn=join(range(81,999),",")
 "" }
-"" }
+
+"#} Configurations end
+
 
 " vim: foldmethod=marker foldcolumn=4 foldenable
