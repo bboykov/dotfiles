@@ -57,6 +57,7 @@ function dotfiles() {
 .vimrc
 .liquidpromptrc
 .SpaceVim.d
+.spacemacs
 EOL
 
   echo "# done"
