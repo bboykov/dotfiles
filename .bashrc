@@ -138,7 +138,11 @@ alias la='ls -AF' # Compact view, show hidden
 alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
-alias spmacsnw='emacs -nw'
+alias spmacs='emacs -nw'
+
+gspmacs() {
+  emacs "$@" &
+}
 # }
 ## grep {
 alias grep='grep --color=auto'
