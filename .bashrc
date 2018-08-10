@@ -139,6 +139,8 @@ alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
 alias smacs='emacs -nw'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 # }
 ## grep {
 alias grep='grep --color=auto'
