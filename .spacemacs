@@ -36,23 +36,30 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
-     python
-     auto-completion
-     better-defaults
-     emacs-lisp
-     git
-     markdown
-     ;; org
-     (shell :variables
-             shell-default-height 30
-             shell-default-position 'bottom)
+     ;; Checkers
      spell-checking
      syntax-checking
-     ;; version-control
-     themes-megapack
+     ;; Completion
+     auto-completion
+     helm
+     ;; Emacs
+     better-defaults
+     ;; org ;; TODO
+     ;; Programming and markup languages
+     markdown
+     python
+     emacs-lisp
+     ;; Tools
      tmux
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; xclipboard ;; TODO: https://github.com/profilech/.emacs.d/commit/6e212d4be40b4c89485f01205f70e37358dcdf11
+     ;; Source control
+     ;; version-control ;; TODO
+     git
+     ;; Themes
+     themes-megapack
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -263,17 +270,17 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
-   dotspacemacs-folding-method 'evil
+   dotspacemacs-folding-method 'evil ;; TODO
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode nil ;;TODO
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smart-closing-parenthesis t
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
@@ -294,7 +301,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -313,6 +320,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Set escape keybinding to "jk"
+  (setq-default evil-escape-key-sequence "jk")
   ;; temp solution   untill xclipboard layer is in master
   (defun spacemacs//xclipboard-get-display ()
     (shell-command-to-string "if [[ -n $TMUX ]]; then
@@ -401,7 +410,7 @@ you should place your code here."
     )
   (evil-leader/set-key "x y" 'spacemacs/xclipboard-copy)
   (evil-leader/set-key "x p" 'spacemacs/xclipboard-paste)
-  ;; end of xclipboard 
+  ;; end of xclipboard
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
