@@ -19,7 +19,7 @@ if ((BASH_VERSINFO[0] < 4)); then
   echo "sensible.bash: Keep your software up-to-date!"
 fi
 
-if [[ $- == *i* ]];then
+if [[ $- == *i* ]]; then
   ## GENERAL OPTIONS ## {
   # Prevent file overwrite on stdout redirection
   # Use `>|` to force redirection to an existing file
@@ -110,7 +110,7 @@ if [[ $- == *i* ]];then
   export dropbox="$HOME/Dropbox"
   export notes="$HOME/Dropbox/notes/2018/@drafts"
   # }
-# End of sensible bash defaults }
+  # End of sensible bash defaults }
 fi
 # fzf {
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -138,6 +138,7 @@ alias la='ls -AF' # Compact view, show hidden
 alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
+alias smacs='emacs -nw'
 # }
 ## grep {
 alias grep='grep --color=auto'
