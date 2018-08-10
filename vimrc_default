@@ -32,7 +32,7 @@ set expandtab
 
 " Show hidden characters
 set list
-set listchars=tab:→\ ,eol:↵,trail:▢,extends:↷,precedes:↶
+set listchars=tab:→\ ,eol:↵,trail:•,extends:↷,precedes:↶
 
 " Folds
 " set nofoldenable
