@@ -313,36 +313,95 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; temp solution from here: https://github.com/syl20bnr/spacemacs/issues/2222#issuecomment-269269359  untill xclipboard layer is in master
-  (defun copy-to-clipboard ()
+  ;; temp solution   untill xclipboard layer is in master
+  (defun spacemacs//xclipboard-get-display ()
+    (shell-command-to-string "if [[ -n $TMUX ]]; then
+        export DISPLAY=$(tmux show-environment | grep -o '^DISPLAY.*$' | sed 's/DISPLAY=//')
+      fi
+      if [[ -z $DISPLAY ]]; then
+        export DISPLAY=:0
+      fi
+      printf $DISPLAY")
+    )
+
+  (defun spacemacs//xclipboard-get-copy-command ()
+    (shell-command-to-string "command_exists() {
+        local command=\"$1\"
+        type \"$command\" >/dev/null 2>&1
+      }
+
+      # Installing reattach-to-user-namespace is recommended on OS X
+      if command_exists \"pbcopy\"; then
+          if command_exists \"reattach-to-user-namespace\"; then
+              printf \"reattach-to-user-namespace pbcopy\"
+          else
+              printf \"pbcopy\"
+          fi
+      elif command_exists \"clip.exe\"; then # WSL clipboard command
+          printf \"clip.exe\"
+      elif command_exists \"xsel\"; then
+          printf \"xsel -ib\"
+      elif command_exists \"putclip\"; then # cygwin clipboard command
+          printf \"putclip\"
+      fi")
+    )
+
+  (defun spacemacs//xclipboard-get-paste-command ()
+    (shell-command-to-string "command_exists() {
+        local command=\"$1\"
+        type \"$command\" >/dev/null 2>&1
+      }
+
+      # Installing reattach-to-user-namespace is recommended on OS X
+      if command_exists \"pbpaste\"; then
+          if command_exists \"reattach-to-user-namespace\"; then
+              printf \"reattach-to-user-namespace pbpaste\"
+          else
+              printf \"pbpaste\"
+          fi
+      elif command_exists \"paste.exe\"; then # WSL clipboard command
+          printf \"paste.exe\"
+      elif command_exists \"xsel\"; then
+          printf \"xsel -ob\"
+      elif command_exists \"getclip\"; then # cygwin clipboard command
+          printf \"getclip\"
+      fi")
+    )
+
+  (defun spacemacs/xclipboard-copy ()
     "Copies selection to x-clipboard."
     (interactive)
     (if (display-graphic-p)
-        (progn
-          (message "Yanked region to x-clipboard!")
-          (call-interactively 'clipboard-kill-ring-save)
-          )
+      (progn
+        (message "Copied region to x-clipboard!")
+        (call-interactively 'clipboard-kill-ring-save)
+        )
       (if (region-active-p)
-          (progn
-            (shell-command-on-region (region-beginning) (region-end) "pbcopy")
-            (message "Yanked region to clipboard!")
-            (deactivate-mark))
-        (message "No region active; can't yank to clipboard!")))
+        (progn
+          (shell-command-on-region (region-beginning) (region-end) (format "DISPLAY=%s %s" (spacemacs//xclipboard-get-display) (spacemacs//xclipboard-get-copy-command)))
+          (message (format "Copied region to clipboard \"%s\"!" (spacemacs//xclipboard-get-display)))
+          (deactivate-mark)
+          )
+        (message "No region active; can't copy to clipboard!")
+        )
+      )
     )
 
-  (defun paste-from-clipboard ()
+  (defun spacemacs/xclipboard-paste ()
     "Pastes from x-clipboard."
     (interactive)
     (if (display-graphic-p)
-        (progn
-          (clipboard-yank)
-          (message "graphics active")
-          )
-      (insert (shell-command-to-string "pbpaste"))
+      (progn
+        (clipboard-yank)
+        (message "graphics active")
+        )
+      (insert (shell-command-to-string (format "DISPLAY=%s %s" (spacemacs//xclipboard-get-display) (spacemacs//xclipboard-get-paste-command))))
       )
+    (message (format "Pasted from clipboard \"%s\"!" (spacemacs//xclipboard-get-display)))
     )
-  (evil-leader/set-key "o y" 'copy-to-clipboard)
-  (evil-leader/set-key "o p" 'paste-from-clipboard)
+  (evil-leader/set-key "x y" 'spacemacs/xclipboard-copy)
+  (evil-leader/set-key "x p" 'spacemacs/xclipboard-paste)
+  ;; end of xclipboard 
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
