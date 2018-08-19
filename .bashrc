@@ -153,6 +153,8 @@ export GREP_COLOR='1;33'
 # PATH {
 PATH=$PATH:$HOME/bin
 export PATH
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+export PATH="/home/bboykov/.local/bin:$PATH"
 #}
 # Liquid Prompt {
 # https://github.com/nojhan/liquidprompt
