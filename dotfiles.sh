@@ -56,7 +56,6 @@ function dotfiles() {
 .gitignore_global
 .vimrc
 .liquidpromptrc
-.SpaceVim.d
 .spacemacs
 EOL
 
