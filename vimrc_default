@@ -66,12 +66,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 autocmd FileType terraform setlocal commentstring=#\ %s
 """}
-"""{ Spell check and grammar
-" http://hacktux.com/vim-spell-check/
-" TODO: add spellfile in dropbox
-
-Plug 'rhysd/vim-grammarous'
-
+"""{ Spell check
 set nospell
 set spelllang=en_us
 
@@ -177,7 +172,6 @@ let vim_markdown_preview_temp_file=1  " Remove the rendered preview file
 
 Plug 'mzlogin/vim-markdown-toc'
 " }
-Plug 'vim-ruby/vim-ruby'
 Plug 'digitalrounin/vim-yaml-folds' " Folding config for YAML
 
 """ { Autocompletion
