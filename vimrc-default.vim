@@ -61,7 +61,7 @@ Plug 'ntpeters/vim-better-whitespace' " Strip whitespaces
 Plug 'airblade/vim-gitgutter'         " A Vim plugin which shows a git diff in the 'gutter'
 Plug 'yggdroot/indentline'
 Plug 'tpope/vim-surround' " Provides mappings to delete, change and add surroundings in pairs.
-Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'   " enable repeating supported plugin maps with .
 """{ Commentary - Comment stuff out
 Plug 'tpope/vim-commentary'
 autocmd FileType terraform setlocal commentstring=#\ %s
@@ -99,7 +99,7 @@ map <space>tn :NERDTreeToggle<CR>
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 """}
-Plug 'itchyny/lightline.vim' "A light and configurable statusline/tabline plugin
+Plug 'vim-airline/vim-airline' " status and tabline for vim that's light as air
 Plug 'tpope/vim-fugitive' " Git wrapper
 
 " Colorschemes
@@ -231,9 +231,6 @@ silent! colorscheme molokai
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
-  " Check highlighting with `:verbose hi <SpellBad>`
-  " highlight SpellBad cterm=underline ctermbg=0 ctermfg=1 gui=undercurl
-  " Error highlight need to be changed due to highlighted cursorline
   " https://github.com/chriskempson/base16-vim/issues/151
   highlight Error term=reverse ctermfg=6 ctermbg=1
   " Spell highlighting do not show with base16
