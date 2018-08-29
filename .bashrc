@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Configuring your login sessions with dot files
 # http://mywiki.wooledge.org/DotFiles
 
@@ -30,13 +29,6 @@ if [[ $- == *i* ]]; then
 
   # Automatically trim long paths in the prompt (requires Bash 4.x)
   PROMPT_DIRTRIM=2
-
-  # Enable history expansion with space
-  # E.g. typing !!<space> will replace the !! with your last command
-  bind Space:magic-space
-
-  # Turn on recursive globbing (enables ** to recurse all directories)
-  shopt -s globstar 2>/dev/null
 
   # Case-insensitive globbing (used in pathname expansion)
   shopt -s nocaseglob
@@ -151,8 +143,7 @@ export GREP_COLOR='1;33'
 # Aliases end }
 
 # PATH {
-PATH=$PATH:$HOME/bin
-export PATH
+export PATH="${HOME}/bin:$PATH"
 # added by pipsi (https://github.com/mitsuhiko/pipsi)
 export PATH="/home/bboykov/.local/bin:$PATH"
 #}
