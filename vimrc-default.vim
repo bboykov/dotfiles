@@ -59,7 +59,7 @@ Plug 'godlygeek/tabular'              " http://vimcasts.org/episodes/aligning-te
 Plug 'freitass/todo.txt-vim'
 Plug 'ntpeters/vim-better-whitespace' " Strip whitespaces
 Plug 'airblade/vim-gitgutter'         " A Vim plugin which shows a git diff in the 'gutter'
-Plug 'yggdroot/indentline'
+Plug 'yggdroot/indentline' " display the indention levels with thin vertical lines
 Plug 'tpope/vim-surround' " Provides mappings to delete, change and add surroundings in pairs.
 Plug 'tpope/vim-repeat'   " enable repeating supported plugin maps with .
 """{ Commentary - Comment stuff out
