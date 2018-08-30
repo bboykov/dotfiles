@@ -14,6 +14,7 @@ set autoindent    " Indentation
 set iskeyword+=-  " Treat dashes as part of word
 set nojoinspaces  " When using the join command, only insert a single space after a `.`, `?`, or `!`
 set textwidth=100 " Automatic word wrapping. Use setlocal textwidth=80 to change it for a file
+set hidden " This allows buffers to be hidden if you've modified a buffer.
 
 " Backup
 set nobackup
@@ -45,7 +46,6 @@ set foldmarker={,}
 set foldcolumn=3
 " http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
 " autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-
 " `gx` to opening URL
 let g:netrw_browsex_viewer="google"
 "#} End of basics
@@ -72,14 +72,27 @@ set spelllang=en_us
 
 nmap <silent> <space>sp :setlocal spell!<CR>
 """}
-"""{ fzf is a general-purpose command-line fuzzy finder
+" fzf is a general-purpose command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
 let g:fzf_command_prefix = 'Fz' " Same prefix to all commands
+" Mapping selecting mappings
+nmap <space><tab> <plug>(fzf-maps-n)
+xmap <space><tab> <plug>(fzf-maps-x)
+omap <space><tab> <plug>(fzf-maps-o)
+" Insert mode completion
+imap <space><c-k> <plug>(fzf-complete-word)
+imap <space><c-f> <plug>(fzf-complete-path)
+imap <space><c-j> <plug>(fzf-complete-file-ag)
+imap <space><c-l> <plug>(fzf-complete-line)
 
-imap <C-f> <plug>(fzf-complete-line)
-nnoremap <c-p> :FzFiles<CR>
+nnoremap <space>ff :FzFiles<CR>
+nnoremap <space>bB :FzBuffers<CR>
+nnoremap <space>bW :FzWindows<CR>
+
+
+
+
 """}
 " UI
 """{ NERDTree
@@ -212,6 +225,20 @@ vnoremap > >gv
 
 " vv to generate new vertical split
 nnoremap <silent> vv <C-w>v
+
+"
+" Buffers
+" To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
+nmap <space>bN :enew<cr>
+" Move to the next buffer
+nmap <space>bn :bnext<CR>
+" Move to the previous buffer
+nmap <space>bp :bprevious<CR>
+" Close the current buffer and move to the previous one. This replicates the idea of closing a tab
+nmap <space>bd :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <space>bl :ls<CR>
+
 
 "" Abbreviations
 " Insert date

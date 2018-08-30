@@ -6,6 +6,7 @@ set mouse=a       " Automatically enable mouse usage
 set mousehide     " Hide the mouse cursor while typing
 set cursorline    " Highlight current line
 set t_Co=256      " Enable 256 colors
+set hidden " This allows buffers to be hidden if you've modified a buffer.
 " Search
 set ignorecase   " Ignore case sensitive search
 set smartcase    " Case sensitive search when uc present
@@ -50,6 +51,17 @@ vnoremap > >gv
 set nospell
 set spelllang=en_us
 nmap <silent> <space>sp :setlocal spell!<CR>
+" Buffers
+" To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
+nmap <space>bN :enew<cr>
+" Move to the next buffer
+nmap <space>bn :bnext<CR>
+" Move to the previous buffer
+nmap <space>bp :bprevious<CR>
+" Close the current buffer and move to the previous one. This replicates the idea of closing a tab
+nmap <space>bd :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <space>bl :ls<CR>
 "} End of Remappings
 call plug#begin('~/.vim/plugged')
 "{ VIM functionality plugins
@@ -64,7 +76,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
 "{ NERDTree
 Plug 'scrooloose/nerdtree'
 " Store the bookmarks file
@@ -99,11 +110,20 @@ Plug 'chriskempson/base16-vim'
 " fzf is a general-purpose command-line fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
 let g:fzf_command_prefix = 'Fz' " Same prefix to all commands
+" Mapping selecting mappings
+nmap <space><tab> <plug>(fzf-maps-n)
+xmap <space><tab> <plug>(fzf-maps-x)
+omap <space><tab> <plug>(fzf-maps-o)
+" Insert mode completion
+imap <space><c-k> <plug>(fzf-complete-word)
+imap <space><c-f> <plug>(fzf-complete-path)
+imap <space><c-j> <plug>(fzf-complete-file-ag)
+imap <space><c-l> <plug>(fzf-complete-line)
 
-imap <C-f> <plug>(fzf-complete-line)
-nnoremap <c-p> :FzFiles<CR>
+nnoremap <space>ff :FzFiles<CR>
+nnoremap <space>bB :FzBuffers<CR>
+nnoremap <space>bW :FzWindows<CR>
 "}
 
 "{ Languages
