@@ -2,7 +2,4 @@
 " Activate by commenting and uncommenting one or the another
 
 " The default config with vim-plug
-" source $HOME/dotfiles/vimrc-default.vim
-
-" The slim
-source $HOME/dotfiles/vimrc-slim.vim
+source $HOME/dotfiles/vimrc-default.vim
