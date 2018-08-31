@@ -148,6 +148,26 @@ let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 let g:terraform_commentstring='# %s'
 "} END of Terraform
+"""{ Markdown
+"https://github.com/plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown'
+
+let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_style_pythonic = 1
+
+" https://github.com/JamshedVesuna/vim-markdown-preview
+Plug 'jamshedvesuna/vim-markdown-preview'
+
+let vim_markdown_preview_hotkey='<C-m>'      " Mapping Control M
+let vim_markdown_preview_browser='Google Chrome'
+" GitHub flavoured markdown you need to install Python grip `pip install grip`
+let vim_markdown_preview_github=1
+let vim_markdown_preview_temp_file=1  " Remove the rendered preview file
+
+Plug 'mzlogin/vim-markdown-toc'
+" }
 
 "} End of Languages
 call plug#end()
