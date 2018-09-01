@@ -100,7 +100,7 @@ if [[ $- == *i* ]]; then
 
   export dotfiles="$HOME/dotfiles"
   export dropbox="$HOME/Dropbox"
-  export notes="$HOME/Dropbox/notes/2018/@drafts"
+  export notes="$HOME/Dropbox/notes/2018/"
   # }
   # End of sensible bash defaults }
 fi
