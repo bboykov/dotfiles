@@ -42,11 +42,6 @@ if has('unnamedplus')
 else
   set clipboard+=unnamed
 endif
-" Abbreviations {
-" Insert date
-inoreabbrev Tdate <c-r>=strftime("%Y-%m-%d")<cr>
-" }
-"{ Remappings
 " Escape
 inoremap jk <ESC>
 " Quit vim without saving
@@ -80,6 +75,15 @@ nmap <space>bl :ls<CR>
 nnoremap <space>fed :vsplit $MYVIMRC<cr>
 " Source vimrc
 nnoremap <space>fds :source $MYVIMRC<cr>
+" Insert current date with week day
+nnoremap <space>tT "=strftime("%a %Y-%m-%d")<CR>P
+inoremap <space>tT <C-R>=strftime("%a %Y-%m-%d")<CR>
+" Insert current date without week day
+nnoremap <space>tt "=strftime("%Y-%m-%d")<CR>P
+inoremap <space>tt <C-R>=strftime("%Y-%m-%d")<CR>
+
+"{ Remappings
+
 "} End of Remappings
 call plug#begin('~/.vim/plugged')
 "{ VIM functionality plugins
