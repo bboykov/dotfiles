@@ -75,6 +75,8 @@ nmap <space>bl :ls<CR>
 nnoremap <space>fed :vsplit $MYVIMRC<cr>
 " Source vimrc
 nnoremap <space>fds :source $MYVIMRC<cr>
+" Open my GTD files
+nnoremap <space>fet :sp $HOME/Dropbox/todo-txt/todo.txt<cr>
 " Insert current date with week day
 nnoremap <space>tT "=strftime("%a %Y-%m-%d")<CR>P
 inoremap <space>tT <C-R>=strftime("%a %Y-%m-%d")<CR>
