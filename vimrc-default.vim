@@ -150,8 +150,9 @@ nnoremap <space>bW :FzWindows<CR>
 Plug 'w0rp/ale'
 let g:ale_linters = {
 \ 'sh': ['shellcheck'] ,
-\ 'python': ['flake8'] ,
+\ 'terraform': ['tflint'] ,
 \ 'ansible': ['ansible'] ,
+\ 'python': ['flake8'] ,
 \ }
 let g:ale_fixers = {
 \   'sh': ['shfmt'],
@@ -170,7 +171,8 @@ nmap <silent> <space>af :ALEFix<cr>
 " Autofix
 " let g:ale_fix_on_save = 1
 " }
-
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 """{ Ansible
 " https://github.com/pearofducks/ansible-vim
 Plug 'pearofducks/ansible-vim'
