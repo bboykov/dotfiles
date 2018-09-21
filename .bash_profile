@@ -21,6 +21,9 @@ case "$OSTYPE" in
     fi
 
     alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
+
+    # add kubectl autocompletion
+    source <(kubectl completion bash)
     ;;
   linux*)
     # Use bash-completion, if available
