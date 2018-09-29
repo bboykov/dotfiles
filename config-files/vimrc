@@ -2,4 +2,4 @@
 " Activate by commenting and uncommenting one or the another
 
 " The default config with vim-plug
-source $HOME/dotfiles/vimrc-default.vim
+source $HOME/dotfiles/config-files/vimrc-default.vim

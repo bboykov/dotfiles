@@ -2,18 +2,41 @@
 
 set -o errexit
 
-DOTFILES_PATH=$HOME/dotfiles
-OLD_DOTFILES_BKP_DIR="$HOME/.old_dotfiles_bkp_dir"
-SCRIPT_SRC="$DOTFILES_PATH/scripts"
-SCRIPT_DEST=$HOME/bin
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+OLD_DOTFILES_BKP_DIR="$HOME/.old-dotfiles-bkp-dir"
+SCRIPTS_SRC_DIR="$DOTFILES_DIR/scripts"
+SCRIPTS_DST_DIR="$HOME/bin"
+CONFIGS_SRC_DIR="$DOTFILES_DIR/config-files"
+CONFIGS_DST_DIR="$HOME"
 
-# FUNCTIONS
-function create_link() {
+declare -A files_map
+while read -r src dst; do
+  files_map[$src]=$dst
+done <<EOL
+aws-cli-alias      .aws/cli/alias
+bash_profile       .bash_profile
+bashrc             .bashrc
+tmux.conf          .tmux.conf
+inputrc            .inputrc
+gitconfig          .gitconfig
+gitmessage.txt     .gitmessage.txt
+gitignore_global   .gitignore_global
+vimrc              .vimrc
+liquidpromptrc     .liquidpromptrc
+spacemacs          .spacemacs
+EOL
+
+function create_link(){
   local from=$1
   local to=$2
 
   if [[ ! -f "$from" && ! -d "$from" ]]; then
-    echo "File not found at $from"
+    echo "[err] Source file not found: $from"
+    return
+  fi
+
+  if [ ! -d "$(dirname "$to")" ]; then
+    echo "[err] Destination does not exist $(dirname "$to")"
     return
   fi
 
@@ -21,11 +44,9 @@ function create_link() {
   if [[ -e "$to" ]] && [ ! -h "$to" ]; then
     echo "Moving pre-existing $(basename "$to") to ${OLD_DOTFILES_BKP_DIR}"
     if [ ! -d "$OLD_DOTFILES_BKP_DIR" ]; then
-      echo -n "Creating $OLD_DOTFILES_BKP_DIR... "
       mkdir -p "$OLD_DOTFILES_BKP_DIR"
-      echo "done"
     fi
-    mv "$to" "${OLD_DOTFILES_BKP_DIR}/$(basename "$to")-$(date +%Y%m%d_%H%M%S)"
+    mv "$to" "${OLD_DOTFILES_BKP_DIR}/$(basename "$to")-$(date +%Y%m%d-%H%M%S)"
   fi
 
   # Create symlink if there isn't already a healthy symlink
@@ -38,51 +59,35 @@ function create_link() {
   fi
 }
 
-function dotfiles() {
-  echo "# Dotfiles"
-  echo -n "Changing to the $DOTFILES_DIR directory ..."
+function link_config_files(){
+  echo ">>> Dotfiles"
+
   cd "$DOTFILES_PATH"
-  echo "done"
 
-  while read -r file; do
-    create_link "$DOTFILES_PATH/$file" "$HOME/$file"
-  done <<EOL
-.bash_profile
-.bashrc
-.tmux.conf
-.inputrc
-.gitconfig
-.gitmessage.txt
-.gitignore_global
-.vimrc
-.liquidpromptrc
-.spacemacs
-EOL
-
-  echo "# done"
-
-}
-
-function custom_scripts() {
-  echo "# Custom scripts"
-  echo -n "Changing to the $SCRIPT_SRC directory ... "
-  if [ ! -d "$SCRIPT_DEST" ]; then
-    echo -n "Creating $SCRIPT_DEST ... "
-    mkdir -p "$SCRIPT_DEST"
-    echo -n "done "
-  fi
-  cd "$SCRIPT_SRC"
-  echo "done"
-
-  # Create links for all scripts in $SCRIPT_SRC at $SCRIPT_DEST
-  for script in "$SCRIPT_SRC"/*; do
-    scriptname="$(basename "$script")"
-    create_link "$script" "$SCRIPT_DEST/$scriptname"
+  for key in ${!files_map[@]}; do
+    create_link $CONFIGS_SRC_DIR/$key $CONFIGS_DST_DIR/${files_map[${key}]}
   done
 
-  echo "# done"
+  echo ">>> done"
+}
+
+function link_scripts() {
+  echo ">>> Link scripts"
+
+  if [ ! -d "$SCRIPTS_DST_DIR" ]; then
+    mkdir -p "$SCRIPTS_DST_DIR"
+  fi
+
+  cd "$SCRIPTS_SRC_DIR"
+
+  for script in "$SCRIPTS_SRC_DIR"/*; do
+    scriptname="$(basename "$script")"
+    create_link "$script" "$SCRIPTS_DST_DIR/$scriptname"
+  done
+
+  echo ">>> done"
 }
 
 # MAIN
-dotfiles
-custom_scripts
+link_scripts
+link_config_files

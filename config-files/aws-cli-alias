@@ -1,0 +1,21 @@
+[toplevel]
+whoami = sts get-caller-identity
+# List All
+instances=ec2 describe-instances \
+    --output table \
+    --query 'Reservations[].Instances[].{ID: InstanceId, "Private IP": PrivateIpAddress, State:State.Name, Name: Tags[?Key==`Name`].Value | [0],Type: InstanceType, LaunchTime: LaunchTime}'
+# List All - Sort
+instances-short=ec2 describe-instances \
+    --output table \
+    --query 'Reservations[].Instances[].{ID: InstanceId, State:State.Name, Name: Tags[?Key==`Name`].Value | [0],LaunchTime: LaunchTime}'
+# List Running
+running-instances = ec2 describe-instances \
+    --filter Name=instance-state-name,Values=running \
+    --output table \
+    --query 'Reservations[].Instances[].{ID: InstanceId,Hostname: PublicDnsName,Name: Tags[?Key==`Name`].Value | [0],Type: InstanceType, Platform: Platform || `Linux`}'
+# List Running - Long
+running-instances-long=ec2 describe-instances \
+    --filter Name=instance-state-name,Values=running \
+    --query 'Reservations[].Instances[].{ID: InstanceId, VPC: VpcId, "Private IP": PrivateIpAddress, "Public IP": PublicIpAddress,Key: KeyName,Name: Tags[?Key==`Name`].Value | [0],"Security Group": SecurityGroups[0].GroupId ,Type: InstanceType, LaunchTime: LaunchTime}' \
+    --output table
+
