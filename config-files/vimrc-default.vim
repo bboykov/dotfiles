@@ -194,7 +194,7 @@ au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 Plug 'hashivim/vim-terraform'
 let g:terraform_align=1
 let g:terraform_fold_sections=1
-let g:terraform_fmt_on_save=1
+"let g:terraform_fmt_on_save=1 # Disabled because of misformats tfvars files
 let g:terraform_commentstring='# %s'
 "} END of Terraform
 """{ Markdown
