@@ -11,6 +11,7 @@
   prompt = false
   keepBackup = false
 [alias]
+  pull-rebase = pull --rebase
   merge-no-ff = merge --no-ff
   fcommit = commit --fixup
   fpush= push --force-with-lease
