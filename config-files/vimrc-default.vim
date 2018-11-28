@@ -101,6 +101,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" git
+Plug 'tpope/vim-fugitive'           " Git wrapper
+Plug 'tpope/vim-rhubarb'            " GitHub extension for fugitive.vim
 "{ NERDTree
 Plug 'scrooloose/nerdtree'
 " Store the bookmarks file
