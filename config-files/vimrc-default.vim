@@ -213,6 +213,10 @@ Plug 'iamcco/markdown-preview.vim'
 
 Plug 'mzlogin/vim-markdown-toc'
 " }
+"""{ Ruby
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+" }
 
 "} End of Languages
 call plug#end()
