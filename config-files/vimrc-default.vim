@@ -170,8 +170,8 @@ let g:ale_fixers = {
 
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
-let g:ale_sh_shfmt_options='-i 2'
-" let g:ale_sh_shfmt_options='-i 2 -ci' " Google style
+" let g:ale_sh_shfmt_options='-i 2'
+let g:ale_sh_shfmt_options='-i 2 -ci' " Google style
 
 " key bindings
 nmap <silent> <space>aj :ALENext<cr>
