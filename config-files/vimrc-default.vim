@@ -104,6 +104,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " git
 Plug 'tpope/vim-fugitive'           " Git wrapper
 Plug 'tpope/vim-rhubarb'            " GitHub extension for fugitive.vim
+Plug 'mhinz/vim-signify'            " Git diff in the sign column
 "{ NERDTree
 Plug 'scrooloose/nerdtree'
 " Store the bookmarks file
