@@ -109,6 +109,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 # }
 # Aliases {
+alias vim-new='vim -u $HOME/dotfiles/config-files/vimrc-new.vim'
 alias tmuxls='tmux ls'
 alias tmuxa='tmux a -t'
 ## Reload bashrc {
