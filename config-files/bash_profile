@@ -22,6 +22,9 @@ case "$OSTYPE" in
 
     alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
 
+    # vscode in the terminal
+    export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
     # add kubectl autocompletion
     source <(kubectl completion bash)
     ;;
