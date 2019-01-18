@@ -150,4 +150,45 @@ export PATH="/home/bboykov/.local/bin:$PATH"
 [[ $- == *i* ]] && source ~/liquidprompt/liquidprompt
 # }
 
+# Functions
+
+aws-auth() {
+    aws_profile="$1"
+
+    if [ -z "$aws_profile" ]; then
+        echo "Usage: $0 <aws-profile>" >&2
+        return 1
+    fi
+
+    echo "Obtaining MFA ARN for profile '$aws_profile'..."
+    if ! response=`aws --profile "$aws_profile" iam list-mfa-devices` || \
+       ! mfa_arn=`echo "$response" | jq -re '.MFADevices[0].SerialNumber'`; then
+        echo "Failed obtaining the MFA ARN for profile '$aws_profile'." >&2
+        return 2
+    fi
+
+    echo -n "Enter MFA token for $mfa_arn: "
+    read mfa_token
+
+    if ! response=`aws --profile "$aws_profile" sts get-session-token --serial-number "$mfa_arn" --token-code "$mfa_token"`; then
+        echo "Failed obtaining a session token." >&2
+        return 3
+    fi
+
+    if ! secret_access_key=`echo $response | jq -re '.Credentials.SecretAccessKey'` || \
+       ! session_token=`echo $response | jq -re '.Credentials.SessionToken'` || \
+       ! access_key_id=`echo $response | jq -re '.Credentials.AccessKeyId'` || \
+       ! expiration=`echo $response | jq -re '.Credentials.Expiration'`; then
+        echo "Failed obtaining credentials. Raw response was: $response" >&2
+        return 4
+    fi
+
+    export AWS_PROFILE="$aws_profile"
+    export AWS_SECRET_ACCESS_KEY="$secret_access_key"
+    export AWS_ACCESS_KEY_ID="$access_key_id"
+    export AWS_SESSION_TOKEN="$session_token"
+
+    echo "AWS auth ENV vars set for access key ID $access_key_id. Credentials are valid until: $expiration"
+}
+
 # vim: foldmethod=marker foldcolumn=4 foldenable
