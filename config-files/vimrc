@@ -78,8 +78,8 @@ nnoremap <space>fds :source $MYVIMRC<cr>
 " Open my GTD files
 nnoremap <space>fet :sp $HOME/Dropbox/todo-txt/todo.txt<cr>
 " Insert current date with week day
-nnoremap <space>tT "=strftime(" %a %Y-%m-%d")<CR>P
-inoremap <space>tT <C-R>=strftime(" %a %Y-%m-%d")<CR>
+nnoremap <space>tT "=strftime("%a %Y-%m-%d")<CR>P
+inoremap <space>tT <C-R>=strftime("%a %Y-%m-%d")<CR>
 " Insert current date without week day
 nnoremap <space>tt "=strftime("%Y-%m-%d")<CR>P
 inoremap <space>tt <C-R>=strftime("%Y-%m-%d")<CR>
