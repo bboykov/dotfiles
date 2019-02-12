@@ -14,8 +14,6 @@ set splitright    " Puts new vsplit windows to the right of the current
 set splitbelow    " Puts new split windows to the bottom of the current
 set hidden " This allows buffers to be hidden if you've modified a buffer.
 " Search
-set ignorecase   " Ignore case sensitive search
-set smartcase    " Case sensitive search when uc present
 set hlsearch     " Highlight search results
 set incsearch    " Find as you type search                             "
 " No auto backup
@@ -107,6 +105,7 @@ Plug 'tpope/vim-rhubarb'            " GitHub extension for fugitive.vim
 Plug 'mhinz/vim-signify'            " Git diff in the sign column
 "{ NERDTree
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/Dropbox/vim/NERDTreeBookmarks")
 " Automatically close a tab if the only remaining window is NerdTree
@@ -116,9 +115,9 @@ let g:NERDTreeWinPos = "right"
 " Making it prettier
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
 map <F2> :NERDTreeToggle<CR>
 map <space>ft :NERDTreeToggle<CR>
+
 "} END of NERDTree
 "{ TMUX
 Plug 'tmux-plugins/vim-tmux'
