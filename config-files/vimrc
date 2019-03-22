@@ -141,6 +141,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
 Plug 'yggdroot/indentline' " display the indention levels with thin vertical lines
+Plug 'sickill/vim-monokai'
 "}
 "{ Files
 " fzf is a general-purpose command-line fuzzy finder
@@ -233,6 +234,8 @@ call plug#end()
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
+else
+  colorscheme monokai
 endif
 "" Show text rulers - Highlight column 80, 100 as well as 120 and onward
 "" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
