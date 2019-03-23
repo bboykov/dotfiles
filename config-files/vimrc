@@ -235,7 +235,7 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 else
-  colorscheme monokai
+  silent! colorscheme monokai
 endif
 "" Show text rulers - Highlight column 80, 100 as well as 120 and onward
 "" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
