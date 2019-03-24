@@ -127,11 +127,9 @@ alias la='ls -AF' # Compact view, show hidden
 alias ll='ls -al'
 alias l='ls -a'
 alias l1='ls -1'
-alias spmacs='emacs -nw'
 
-gspmacs() {
-  emacs "$@" &
-}
+## Ansible
+alias play-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 # }
 ## grep {
 alias grep='grep --color=auto'
