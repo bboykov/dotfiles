@@ -20,7 +20,7 @@ case "$OSTYPE" in
       eval "$(pyenv virtualenv-init -)"
     fi
 
-    alias todo='todo.sh -d $HOME/Dropbox/todo-txt/todo.cfg -a'
+    alias todo='todo.sh -d $HOME/notes/todo-txt/todo.cfg -a'
 
     # vscode in the terminal
     export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
@@ -39,7 +39,7 @@ case "$OSTYPE" in
       eval "$(pyenv virtualenv-init -)"
     fi
 
-    alias todo='todo-txt -d $HOME/Dropbox/todo-txt/todo.cfg -a'
+    alias todo='todo-txt -d $HOME/notes/todo-txt/todo.cfg -a'
 
     complete -C '/usr/local/bin/aws_completer' aws
     export PATH=/usr/local/aws/bin:$PATH
