@@ -1,6 +1,11 @@
 # Configuring your login sessions with dot files
 # http://mywiki.wooledge.org/DotFiles
 
+# Note: Bash on Windows does not currently apply umask properly.
+if [ "$(umask)" = "0000"  ]; then
+  umask 022
+fi
+
 # .bashrc_local {
 # Stores local configs that should not be in the git repo
 if [ -n "$BASH" ] && [ -r ~/.bashrc_local ]; then
