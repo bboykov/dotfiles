@@ -23,7 +23,6 @@ gitmessage.txt     .gitmessage.txt
 gitignore_global   .gitignore_global
 vimrc              .vimrc
 liquidpromptrc     .liquidpromptrc
-spacemacs          .spacemacs
 EOL
 
 function create_link(){
