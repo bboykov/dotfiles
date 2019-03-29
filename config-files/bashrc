@@ -8,9 +8,6 @@ if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft  ]]; then
   if [ "$(umask)" = "0000"  ]; then
     umask 022
   fi
-
-  # https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux
-  export BROWSER='/mnt/c/Windows/explorer.exe'
 fi
 
 # .bashrc_local {
@@ -146,6 +143,18 @@ alias play-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 ## grep {
 alias grep='grep --color=auto'
 export GREP_COLOR='1;33'
+case "$OSTYPE" in
+   linux*)
+      if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft  ]]; then
+        alias start="cmd.exe /C start"
+      else
+        alias start="xdg-open"
+      fi
+      ;;
+   darwin*)
+      alias start="open"
+      ;;
+esac
 # }
 # Aliases end }
 
