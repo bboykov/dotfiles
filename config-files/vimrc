@@ -50,6 +50,7 @@ if filereadable("/mnt/c/Windows/System32/clip.exe")
 	  autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
       augroup END
   end
+  let g:netrw_browsex_viewer="cmd.exe /C start"
 endif
 " Escape
 inoremap jk <ESC>

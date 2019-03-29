@@ -1,9 +1,16 @@
 # Configuring your login sessions with dot files
 # http://mywiki.wooledge.org/DotFiles
 
-# Note: Bash on Windows does not currently apply umask properly.
-if [ "$(umask)" = "0000"  ]; then
-  umask 022
+# Detect Windows WSL:
+# https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
+if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft  ]]; then
+  # Note: Bash on Windows does not currently apply umask properly.
+  if [ "$(umask)" = "0000"  ]; then
+    umask 022
+  fi
+
+  # https://superuser.com/questions/1262977/open-browser-in-host-system-from-windows-subsystem-for-linux
+  export BROWSER='/mnt/c/Windows/explorer.exe'
 fi
 
 # .bashrc_local {
