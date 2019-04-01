@@ -13,10 +13,16 @@ declare -A files_map
 while read -r src dst; do
   files_map[$src]=$dst
 done <<EOL
-inputrc            .inputrc
-gitconfig          .gitconfig
-gitmessage.txt     .gitmessage.txt
-gitignore_global   .gitignore_global
+inputrc             .inputrc
+gitconfig           .gitconfig
+gitmessage.txt      .gitmessage.txt
+gitignore_global    .gitignore_global
+bash_profile        .bash_profile
+profile             .profile
+bashrc              .bashrc
+bash_aliases        .bash_aliases
+bashrc_macos        .bashrc_macos
+bashrc_linux        .bashrc_linux
 EOL
 
 function create_link(){
