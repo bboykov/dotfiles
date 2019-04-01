@@ -14,6 +14,9 @@ while read -r src dst; do
   files_map[$src]=$dst
 done <<EOL
 inputrc            .inputrc
+gitconfig          .gitconfig
+gitmessage.txt     .gitmessage.txt
+gitignore_global   .gitignore_global
 EOL
 
 function create_link(){

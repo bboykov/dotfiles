@@ -1,0 +1,24 @@
+[user]
+  name = Boyko Boykov
+  email = boyko.boykov@gmail.com
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore_global
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool]
+  prompt = false
+  keepBackup = false
+[alias]
+  pull-rebase = pull --rebase
+  merge-no-ff = merge --no-ff
+  fcommit = commit --fixup
+  fpush= push --force-with-lease
+  unstage = reset HEAD --
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 10
+  ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 20
+  lll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[commit]
+  template = ~/.gitmessage.txt
+  verbose = true
