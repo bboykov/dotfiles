@@ -23,6 +23,7 @@ bashrc              .bashrc
 bash_aliases        .bash_aliases
 bashrc_macos        .bashrc_macos
 bashrc_linux        .bashrc_linux
+liquidpromptrc      .liquidpromptrc
 EOL
 
 function create_link(){

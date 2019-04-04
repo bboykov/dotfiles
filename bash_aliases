@@ -10,3 +10,6 @@ alias egrep='egrep --color=auto'
 
 # Reload the login session configuration
 alias reload='source ~/.bash_profile'
+
+# Ansible
+alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
