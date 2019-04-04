@@ -75,6 +75,11 @@ if [ -f ~/.bash_aliases ]; then
   source "$HOME/.bash_aliases"
 fi
 
+# Load liquidprompt
+if [ -f "$HOME/liquidprompt/liquidprompt" ]; then
+  source "$HOME/liquidprompt/liquidprompt"
+fi
+
 # Load OS specific configuration
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source "$HOME/.bashrc_macos"
