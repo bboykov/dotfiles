@@ -25,6 +25,7 @@ bashrc_macos        .bashrc_macos
 bashrc_linux        .bashrc_linux
 liquidpromptrc      .liquidpromptrc
 vimrc               .vimrc
+tmux.conf           .tmux.conf
 EOL
 
 function create_link(){
