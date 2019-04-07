@@ -9,4 +9,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
+if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft  ]]; then
 
+  # WSL does not currently apply umask properly. https://github.com/Microsoft/WSL/issues/352
+  if [ "$(umask)" = "0000"  ]; then
+    umask 022
+  fi
+fi
