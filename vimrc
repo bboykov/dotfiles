@@ -38,4 +38,15 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'freitass/todo.txt-vim'
+
+" Issue https://github.com/chriskempson/base16-vim/issues/197
+" Pull Request https://github.com/chriskempson/base16-vim/pull/198
+Plug 'danielwe/base16-vim'
+
 call plug#end()
+
+" Load base16 shell theme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
