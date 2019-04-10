@@ -43,6 +43,15 @@ Plug 'freitass/todo.txt-vim'
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Automatically close a tab if the only remaining window is NerdTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinPos = "right"
+let NERDTreeMinimalUI = 1 " Making it prettier
+let NERDTreeDirArrows = 1 " Making it prettier
+map <space>ft :NERDTreeToggle<CR>
+
 call plug#end()
 
 " Load base16 shell theme
