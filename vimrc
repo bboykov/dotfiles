@@ -43,6 +43,11 @@ Plug 'freitass/todo.txt-vim'
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
 
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'roxma/vim-tmux-clipboard'
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Automatically close a tab if the only remaining window is NerdTree
