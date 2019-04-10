@@ -46,6 +46,12 @@ Plug 'freitass/todo.txt-vim'
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
 
+" Status and tabline for vim
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
 Plug 'yggdroot/indentline'
 
 Plug 'tmux-plugins/vim-tmux'
