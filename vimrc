@@ -54,10 +54,16 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 Plug 'yggdroot/indentline'
 
+" tmux integrations
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'roxma/vim-tmux-clipboard'
+
+" git integrations
+Plug 'tpope/vim-fugitive'           " Git wrapper
+Plug 'tpope/vim-rhubarb'            " GitHub extension for fugitive.vim
+Plug 'mhinz/vim-signify'            " Git diff in the sign column
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
