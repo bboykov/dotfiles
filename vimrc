@@ -5,6 +5,9 @@ filetype plugin indent on
 set encoding=utf-8
 set backspace=indent,eol,start
 
+set mouse=a       " Automatically enable mouse usage
+set mousehide     " Hide the mouse cursor while typing
+
 " Display
 set number        " Show line numbers
 set showmatch     " Highlight matching brace
