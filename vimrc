@@ -59,3 +59,44 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+" Remappings
+" Quit vim without saving
+nnoremap <space>q  :q<CR>
+nnoremap <space>Q  :qa!<CR>
+" Quick command mode
+nnoremap ; :
+" Redo
+nnoremap U <C-r>
+" Visual shifting (does not exit Visual mode). Keeps the selection in place
+vnoremap < <gv
+vnoremap > >gv
+" Spell check
+set nospell
+set spelllang=en_us
+nmap <silent> <space>sp :setlocal spell!<CR>
+" Buffers
+" To open a new empty buffer. This replaces :tabnew which I used to bind to this mapping
+nmap <space>bN :enew<cr>
+" Move to the next buffer
+nmap <space>bn :bnext<CR>
+" Move to the previous buffer
+nmap <space>bp :bprevious<CR>
+" Close the current buffer and move to the previous one. This replicates the idea of closing a tab
+nmap <space>bd :bp <BAR> bd #<CR>
+" Open the previously opened buffer
+nmap <space><Tab> :b#<CR>
+" Show all open buffers and their status
+nmap <space>bl :ls<CR>
+" Edit vimrc
+nnoremap <space>fed :vsplit $MYVIMRC<cr>
+" Source vimrc
+nnoremap <space>fds :source $MYVIMRC<cr>
+" Open my GTD files
+nnoremap <space>fet :sp $HOME/notes/todo-txt/todo.txt<cr>
+" Insert current date with week day
+nnoremap <space>tT "=strftime("%a %Y-%m-%d")<CR>P
+inoremap <space>tT <C-R>=strftime("%a %Y-%m-%d")<CR>
+" Insert current date without week day
+nnoremap <space>tt "=strftime("%Y-%m-%d")<CR>P
+inoremap <space>tt <C-R>=strftime("%Y-%m-%d")<CR>
