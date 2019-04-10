@@ -46,6 +46,8 @@ Plug 'freitass/todo.txt-vim'
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
 
+Plug 'yggdroot/indentline'
+
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
