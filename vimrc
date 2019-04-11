@@ -32,6 +32,13 @@ set nobackup
 set noswapfile
 set nowritebackup
 
+" Unnamed clipboard
+if has('unnamedplus')
+  set clipboard=unnamedplus,unnamed
+else
+  set clipboard+=unnamed
+endif
+
 " Ensure junegunn/vim-plug is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
