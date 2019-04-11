@@ -81,6 +81,9 @@ let NERDTreeMinimalUI = 1 " Making it prettier
 let NERDTreeDirArrows = 1 " Making it prettier
 map <space>ft :NERDTreeToggle<CR>
 
+Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 call plug#end()
 
 " Load base16 shell theme
