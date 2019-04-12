@@ -32,6 +32,10 @@ set nobackup
 set noswapfile
 set nowritebackup
 
+" Show hidden characters
+set list
+set listchars=tab:→\ ,eol:↵,trail:•,extends:↷,precedes:↶
+
 " Unnamed clipboard
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
