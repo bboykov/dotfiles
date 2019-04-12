@@ -1,6 +1,6 @@
 [user]
   name = Boyko Boykov
-  email = boyko.boykov@gmail.com
+  email = bboykov@users.noreply.github.com
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
