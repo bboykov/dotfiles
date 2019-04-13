@@ -1,0 +1,19 @@
+# vi:syntax=sh
+
+# Enable programmable completion features
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+# Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
+if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft  ]]; then
+
+  # WSL does not currently apply umask properly. https://github.com/Microsoft/WSL/issues/352
+  if [ "$(umask)" = "0000"  ]; then
+    umask 022
+  fi
+fi

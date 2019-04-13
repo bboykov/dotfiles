@@ -1,0 +1,3 @@
+# vi:syntax=sh
+set bell-style none
+set editing-mode vi

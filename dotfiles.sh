@@ -4,25 +4,28 @@ set -o errexit
 
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OLD_DOTFILES_BKP_DIR="$HOME/.old-dotfiles-bkp-dir"
-SCRIPTS_SRC_DIR="$DOTFILES_DIR/scripts"
+SCRIPTS_SRC_DIR="$DOTFILES_DIR/bin"
 SCRIPTS_DST_DIR="$HOME/bin"
-CONFIGS_SRC_DIR="$DOTFILES_DIR/config-files"
+CONFIGS_SRC_DIR="$DOTFILES_DIR"
 CONFIGS_DST_DIR="$HOME"
 
 declare -A files_map
 while read -r src dst; do
   files_map[$src]=$dst
 done <<EOL
-aws-cli-alias      .aws/cli/alias
-bash_profile       .bash_profile
-bashrc             .bashrc
-tmux.conf          .tmux.conf
-inputrc            .inputrc
-gitconfig          .gitconfig
-gitmessage.txt     .gitmessage.txt
-gitignore_global   .gitignore_global
-vimrc              .vimrc
-liquidpromptrc     .liquidpromptrc
+inputrc             .inputrc
+gitconfig           .gitconfig
+gitmessage.txt      .gitmessage.txt
+gitignore_global    .gitignore_global
+bash_profile        .bash_profile
+profile             .profile
+bashrc              .bashrc
+bash_aliases        .bash_aliases
+bashrc_macos        .bashrc_macos
+bashrc_linux        .bashrc_linux
+liquidpromptrc      .liquidpromptrc
+vimrc               .vimrc
+tmux.conf           .tmux.conf
 EOL
 
 function create_link(){

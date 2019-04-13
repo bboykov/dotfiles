@@ -1,9 +1,3 @@
-# Dotfiles
+# dotfiles
 
-## Setup
-
-``` bash
-git clone git://github.com/bboykov/dotfiles ~/dotfiles
-cd ~/dotfiles
-./dotfiles.sh
-```
+Clone the repo and run `dotfiles.sh` to symlink the configuration.

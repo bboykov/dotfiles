@@ -5,12 +5,10 @@
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 # Why is this change needed? Prior to this change,...
 
-
 # How does it address the issue? This change...
 
 # Provide links to any relevant tickets, articles or other resources
 # Example: Github issue #23
-
 
 # Remember to
 #    Capitalize the subject line
@@ -22,4 +20,3 @@
 # --------------------
 # For more information about this template, check out
 # https://chris.beams.io/posts/git-commit/
-
