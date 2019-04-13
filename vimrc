@@ -43,6 +43,17 @@ else
   set clipboard+=unnamed
 endif
 
+" WSL vim to windows clipboard
+if filereadable("/mnt/c/Windows/System32/clip.exe")
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'
+  if executable(s:clip)
+    augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+  end
+endif
+
 " Ensure junegunn/vim-plug is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
