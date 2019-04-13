@@ -105,6 +105,23 @@ map <space>ft :NERDTreeToggle<CR>
 Plug 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+let g:fzf_command_prefix = 'Fz' " Same prefix to all commands
+" Mapping selecting mappings
+nmap <leader><tab>? <plug>(fzf-maps-n)
+xmap <leader><tab>? <plug>(fzf-maps-x)
+omap <leader><tab>? <plug>(fzf-maps-o)
+" Insert mode completion
+imap <space><c-k> <plug>(fzf-complete-word)
+imap <space><c-f> <plug>(fzf-complete-path)
+imap <space><c-j> <plug>(fzf-complete-file-ag)
+imap <space><c-l> <plug>(fzf-complete-line)
+
+nnoremap <space>ff :FzFiles<CR>
+nnoremap <space>bB :FzBuffers<CR>
+nnoremap <space>bW :FzWindows<CR>
+
 call plug#end()
 
 " Load base16 shell theme
