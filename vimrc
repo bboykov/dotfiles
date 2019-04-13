@@ -14,6 +14,7 @@ set showmatch     " Highlight matching brace
 set modeline      " Read infile vim settings
 set wildmenu      " Enhanced command-line completion
 set autoread      " Automatically read a file changed outside of vim
+set cursorline    " Highlight current line
 
 " Search
 set hlsearch    " Highlight all search results
@@ -62,19 +63,24 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+" Functionality plugins
 Plug 'freitass/todo.txt-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular'              " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround' " Provides mappings to delete, change and add surroundings in pairs.
 
 " Issue https://github.com/chriskempson/base16-vim/issues/197
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
+Plug 'yggdroot/indentline'
 
 " Status and tabline for vim
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-Plug 'yggdroot/indentline'
 
 " tmux integrations
 Plug 'tmux-plugins/vim-tmux'
@@ -106,6 +112,10 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+"" Show text rulers - Highlight column 80, 100 as well as 120 and onward
+"" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
+let &colorcolumn="80,100,".join(range(120,999),",")
 
 " Remappings
 " Quit vim without saving
