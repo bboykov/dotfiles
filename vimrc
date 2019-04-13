@@ -37,6 +37,12 @@ set nowritebackup
 set list
 set listchars=tab:→\ ,eol:↵,trail:•,extends:↷,precedes:↶
 
+set foldenable
+set foldmethod=indent
+set foldlevelstart=20
+set foldmarker={,}
+set foldcolumn=0
+
 " Unnamed clipboard
 if has('unnamedplus')
   set clipboard=unnamedplus,unnamed
