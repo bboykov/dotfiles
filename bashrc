@@ -68,7 +68,7 @@ CDPATH=".:~/wd"
 shopt -s cdable_vars
 
 export dotfiles="$HOME/dotfiles"
-export notes="$HOME/notes/2019/"
+export notes="$HOME/drive/notes/2019/"
 
 # Load alias definitions
 if [ -f ~/.bash_aliases ]; then
