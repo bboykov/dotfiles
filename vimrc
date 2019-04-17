@@ -51,6 +51,12 @@ else
   set clipboard+=unnamed
 endif
 
+
+" Set browser in WSL
+if filereadable("/mnt/c/Windows/System32/clip.exe")
+  let g:netrw_browsex_viewer="cmd.exe /C start"
+endif
+
 " WSL vim to windows clipboard
 if filereadable("/mnt/c/Windows/System32/clip.exe")
   let s:clip = '/mnt/c/Windows/System32/clip.exe'
