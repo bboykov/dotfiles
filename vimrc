@@ -135,6 +135,15 @@ nnoremap <space>ff :FzFiles<CR>
 nnoremap <space>bB :FzBuffers<CR>
 nnoremap <space>bW :FzWindows<CR>
 
+Plug 'plasticboy/vim-markdown'
+
+let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_style_pythonic = 1
+
+Plug 'mzlogin/vim-markdown-toc'
+
 call plug#end()
 
 " Load base16 shell theme
