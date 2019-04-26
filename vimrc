@@ -84,6 +84,10 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround' " Provides mappings to delete, change and add surroundings in pairs.
 
+Plug 'liuchengxu/vim-which-key'
+nnoremap <silent> <space>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <leader>      :<c-u>WhichKey '\'<CR>
+
 " Issue https://github.com/chriskempson/base16-vim/issues/197
 " Pull Request https://github.com/chriskempson/base16-vim/pull/198
 Plug 'danielwe/base16-vim'
@@ -181,7 +185,7 @@ nmap <space>bp :bprevious<CR>
 " Close the current buffer and move to the previous one. This replicates the idea of closing a tab
 nmap <space>bd :bp <BAR> bd #<CR>
 " Open the previously opened buffer
-nmap <space><Tab> :b#<CR>
+nmap <space>bb :b#<CR>
 " Show all open buffers and their status
 nmap <space>bl :ls<CR>
 " Edit vimrc
