@@ -148,6 +148,32 @@ let g:vim_markdown_folding_style_pythonic = 1
 
 Plug 'mzlogin/vim-markdown-toc'
 
+Plug 'w0rp/ale'
+let g:ale_linters = {
+\ 'sh': ['shellcheck'] ,
+\ 'terraform': ['tflint'] ,
+\ 'ansible': ['ansible'] ,
+\ 'python': ['flake8'] ,
+\ }
+let g:ale_fixers = {
+\   'sh': ['shfmt'],
+\   'python': ['isort', 'yapf'],
+\}
+
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:ale_sh_shfmt_options='-i 2 -ci' " Google style
+let g:ale_set_highlights=0
+" key bindings
+nmap <silent> <space>aj :ALENext<cr>
+nmap <silent> <space>ak :ALEPrevious<cr>
+nmap <silent> <space>af :ALEFix<cr>
+" Autofix
+" let g:ale_fix_on_save = 1
+" }
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
 call plug#end()
 
 " Load base16 shell theme
