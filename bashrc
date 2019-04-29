@@ -70,6 +70,9 @@ shopt -s cdable_vars
 export dotfiles="$HOME/dotfiles"
 export notes="$HOME/drive/notes/2019/"
 
+# Load todo-txt configuration file
+export TODOTXT_CFG_FILE=$HOME/dotfiles/todo.cfg
+
 # Load alias definitions
 if [ -f ~/.bash_aliases ]; then
   source "$HOME/.bash_aliases"
