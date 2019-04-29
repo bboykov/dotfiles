@@ -6,6 +6,7 @@ case "$OSTYPE" in
     alias ll='ls -alF'
     alias la='ls -A'
     alias l='ls -CF'
+    alias todo-txt='todo-txt -d $HOME/drive/notes/todo-txt/todo.cfg'
      ;;
   darwin*)
     alias ls='ls -G'
