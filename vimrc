@@ -144,6 +144,7 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0 " TODO: Temp fix for https://github.com/plasticboy/vim-markdown/issues/408
 let g:vim_markdown_folding_style_pythonic = 1
 
 Plug 'mzlogin/vim-markdown-toc'
