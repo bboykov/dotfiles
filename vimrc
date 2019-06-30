@@ -151,6 +151,12 @@ let g:vim_markdown_folding_style_pythonic = 1
 
 Plug 'mzlogin/vim-markdown-toc'
 
+Plug 'hashivim/vim-terraform'
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+"let g:terraform_fmt_on_save=1 # Disabled because of misformats tfvars files
+let g:terraform_commentstring='# %s'
+
 Plug 'w0rp/ale'
 let g:ale_linters = {
 \ 'sh': ['shellcheck'] ,
