@@ -90,6 +90,17 @@ function link_scripts() {
   echo ">>> done"
 }
 
+function link_vscode_settings(){
+
+  # Load OS specific configuration
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    create_link  "$CONFIGS_SRC_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+    create_link "$CONFIGS_SRC_DIR/vscode/settings.json" "$HOME/.config/Code/User/settings.json"
+  fi
+}
+
 # MAIN
 link_scripts
 link_config_files
+link_vscode_settings

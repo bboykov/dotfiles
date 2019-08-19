@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "boundary",
+    "markdown.extension.toc.updateOnSave": false,
+    "markdown.extension.toc.levels": "2..6"
+}
