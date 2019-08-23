@@ -151,6 +151,8 @@ let g:vim_markdown_folding_style_pythonic = 1
 
 Plug 'mzlogin/vim-markdown-toc'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 Plug 'hashivim/vim-terraform'
 let g:terraform_align=1
 let g:terraform_fold_sections=1
