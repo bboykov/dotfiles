@@ -150,6 +150,8 @@ let g:vim_markdown_folding_style_pythonic = 1
 
 
 Plug 'mzlogin/vim-markdown-toc'
+let g:vmt_list_item_char = '-'
+let g:vmt_fence_text = 'TOC'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
