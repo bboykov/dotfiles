@@ -6,13 +6,13 @@ case "$OSTYPE" in
     alias ll='ls -alF'
     alias la='ls -A'
     alias l='ls -CF'
-    alias todo-add='todo-txt -t add'
+    alias todoadd='todo-txt -t add'
     alias todo='todo-txt ls'
      ;;
   darwin*)
     alias ls='ls -G'
     alias ll='ls -al'
-    alias todo-add='todo.sh -t add'
+    alias todoadd='todo.sh -t add'
     alias todo='todo.sh ls'
      ;;
 esac
