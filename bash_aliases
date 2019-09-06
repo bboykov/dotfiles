@@ -7,6 +7,7 @@ case "$OSTYPE" in
     alias la='ls -A'
     alias l='ls -CF'
     alias todo-add='todo-txt -t add'
+    alias todo='todo-txt ls'
      ;;
   darwin*)
     alias ls='ls -G'
