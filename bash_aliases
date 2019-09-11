@@ -29,3 +29,5 @@ alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 
 # Misc
 alias lvim='vim -u ~/dotfiles/vimrc_light'
+
+alias insync-refresh='insync pause_syncing && insync resume_syncing'
