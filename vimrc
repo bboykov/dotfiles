@@ -6,6 +6,8 @@ set encoding=utf-8
 set backspace=indent,eol,start
 set t_Co=256
 
+set hidden        " Allow buffers to be hidden if modified
+
 set mouse=a       " Automatically enable mouse usage
 set mousehide     " Hide the mouse cursor while typing
 
@@ -16,6 +18,8 @@ set modeline      " Read infile vim settings
 set wildmenu      " Enhanced command-line completion
 set autoread      " Automatically read a file changed outside of vim
 set cursorline    " Highlight current line
+set splitright    " Puts new vsplit windows to the right of the current
+set splitbelow    " Puts new split windows to the bottom of the current
 
 " Search
 set hlsearch    " Highlight all search results
