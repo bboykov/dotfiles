@@ -16,6 +16,9 @@
   fcommit = commit --fixup
   fpush= push --force-with-lease
   unstage = reset HEAD --
+  uncommit-soft = reset --soft HEAD^
+  uncommit = reset HEAD^
+  uncommit-hard = reset --hard HEAD^
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 10
   ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 20
   lll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
