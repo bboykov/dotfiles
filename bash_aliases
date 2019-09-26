@@ -7,13 +7,15 @@ case "$OSTYPE" in
     alias la='ls -A'
     alias l='ls -CF'
     alias todoadd='todo-txt -t add'
-    alias todo='todo-txt ls'
+    alias tododo='todo-txt -a do'
+    alias todo='todo-txt'
      ;;
   darwin*)
     alias ls='ls -G'
     alias ll='ls -al'
     alias todoadd='todo.sh -t add'
-    alias todo='todo.sh ls'
+    alias tododo='todo.sh -a do'
+    alias todo='todo.sh'
      ;;
 esac
 
@@ -29,5 +31,6 @@ alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 
 # Misc
 alias lvim='vim -u ~/dotfiles/vimrc_light'
-
 alias insync-refresh='insync pause_syncing && insync resume_syncing'
+alias set-kubeconfig-default='export KUBECONFIG=~/.kube/config'
+alias watchit='watch --color -n 1 '
