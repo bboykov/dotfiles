@@ -5,6 +5,7 @@ filetype plugin indent on
 set encoding=utf-8
 set backspace=indent,eol,start
 set t_Co=256
+set iskeyword+=-  " Treat dashes as part of word
 
 set hidden        " Allow buffers to be hidden if modified
 
