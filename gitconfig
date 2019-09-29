@@ -1,6 +1,7 @@
 [user]
   name = Boyko Boykov
-  email = bboykov@users.noreply.github.com
+  email = boyko.boykov@gmail.com
+  signingkey = BEBE631857194F24
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
@@ -26,3 +27,4 @@
 [commit]
   template = ~/.gitmessage.txt
   verbose = true
+  gpgsign = true

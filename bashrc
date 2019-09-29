@@ -102,3 +102,6 @@ if [ -n "$BASH" ] && [ -r "$HOME/.bashrc_local" ]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Invoking GPG-AGENT
+export GPG_TTY=$(tty)
