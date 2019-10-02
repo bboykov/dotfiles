@@ -83,6 +83,13 @@ endif
 call plug#begin('~/.vim/plugged')
 " Functionality plugins
 Plug 'freitass/todo.txt-vim'
+highlight  default  link  TodoPriorityA  Constant
+highlight  default  link  TodoPriorityB  String
+highlight  default  link  TodoPriorityC  Title
+highlight  default  link  TodoPriorityR  Bold
+highlight  default  link  TodoProject    Statement
+highlight  default  link  TodoContext    Structure
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'              " http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 Plug 'ntpeters/vim-better-whitespace'
