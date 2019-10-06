@@ -84,8 +84,8 @@ call plug#begin('~/.vim/plugged')
 " Functionality plugins
 Plug 'freitass/todo.txt-vim'
 highlight  default  link  TodoPriorityA  Constant
-highlight  default  link  TodoPriorityB  String
-highlight  default  link  TodoPriorityC  Title
+highlight  default  link  TodoPriorityB  Title
+highlight  default  link  TodoPriorityC  String
 highlight  default  link  TodoPriorityR  Bold
 highlight  default  link  TodoProject    Statement
 highlight  default  link  TodoContext    Structure
