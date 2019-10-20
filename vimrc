@@ -151,15 +151,43 @@ nnoremap <space>ff :FzFiles<CR>
 nnoremap <space>bB :FzBuffers<CR>
 nnoremap <space>bW :FzWindows<CR>
 
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
-let g:vim_markdown_fenced_languages = ['bash=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+let g:vim_markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0 " TODO: Temp fix for https://github.com/plasticboy/vim-markdown/issues/408
 let g:vim_markdown_folding_level = 3
 let g:vim_markdown_folding_style_pythonic = 1
 
+" Deletegate bullets to another plugin
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
+
+Plug 'dkarter/bullets.vim'
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
+Plug 'jkramer/vim-checkbox'
+let g:insert_checkbox = '\<'
+let g:insert_checkbox_prefix = '- '
+
+" TODO: revisit this plugin to see if it is good form vim.
+" As of now (2019-10-20) the normal mode mapping do not work
+" Plug 'SidOfc/mkdx'
+" let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+" let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
+"                         \ 'enter': { 'shift': 1 },
+"                         \ 'links': { 'external': { 'enable': 1 } },
+"                         \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
+"                         \ 'map':                     { 'prefix': '<leader>', 'enable': 1  },
+"                         \ 'fold': { 'enable': 1 } }
+" let g:polyglot_disabled = ['markdown'] " for vim-polyglot users, it loads Plasticboy's markdown
+"                                        " plugin which unfortunately interferes with mkdx list indentation.
 
 Plug 'mzlogin/vim-markdown-toc'
 let g:vmt_list_item_char = '-'
