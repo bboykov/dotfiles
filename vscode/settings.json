@@ -6,5 +6,6 @@
     "markdown.extension.toc.levels": "2..6",
     "rewrap.wrappingColumn": 80,
     "files.insertFinalNewline": true,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": true,
+    "explorer.confirmDragAndDrop": false
 }
