@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+rst=$(tput sgr0)    # Reset
+bld=$(tput bold)    # Bold
+bldylw=${bld}$(tput setaf 3) #  Bold Yellow
+bldblu=${bld}$(tput setaf 4) #  Bold Blue
+
+CLUSTER=$(kubectl config current-context)
+NAMESPASE=$(kubectl config view --minify --output 'jsonpath={..namespace}')
+
+echo "Cluster: ${bldylw}${CLUSTER}${rst}"
+echo "Namespace: ${bldblu}${NAMESPASE}${rst}"
