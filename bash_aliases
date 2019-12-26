@@ -16,8 +16,16 @@ case "$OSTYPE" in
     alias todoadd='todo.sh -t add'
     alias tododo='todo.sh -a do'
     alias todo='todo.sh'
+    alias tcopy='pbcopy'
      ;;
 esac
+
+# Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
+if grep -q microsoft /proc/version; then
+  alias tcopy='clip.exe'
+elif [ $OSTYPE == linux*]; then
+  alias tcopy='xclip'
+fi
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
