@@ -7,5 +7,6 @@
     "rewrap.wrappingColumn": 80,
     "files.insertFinalNewline": true,
     "explorer.confirmDelete": true,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "workbench.sideBar.location": "right"
 }
