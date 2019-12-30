@@ -21,7 +21,7 @@ case "$OSTYPE" in
 esac
 
 # Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
-if grep -q microsoft /proc/version; then
+if [ -f /proc/version ] && [ grep -q microsoft /proc/version ]; then
   alias tcopy='clip.exe'
 elif [[ $OSTYPE == linux* ]]; then
   alias tcopy='xclip'
