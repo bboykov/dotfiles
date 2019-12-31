@@ -23,7 +23,7 @@ esac
 # Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
 grep -q microsoft /proc/version
 IS_WSL=$?
-if [[ -f /proc/version ]] && [[ ! $IS_WSL ]]; then
+if [[ -f /proc/version ]] && [[ $IS_WSL -eq 0 ]]; then
   alias tcopy='clip.exe'
 elif [[ $OSTYPE == linux* ]]; then
   alias tcopy='xclip'
