@@ -9,6 +9,7 @@ case "$OSTYPE" in
     alias todoadd='todo-txt -t add'
     alias tododo='todo-txt -a do'
     alias todo='todo-txt'
+    alias fopen='xdg-open'
      ;;
   darwin*)
     alias ls='ls -G'
@@ -17,6 +18,7 @@ case "$OSTYPE" in
     alias tododo='todo.sh -a do'
     alias todo='todo.sh'
     alias tcopy='pbcopy'
+    alias fopen='open'
      ;;
 esac
 
@@ -25,6 +27,7 @@ grep -q microsoft /proc/version
 IS_WSL=$?
 if [[ -f /proc/version ]] && [[ $IS_WSL -eq 0 ]]; then
   alias tcopy='clip.exe'
+  alias fopen='start'
 elif [[ $OSTYPE == linux* ]]; then
   alias tcopy='xclip'
 fi
