@@ -26,6 +26,7 @@ bashrc_linux        .bashrc_linux
 liquidpromptrc      .liquidpromptrc
 vimrc               .vimrc
 tmux.conf           .tmux.conf
+coc-settings.json   .vim/coc-settings.json
 EOL
 
 function create_link(){
