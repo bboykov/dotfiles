@@ -164,7 +164,17 @@ nnoremap <space>bW :FzWindows<CR>
 
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
-let g:vim_markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'vim', 'conf', 'config', 'terraform', 'yaml']
+let g:vim_markdown_fenced_languages = [
+\ 'sh',
+\ 'bash=sh',
+\ 'shell=sh',
+\ 'vim',
+\ 'conf',
+\ 'config',
+\ 'terraform',
+\ 'yaml',
+\ ]
+
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0 " TODO: Temp fix for https://github.com/plasticboy/vim-markdown/issues/408
@@ -177,11 +187,11 @@ let g:vim_markdown_new_list_item_indent = 0
 
 Plug 'dkarter/bullets.vim'
 let g:bullets_enabled_file_types = [
-    \ 'markdown',
-    \ 'text',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
+\ 'markdown',
+\ 'text',
+\ 'gitcommit',
+\ 'scratch'
+\ ]
 
 Plug 'jkramer/vim-checkbox'
 let g:insert_checkbox = '\<'
@@ -222,7 +232,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'sh': ['shfmt'],
 \   'python': ['isort', 'yapf'],
-\}
+\ }
 
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
