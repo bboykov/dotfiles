@@ -21,6 +21,7 @@ set autoread      " Automatically read a file changed outside of vim
 set cursorline    " Highlight current line
 set splitright    " Puts new vsplit windows to the right of the current
 set splitbelow    " Puts new split windows to the bottom of the current
+set cmdheight=2   " Better display for messages
 
 " Search
 set hlsearch    " Highlight all search results
@@ -131,8 +132,16 @@ let NERDTreeMinimalUI = 1 " Making it prettier
 let NERDTreeDirArrows = 1 " Making it prettier
 map <space>ft :NERDTreeToggle<CR>
 
-Plug 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" Plug 'ervandew/supertab'
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+"
+" Coc autocompletion
+" curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+\ 'coc-json',
+\ 'coc-ultisnips',
+\ ]
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
