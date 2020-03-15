@@ -148,20 +148,34 @@ let g:coc_global_extensions = [
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let g:fzf_command_prefix = 'Fz' " Same prefix to all commands
-" Mapping selecting mappings
-nmap <leader><tab>? <plug>(fzf-maps-n)
-xmap <leader><tab>? <plug>(fzf-maps-x)
-omap <leader><tab>? <plug>(fzf-maps-o)
-" Insert mode completion
-imap <space><c-k> <plug>(fzf-complete-word)
-imap <space><c-f> <plug>(fzf-complete-path)
-imap <space><c-j> <plug>(fzf-complete-file-ag)
-imap <space><c-l> <plug>(fzf-complete-line)
-
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" Commands
 nnoremap <space>ff :FzFiles<CR>
 nnoremap <space>bB :FzBuffers<CR>
 nnoremap <space>bW :FzWindows<CR>
+nnoremap <space>fzf :FzFiles<CR>
+nnoremap <space>fzg :FzGFiles?<CR>
+nnoremap <space>fza :FzAg<CR>
+nnoremap <space>fzl :FzLines<CR>
+nnoremap <space>fzbl :FzBLines<CR>
+nnoremap <space>fzt :FzTags<CR>
+nnoremap <space>fzbt :FzBTags<CR>
+nnoremap <space>fzm :FzMarks<CR>
+nnoremap <space>fzw :FzWindows<CR>
+nnoremap <space>fzco :FzCommits<CR>
+nnoremap <space>fzcmd :FzCommands<CR>
 
+" Mapping selecting mappings
+nmap <space>? <plug>(fzf-maps-n)
+imap <space>? <plug>(fzf-maps-i)
+xmap <space>? <plug>(fzf-maps-x)
+omap <space>? <plug>(fzf-maps-o)
+" Insert mode completion
+imap <space><tab>k <plug>(fzf-complete-word)
+imap <space><tab>f <plug>(fzf-complete-path)
+imap <space><tab>j <plug>(fzf-complete-file-ag)
+imap <space><tab>l <plug>(fzf-complete-line)
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 let g:vim_markdown_fenced_languages = [

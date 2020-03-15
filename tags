@@ -1,0 +1,119 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+;	vimrc	/^nnoremap ; :$/;"	m
+<	vimrc	/^vnoremap < <gv$/;"	m
+<leader>	vimrc	/^nnoremap <silent> <leader>      :<c-u>WhichKey '\\'<CR>$/;"	m
+<space>	vimrc	/^nnoremap <silent> <space>      :<c-u>WhichKey '<Space>'<CR>$/;"	m
+<space><tab>f	vimrc	/^imap <space><tab>f <plug>(fzf-complete-path)$/;"	m
+<space><tab>j	vimrc	/^imap <space><tab>j <plug>(fzf-complete-file-ag)$/;"	m
+<space><tab>k	vimrc	/^imap <space><tab>k <plug>(fzf-complete-word)$/;"	m
+<space><tab>l	vimrc	/^imap <space><tab>l <plug>(fzf-complete-line)$/;"	m
+<space>?	vimrc	/^imap <space>? <plug>(fzf-maps-i)$/;"	m
+<space>?	vimrc	/^nmap <space>? <plug>(fzf-maps-n)$/;"	m
+<space>?	vimrc	/^omap <space>? <plug>(fzf-maps-o)$/;"	m
+<space>?	vimrc	/^xmap <space>? <plug>(fzf-maps-x)$/;"	m
+<space>Q	vimrc	/^nnoremap <space>Q  :qa!<CR>$/;"	m
+<space>af	vimrc	/^nmap <silent> <space>af :ALEFix<cr>$/;"	m
+<space>aj	vimrc	/^nmap <silent> <space>aj :ALENext<cr>$/;"	m
+<space>ak	vimrc	/^nmap <silent> <space>ak :ALEPrevious<cr>$/;"	m
+<space>bB	vimrc	/^nnoremap <space>bB :FzBuffers<CR>$/;"	m
+<space>bN	vimrc	/^nmap <space>bN :enew<cr>$/;"	m
+<space>bW	vimrc	/^nnoremap <space>bW :FzWindows<CR>$/;"	m
+<space>bb	vimrc	/^nmap <space>bb :b#<CR>$/;"	m
+<space>bd	vimrc	/^nmap <space>bd :bp <BAR> bd #<CR>$/;"	m
+<space>bl	vimrc	/^nmap <space>bl :ls<CR>$/;"	m
+<space>bn	vimrc	/^nmap <space>bn :bnext<CR>$/;"	m
+<space>bp	vimrc	/^nmap <space>bp :bprevious<CR>$/;"	m
+<space>fds	vimrc	/^nnoremap <space>fds :source $MYVIMRC<cr>$/;"	m
+<space>fed	vimrc	/^nnoremap <space>fed :vsplit $MYVIMRC<cr>$/;"	m
+<space>fet	vimrc	/^nnoremap <space>fet :sp $HOME\/drive\/notes\/todo-txt\/todo.txt<cr>$/;"	m
+<space>ff	vimrc	/^nnoremap <space>ff :FzFiles<CR>$/;"	m
+<space>ft	vimrc	/^map <space>ft :NERDTreeToggle<CR>$/;"	m
+<space>fza	vimrc	/^nnoremap <space>fza :FzAg<CR>$/;"	m
+<space>fzbl	vimrc	/^nnoremap <space>fzbl :FzBLines<CR>$/;"	m
+<space>fzbt	vimrc	/^nnoremap <space>fzbt :FzBTags<CR>$/;"	m
+<space>fzc	vimrc	/^nnoremap <space>fzc :FzCommits<CR>$/;"	m
+<space>fzf	vimrc	/^nnoremap <space>fzf :FzFiles<CR>$/;"	m
+<space>fzg	vimrc	/^nnoremap <space>fzg :FzGFiles?<CR>$/;"	m
+<space>fzl	vimrc	/^nnoremap <space>fzl :FzLines<CR>$/;"	m
+<space>fzm	vimrc	/^nnoremap <space>fzm :FzCommands<CR>$/;"	m
+<space>fzm	vimrc	/^nnoremap <space>fzm :FzMarks<CR>$/;"	m
+<space>fzt	vimrc	/^nnoremap <space>fzt :FzTags<CR>$/;"	m
+<space>fzw	vimrc	/^nnoremap <space>fzw :FzWindows<CR>$/;"	m
+<space>q	vimrc	/^nnoremap <space>q  :q<CR>$/;"	m
+<space>sp	vimrc	/^nmap <silent> <space>sp :setlocal spell!<CR>$/;"	m
+<space>tT	vimrc	/^inoremap <space>tT <C-R>=strftime("%a %Y-%m-%d")<CR>$/;"	m
+<space>tT	vimrc	/^nnoremap <space>tT "=strftime("%a %Y-%m-%d")<CR>P$/;"	m
+<space>tt	vimrc	/^inoremap <space>tt <C-R>=strftime("%Y-%m-%d")<CR>$/;"	m
+<space>tt	vimrc	/^nnoremap <space>tt "=strftime("%Y-%m-%d")<CR>P$/;"	m
+>	vimrc	/^vnoremap > >gv$/;"	m
+COMMANDS	bin/encrypted_volumes.sh	/^  done <<COMMANDS$/;"	h
+EOF	bin/cnote.sh	/^cat << EOF > "$filename"$/;"	h
+EOF	bin/encrypted_volumes.sh	/^  cat <<EOF$/;"	h
+EOL	dotfiles.sh	/^done <<EOL$/;"	h
+NERDTreeDirArrows	vimrc	/^let NERDTreeDirArrows = 1 " Making it prettier$/;"	v
+NERDTreeMinimalUI	vimrc	/^let NERDTreeMinimalUI = 1 " Making it prettier$/;"	v
+POSITIONAL=	bin/encrypted_volumes.sh	/^  POSITIONAL=()$/;"	f
+U	vimrc	/^nnoremap U <C-r>$/;"	m
+WSLYank	vimrc	/^    augroup WSLYank$/;"	a
+assert_command_is_available	bin/encrypted_volumes.sh	/^assert_command_is_available() {$/;"	f
+base16colorspace	vimrc	/^  let base16colorspace=256$/;"	v
+create_link	dotfiles.sh	/^function create_link(){$/;"	f
+create_volume	bin/encrypted_volumes.sh	/^create_volume() {$/;"	f
+die	bin/encrypted_volumes.sh	/^die() {$/;"	f
+dotfiles	README.md	/^# dotfiles$/;"	c
+editor.renderWhitespace	vscode/settings.json	/^    "editor.renderWhitespace": "boundary",$/;"	s
+editor.tabSize	vscode/settings.json	/^    "editor.tabSize": 2,$/;"	n
+explorer.confirmDelete	vscode/settings.json	/^    "explorer.confirmDelete": true,$/;"	b
+explorer.confirmDragAndDrop	vscode/settings.json	/^    "explorer.confirmDragAndDrop": false,$/;"	b
+files.insertFinalNewline	vscode/settings.json	/^    "files.insertFinalNewline": true,$/;"	b
+g:NERDTreeWinPos	vimrc	/^let g:NERDTreeWinPos = "right"$/;"	v
+g:airline#extensions#ale#enabled	vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v
+g:airline#extensions#coc#enabled	vimrc	/^let g:airline#extensions#coc#enabled = 1$/;"	v
+g:airline#extensions#tabline#enabled	vimrc	/^let g:airline#extensions#tabline#enabled = 1$/;"	v
+g:airline#extensions#tabline#formatter	vimrc	/^let g:airline#extensions#tabline#formatter = 'unique_tail_improved'$/;"	v
+g:ale_fixers	vimrc	/^let g:ale_fixers = {$/;"	v
+g:ale_linters	vimrc	/^let g:ale_linters = {$/;"	v
+g:ale_set_highlights	vimrc	/^let g:ale_set_highlights=0$/;"	v
+g:ale_sh_shfmt_options	vimrc	/^let g:ale_sh_shfmt_options='-i 2 -ci' " Google style$/;"	v
+g:ale_sign_error	vimrc	/^let g:ale_sign_error = '⤫'$/;"	v
+g:ale_sign_warning	vimrc	/^let g:ale_sign_warning = '⚠'$/;"	v
+g:bullets_enabled_file_types	vimrc	/^let g:bullets_enabled_file_types = [$/;"	v
+g:coc_global_extensions	vimrc	/^let g:coc_global_extensions = [$/;"	v
+g:fzf_command_prefix	vimrc	/^let g:fzf_command_prefix = 'Fz' " Same prefix to all commands$/;"	v
+g:fzf_tags_command	vimrc	/^let g:fzf_tags_command = 'ctags -R'$/;"	v
+g:insert_checkbox	vimrc	/^let g:insert_checkbox = '\\<'$/;"	v
+g:insert_checkbox_prefix	vimrc	/^let g:insert_checkbox_prefix = '- '$/;"	v
+g:netrw_browsex_viewer	vimrc	/^  let g:netrw_browsex_viewer="cmd.exe \/C start"$/;"	v
+g:terraform_align	vimrc	/^let g:terraform_align=1$/;"	v
+g:terraform_commentstring	vimrc	/^let g:terraform_commentstring='# %s'$/;"	v
+g:terraform_fold_sections	vimrc	/^let g:terraform_fold_sections=1$/;"	v
+g:vim_markdown_auto_insert_bullets	vimrc	/^let g:vim_markdown_auto_insert_bullets = 0$/;"	v
+g:vim_markdown_conceal	vimrc	/^let g:vim_markdown_conceal = 0$/;"	v
+g:vim_markdown_conceal_code_blocks	vimrc	/^let g:vim_markdown_conceal_code_blocks = 0 " TODO: Temp fix for https:\/\/github.com\/plasticboy/;"	v
+g:vim_markdown_fenced_languages	vimrc	/^let g:vim_markdown_fenced_languages = [$/;"	v
+g:vim_markdown_folding_level	vimrc	/^let g:vim_markdown_folding_level = 3$/;"	v
+g:vim_markdown_folding_style_pythonic	vimrc	/^let g:vim_markdown_folding_style_pythonic = 1$/;"	v
+g:vim_markdown_new_list_item_indent	vimrc	/^let g:vim_markdown_new_list_item_indent = 0$/;"	v
+g:vim_markdown_new_list_item_indent	vimrc	/^let g:vim_markdown_new_list_item_indent = 2$/;"	v
+g:vmt_fence_text	vimrc	/^let g:vmt_fence_text = 'TOC'$/;"	v
+g:vmt_list_item_char	vimrc	/^let g:vmt_list_item_char = '-'$/;"	v
+help_action	bin/encrypted_volumes.sh	/^help_action() {$/;"	f
+link_config_files	dotfiles.sh	/^function link_config_files(){$/;"	f
+link_scripts	dotfiles.sh	/^function link_scripts() {$/;"	f
+link_vscode_settings	dotfiles.sh	/^function link_vscode_settings(){$/;"	f
+main	bin/encrypted_volumes.sh	/^main() {$/;"	f
+markdown.extension.toc.levels	vscode/settings.json	/^    "markdown.extension.toc.levels": "2..6",$/;"	s
+markdown.extension.toc.updateOnSave	vscode/settings.json	/^    "markdown.extension.toc.updateOnSave": false,$/;"	b
+mount_volume	bin/encrypted_volumes.sh	/^mount_volume() {$/;"	f
+rewrap.wrappingColumn	vscode/settings.json	/^    "rewrap.wrappingColumn": 80,$/;"	n
+s:clip	vimrc	/^  let s:clip = '\/mnt\/c\/Windows\/System32\/clip.exe'$/;"	v
+umount_volume	bin/encrypted_volumes.sh	/^umount_volume() {$/;"	f
+vim.disableExtension	vscode/settings.json	/^    "vim.disableExtension": true$/;"	b
+workbench.colorTheme	vscode/settings.json	/^    "workbench.colorTheme": "Monokai",$/;"	s
+workbench.sideBar.location	vscode/settings.json	/^    "workbench.sideBar.location": "right",$/;"	s
