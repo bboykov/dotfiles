@@ -49,3 +49,6 @@ alias lvim='vim -u ~/dotfiles/vimrc_light'
 alias insync-refresh='insync pause_syncing && insync resume_syncing'
 alias set-kubeconfig-default='export KUBECONFIG=~/.kube/config'
 alias watchit='watch --color -n 1 '
+# https://github.com/github/hub/issues/1792#issuecomment-403413131
+alias git=hub
+
