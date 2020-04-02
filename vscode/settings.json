@@ -9,5 +9,6 @@
     "explorer.confirmDelete": true,
     "explorer.confirmDragAndDrop": false,
     "workbench.sideBar.location": "right",
-    "vim.disableExtension": true
+    "vim.disableExtension": true,
+    "editor.wordWrap": "on"
 }
