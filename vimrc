@@ -236,9 +236,10 @@ let g:terraform_fold_sections=1
 "let g:terraform_fmt_on_save=1 # Disabled because of misformats tfvars files
 let g:terraform_commentstring='# %s'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 let g:ale_linters = {
 \ 'sh': ['shellcheck'] ,
+\ 'md': ['markdownlint'],
 \ 'terraform': ['tflint'] ,
 \ 'ansible': ['ansible'] ,
 \ 'python': ['flake8'] ,
