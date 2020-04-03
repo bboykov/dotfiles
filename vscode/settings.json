@@ -10,5 +10,6 @@
     "explorer.confirmDragAndDrop": false,
     "workbench.sideBar.location": "right",
     "vim.disableExtension": true,
+    "shellformat.flag": "-i 2 -ci",
     "editor.wordWrap": "on"
 }
