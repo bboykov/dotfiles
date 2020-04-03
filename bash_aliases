@@ -53,5 +53,5 @@ alias watchit='watch --color -n 1 '
 alias git=hub
 
 # liquidprompt
-alias prompt-kube-off='export LP_ENABLE_KUBECONTEXT=0'
-alias prompt-kube-on='export LP_ENABLE_KUBECONTEXT=1'
+alias prompt_kube-off='export LP_ENABLE_KUBECONTEXT=0'
+alias prompt_kube-on='export LP_ENABLE_KUBECONTEXT=1'
