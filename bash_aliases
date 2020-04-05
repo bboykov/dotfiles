@@ -18,6 +18,7 @@ case "$OSTYPE" in
     alias tododo='todo.sh -a do'
     alias todo='todo.sh'
     alias tcopy='pbcopy'
+    alias tpaste='pbpaste'
     alias fopen='open'
      ;;
 esac
@@ -30,7 +31,10 @@ if [[ -f /proc/version ]]; then
     alias tcopy='clip.exe'
     alias fopen='start'
   elif [[ $OSTYPE == linux* ]]; then
-    alias tcopy='xclip'
+    alias tcopy='xclip -selection clipboard'
+    alias tpaste='xclip -selection clipboard -o'
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
   fi
 fi
 
