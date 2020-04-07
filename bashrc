@@ -92,6 +92,10 @@ if [ -f "$HOME/liquidprompt/liquidprompt" ]; then
   source "$HOME/liquidprompt/liquidprompt"
 fi
 
+if type thefuck > /dev/null; then
+  eval "$(thefuck --alias)"
+fi
+
 # Load OS specific configuration
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source "$HOME/.bashrc_macos"
