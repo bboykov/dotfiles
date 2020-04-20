@@ -1,18 +1,31 @@
 #!/usr/bin/env bash
 # Create a note file with timestamp and top heading
 
-filename="$1-$(date +%Y-%m-%d).md"
+set -euo pipefail
+IFS=$'\n\t'
 
-if [[ ! -f $filename ]]; then
+FILEROOT="$1"
+FILENAME="${FILEROOT}-$(date +%Y-%m-%d).md"
 
-cat << EOF > "$filename"
-# $filename
+case "$OSTYPE" in
+  linux*)
+    COPY_TO_CLIPBOARD='xclip -selection clipboard'
+    ;;
+  darwin*)
+    COPY_TO_CLIPBOARD='pbcopy'
+    ;;
+esac
+
+if [[ ! -f ${FILENAME} ]]; then
+
+  cat <<EOF >"${FILENAME}"
+# ${FILEROOT}
 EOF
 
-vim "$filename"
+  echo "${FILENAME}" | ${COPY_TO_CLIPBOARD}
+  echo "Note ${FILENAME} created and copied to the clipboard."
 
 else
   echo "Note exists."
   exit 0
 fi
-
