@@ -131,6 +131,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1 " Making it prettier
 let NERDTreeDirArrows = 1 " Making it prettier
+let NERDTreeSortOrder = ['\/$','[[-timestamp]]']
 map <space>ft :NERDTreeToggle<CR>
 
 " Plug 'ervandew/supertab'
