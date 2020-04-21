@@ -4,6 +4,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+readonly NOTES="$HOME/drive/notes/$(date +%Y)"
+
 _JOURNAL=0
 
 case "$OSTYPE" in
@@ -44,6 +46,7 @@ FILEROOT="${1-note}"
 
 if [[ _JOURNAL -eq 1 ]]; then
   FILENAME="$(date +%d-%m-%Y).md"
+  FILE_PATH="${NOTES}/journal/${FILENAME}"
 
   read -r -d '' FILE_BODY << EOM || true
 # $(date +%a) ${FILENAME%.*} ${FILEROOT}
@@ -51,6 +54,7 @@ if [[ _JOURNAL -eq 1 ]]; then
 EOM
 else
   FILENAME="${FILEROOT}-$(date +%Y-%m-%d).md"
+  FILE_PATH="${NOTES}/${FILENAME}"
 
   read -r -d '' FILE_BODY << EOM || true
 # ${FILEROOT}
@@ -58,14 +62,15 @@ else
 EOM
 fi
 
-if [[ ! -f ${FILENAME} ]]; then
 
-  cat <<EOF >"${FILENAME}"
+if [[ ! -f ${FILE_PATH} ]]; then
+
+  cat <<EOF >"${FILE_PATH}"
 ${FILE_BODY}
 EOF
 
-  echo "${FILENAME}" | ${COPY_TO_CLIPBOARD}
-  echo "Note ${FILENAME} created and copied to the clipboard."
+  echo "${FILE_PATH}" | eval ${COPY_TO_CLIPBOARD}
+  echo "Note ${FILENAME} created and path copied to the clipboard."
 
 else
   echo "Note exists."

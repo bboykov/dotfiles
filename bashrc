@@ -71,7 +71,7 @@ CDPATH=".:~/wd"
 shopt -s cdable_vars
 
 export dotfiles="$HOME/dotfiles"
-export notes="$HOME/drive/notes/$(date +%Y)/"
+export notes="$HOME/drive/notes/$(date +%Y)"
 
 # Load todo-txt configuration file
 export TODOTXT_CFG_FILE=$HOME/dotfiles/todo.cfg
