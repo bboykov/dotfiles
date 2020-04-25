@@ -21,7 +21,7 @@ set autoread      " Automatically read a file changed outside of vim
 set cursorline    " Highlight current line
 set splitright    " Puts new vsplit windows to the right of the current
 set splitbelow    " Puts new split windows to the bottom of the current
-set cmdheight=2   " Better display for messages
+" set cmdheight=2   " Better display for messages
 
 " Search
 set hlsearch    " Highlight all search results
