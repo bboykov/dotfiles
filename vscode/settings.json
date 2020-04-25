@@ -12,5 +12,6 @@
     "vim.disableExtension": true,
     "shellformat.flag": "-i 2 -ci",
     "editor.wordWrap": "on",
-    "git.autofetch": true
+    "git.autofetch": true,
+    "window.zoomLevel": 0
 }
