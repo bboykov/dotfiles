@@ -13,5 +13,7 @@
     "shellformat.flag": "-i 2 -ci",
     "editor.wordWrap": "on",
     "git.autofetch": true,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "vim.camelCaseMotion.enable": true,
+    "vim.useSystemClipboard": true
 }
