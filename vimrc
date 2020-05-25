@@ -157,7 +157,8 @@ nnoremap <space>bB :FzBuffers<CR>
 nnoremap <space>bW :FzWindows<CR>
 nnoremap <space>fzf :FzFiles<CR>
 nnoremap <space>fzg :FzGFiles?<CR>
-nnoremap <space>fza :FzAg<CR>
+nnoremap <space>fa :FzAg<CR>
+nnoremap <space>fa* :FzAg <C-R><C-W><CR>:cw<CR>
 nnoremap <space>fzl :FzLines<CR>
 nnoremap <space>fzbl :FzBLines<CR>
 nnoremap <space>fzt :FzTags<CR>
