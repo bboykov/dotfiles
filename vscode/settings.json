@@ -41,5 +41,6 @@
     },
     "vim.hlsearch": true,
     "vim.iskeyword": "-",
-    "editor.wordSeparators": "-"
+    "editor.wordSeparators": "-",
+    "editor.fontSize": 14
 }
