@@ -273,6 +273,9 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_autowrite = 1
 
 Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
+let g:insert_checkbox_prefix = '- '
+let g:insert_checkbox_suffix = ' '
+
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 let g:vmt_list_item_char = '-'
 let g:vmt_fence_text = 'TOC'
