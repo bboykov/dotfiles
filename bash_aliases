@@ -10,7 +10,7 @@ case "$OSTYPE" in
     alias tododo='todo-txt -a do'
     alias todo='todo-txt'
     alias fopen='xdg-open'
-     ;;
+    ;;
   darwin*)
     alias ls='ls -G'
     alias ll='ls -al'
@@ -20,7 +20,7 @@ case "$OSTYPE" in
     alias tcopy='pbcopy'
     alias tpaste='pbpaste'
     alias fopen='open'
-     ;;
+    ;;
 esac
 
 # Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
@@ -35,6 +35,13 @@ if [[ -f /proc/version ]]; then
     alias tpaste='xclip -selection clipboard -o'
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
+    ## Git
+    ## https://github.com/github/hub/issues/1792#issuecomment-403413131
+    alias git=hub
+  elif [[ $OSTYPE == darwin* ]]; then
+    ## Git
+    ## https://github.com/github/hub/issues/1792#issuecomment-403413131
+    alias git=hub
   fi
 fi
 
@@ -51,12 +58,6 @@ alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 # liquidprompt
 alias prompt_kube-off='export LP_ENABLE_KUBECONTEXT=0'
 alias prompt_kube-on='export LP_ENABLE_KUBECONTEXT=1'
-
-## Git
-## https://github.com/github/hub/issues/1792#issuecomment-403413131
-alias git=hub
-
-
 
 ## Misc
 alias insync-refresh='insync pause_syncing && insync resume_syncing'
