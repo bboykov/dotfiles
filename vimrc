@@ -30,6 +30,8 @@ set smartindent   " Enable smart-indent
 set expandtab     " Use spaces instead of tabs
 set softtabstop=2 " Number of auto-indent spaces
 set shiftwidth=2  " Number of spaces per Tab
+""" Set tabs instead of spaces for Makefiles
+autocmd FileType make setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 """ Backup
 set nobackup
@@ -387,5 +389,6 @@ catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
 endtry
 """ Set colorscheme }
+
 
 """ vim: foldmethod=marker
