@@ -34,13 +34,10 @@
     "editor.wordWrap": "on",
     "git.autofetch": true,
     "window.zoomLevel": 0,
-    "vim.camelCaseMotion.enable": true,
     "vim.useSystemClipboard": true,
     "vs-kubernetes": {
         "vs-kubernetes.minikube-path.mac": "/Users/bboykov/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "vim.hlsearch": true,
-    "vim.iskeyword": "-",
-    "editor.wordSeparators": "-",
     "editor.fontSize": 14
 }
