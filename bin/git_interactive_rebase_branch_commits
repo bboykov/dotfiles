@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Strict Mode - http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+IFS=$'\n\t'
+
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ ${CURRENT_BRANCH} == "master" ]]; then
+  echo "The current branch is master. Abort!"
+  exit 1
+fi
+
+NUMBER_OF_COMMITS=$(git log master.."${CURRENT_BRANCH}" --pretty=oneline | wc -l | sed 's/ //g')
+
+git rebase -i HEAD~"${NUMBER_OF_COMMITS}"
