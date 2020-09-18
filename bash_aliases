@@ -30,7 +30,7 @@ if [[ -f /proc/version ]]; then
   if [[ $IS_WSL -eq 0 ]]; then
     alias tcopy='clip.exe'
     alias fopen='start'
-  elif [[ $OSTYPE == linux* ]]; then
+  elif [[ $OSTYPE =~ linux* ]]; then
     alias tcopy='xclip -selection clipboard'
     alias tpaste='xclip -selection clipboard -o'
     alias pbcopy='xclip -selection clipboard'
@@ -38,11 +38,11 @@ if [[ -f /proc/version ]]; then
     ## Git
     ## https://github.com/github/hub/issues/1792#issuecomment-403413131
     alias git=hub
-  elif [[ $OSTYPE == darwin* ]]; then
-    ## Git
-    ## https://github.com/github/hub/issues/1792#issuecomment-403413131
-    alias git=hub
   fi
+elif [[ $OSTYPE =~ darwin* ]]; then
+  ## Git
+  ## https://github.com/github/hub/issues/1792#issuecomment-403413131
+  alias git=hub
 fi
 
 alias grep='grep --color=auto'
@@ -58,6 +58,10 @@ alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 # liquidprompt
 alias prompt_kube-off='export LP_ENABLE_KUBECONTEXT=0'
 alias prompt_kube-on='export LP_ENABLE_KUBECONTEXT=1'
+
+# kubectl
+alias kctl=kubectl
+complete -F __start_kubectl kctl
 
 ## Misc
 alias insync-refresh='insync pause_syncing && insync resume_syncing'
