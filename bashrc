@@ -113,3 +113,6 @@ fi
 
 # Invoking GPG-AGENT
 export GPG_TTY=$(tty)
+
+### gh completion
+eval "$(gh completion -s bash)"
