@@ -39,5 +39,6 @@
         "vs-kubernetes.minikube-path.mac": "/Users/bboykov/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "vim.hlsearch": true,
-    "editor.fontSize": 14
+    "editor.fontSize": 14,
+    "editor.suggest.localityBonus": true
 }

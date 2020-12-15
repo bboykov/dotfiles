@@ -11,6 +11,6 @@ LP_PS1_POSTFIX="\n└▪ "
 # Default prompt is in ~/liquidprompt/liquid.ps1
 PS2=" ┃ "
 
-LP_ENABLE_KUBECONTEXT=0
+LP_ENABLE_KUBECONTEXT=1
 LP_DELIMITER_KUBECONTEXT=.
 # vim: set et sts=4 sw=4 tw=120 ft=sh:

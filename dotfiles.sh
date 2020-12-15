@@ -67,8 +67,8 @@ function link_config_files(){
 
   cd "$DOTFILES_PATH"
 
-  for key in ${!files_map[@]}; do
-    create_link $CONFIGS_SRC_DIR/$key $CONFIGS_DST_DIR/${files_map[${key}]}
+  for key in "${!files_map[@]}"; do
+    create_link "$CONFIGS_SRC_DIR/$key $CONFIGS_DST_DIR/${files_map[${key}]}"
   done
 
   echo ">>> done"
