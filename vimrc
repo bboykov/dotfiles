@@ -282,7 +282,7 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 let g:vmt_list_item_char = '-'
 let g:vmt_fence_text = 'TOC'
 
-Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': { -> mkdp#util#install() } }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] }
 
 """ Markdown }
 
