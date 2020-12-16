@@ -82,6 +82,11 @@ if [ -f ~/.bash_aliases ]; then
   source "$HOME/.bash_aliases"
 fi
 
+# Load alias functions
+if [ -f ~/.bash_aliases ]; then
+  source "$HOME/.bash_alias_funcs"
+fi
+
 # Load base16 shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 if [ -s $BASE16_SHELL/profile_helper.sh ]; then

@@ -55,16 +55,7 @@ alias reload='source ~/.bash_profile'
 # Ansible
 alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
 
-# liquidprompt
-alias prompt_kube-off='export LP_ENABLE_KUBECONTEXT=0'
-alias prompt_kube-on='export LP_ENABLE_KUBECONTEXT=1'
-
-# kubectl
-alias kctl=kubectl
-complete -F __start_kubectl kctl
-
 ## Misc
-alias insync-refresh='insync pause_syncing && insync resume_syncing'
 alias set-kubeconfig-default='export KUBECONFIG=~/.kube/config'
 alias watchit='watch --color -n 1 '
 alias real-python-book='fopen ~/Downloads/python-basics-2020-03-18.pdf'

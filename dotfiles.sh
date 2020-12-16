@@ -21,6 +21,7 @@ bash_profile        .bash_profile
 profile             .profile
 bashrc              .bashrc
 bash_aliases        .bash_aliases
+bash_alias_funcs    .bash_alias_funcs
 bashrc_macos        .bashrc_macos
 bashrc_linux        .bashrc_linux
 liquidpromptrc      .liquidpromptrc
