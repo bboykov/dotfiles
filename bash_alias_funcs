@@ -1,6 +1,5 @@
 # vi:syntax=sh
 
-
 decode_base64_str(){
   local str="$1"
 echo -n "$str" | base64 -D
@@ -14,4 +13,9 @@ prompt_k8s_on(){
 
 prompt_k8s_off(){
     export LP_ENABLE_KUBECONTEXT=0
+}
+
+reload(){
+  # Reload the login session configuration
+  source ~/.bash_profile
 }
