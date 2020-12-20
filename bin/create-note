@@ -6,7 +6,7 @@ IFS=$'\n\t'
 
 readonly NOTES="$HOME/drive/notes/$(date +%Y)"
 
-_JOURNAL=0
+is_journal_note=0
 
 case "$OSTYPE" in
   linux*)
@@ -23,7 +23,7 @@ do
   __option="${1:-}"
   case "${__option}" in
     -j|--journal)
-      _JOURNAL=1
+      is_journal_note=1
       ;;
     -*)
       printf "Unexpected option: %s\\n" "${__option}"
@@ -44,7 +44,7 @@ fi
 
 FILEROOT="${1-note}"
 
-if [[ _JOURNAL -eq 1 ]]; then
+if [[ ${is_journal_note} -eq 1 ]]; then
   FILENAME="$(date +%d-%m-%Y).md"
   FILE_PATH="${NOTES}/journal/${FILENAME}"
 
