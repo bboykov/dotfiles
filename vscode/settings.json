@@ -40,5 +40,6 @@
     },
     "vim.hlsearch": true,
     "editor.fontSize": 14,
-    "editor.suggest.localityBonus": true
+    "editor.suggest.localityBonus": true,
+    "cSpell.allowCompoundWords": true
 }
