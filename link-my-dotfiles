@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-set -o errexit
+set -uo pipefail
+trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-OLD_DOTFILES_BKP_DIR="$HOME/.old-dotfiles-bkp-dir"
-SCRIPTS_SRC_DIR="$DOTFILES_DIR/bin"
-SCRIPTS_DST_DIR="$HOME/bin"
-CONFIGS_SRC_DIR="$DOTFILES_DIR"
-CONFIGS_DST_DIR="$HOME"
+OLD_DOTFILES_BKP_DIR="${HOME}/.old-dotfiles-bkp-dir"
+SCRIPTS_SRC_DIR="${DOTFILES_DIR}/bin"
+SCRIPTS_DST_DIR="${HOME}/bin"
+CONFIGS_SRC_DIR="${DOTFILES_DIR}"
+CONFIGS_DST_DIR="${HOME}"
 
 declare -A files_map
 while read -r src dst; do

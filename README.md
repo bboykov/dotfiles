@@ -1,5 +1,5 @@
 # dotfiles
 
 ```bash
-curl -fsSL -o install.sh https://raw.githubusercontent.com/bboykov/dotfiles/master/install.sh && bash install.sh
+curl -fsSL -o /tmp/install.bash https://raw.githubusercontent.com/bboykov/dotfiles/master/install.bash && bash /tmp/install.bash
 ```
