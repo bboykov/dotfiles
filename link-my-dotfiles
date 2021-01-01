@@ -3,16 +3,12 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-OLD_DOTFILES_BKP_DIR="${HOME}/.old-dotfiles-bkp-dir"
-SCRIPTS_SRC_DIR="${DOTFILES_DIR}/bin"
-SCRIPTS_DST_DIR="${HOME}/bin"
-CONFIGS_SRC_DIR="${DOTFILES_DIR}"
-CONFIGS_DST_DIR="${HOME}"
+readonly DOTFILES_HOME="${HOME}/dotfiles"
 
 declare -A files_map
+
 while read -r src dst; do
-  files_map[$src]=$dst
+  files_map[${src}]=${dst}
 done <<EOL
 inputrc             .inputrc
 gitconfig           .gitconfig
@@ -31,79 +27,96 @@ tmux.conf           .tmux.conf
 coc-settings.json   .vim/coc-settings.json
 EOL
 
-function create_link(){
-  local from=$1
-  local to=$2
+error_message() {
+  echo "[ERROR]: $*" >&2
+}
 
-  if [[ ! -f "$from" && ! -d "$from" ]]; then
-    echo "[err] Source file not found: $from"
+create_link() {
+  local src=$1
+  local dst=$2
+  local old_dotfiles_backup_directory="${HOME}/.old_dotfiles_backup_directory"
+  local dst_dirname="${dst%/*}"
+  local dst_filename="${dst##*/}"
+
+  if [[ ! -f "${src}" && ! -d "${src}" ]]; then
+    error_message "Source file not found: $src"
     return
-  fi
-
-  if [ ! -d "$(dirname "$to")" ]; then
-    echo "[err] Destination does not exist $(dirname "$to")"
+  elif [[ ! -d "${dst_dirname}" ]]; then
+    error_message "Destination does not exist: ${dst_dirname}"
     return
   fi
 
   # Move only if there is a file and it is not a symlink
-  if [[ -e "$to" ]] && [ ! -h "$to" ]; then
-    echo "Moving pre-existing $(basename "$to") to ${OLD_DOTFILES_BKP_DIR}"
-    if [ ! -d "$OLD_DOTFILES_BKP_DIR" ]; then
-      mkdir -p "$OLD_DOTFILES_BKP_DIR"
+  if [[ -e "${dst}" && ! -L "${dst}" ]]; then
+    echo "Moving existing ${dst_filename} to ${old_dotfiles_backup_directory}"
+
+    if [ ! -d "${old_dotfiles_backup_directory}" ]; then
+      mkdir -p "${old_dotfiles_backup_directory}"
     fi
-    mv "$to" "${OLD_DOTFILES_BKP_DIR}/$(basename "$to")-$(date +%Y%m%d-%H%M%S)"
+
+    mv "${dst}" "${old_dotfiles_backup_directory}/${dst_filename}-$(date +%Y%m%d-%H%M%S)"
   fi
 
   # Create symlink if there isn't already a healthy symlink
-  if [ ! -h "$to" ] || [ ! -e "$to" ]; then
-    echo -n "Create symlink $to ..."
-    ln -sf "$from" "$to"
+  if [ ! -h "${dst}" ] || [ ! -e "${dst}" ]; then
+    echo -n "Create symlink ${dst} ... "
+    ln -sf "${src}" "${dst}"
     echo "done"
   else
-    echo "Nothing to do. Link exists at $to"
-  fi
-}
-
-function link_config_files(){
-  echo ">>> Dotfiles"
-
-  cd "$DOTFILES_PATH"
-
-  for key in "${!files_map[@]}"; do
-    create_link "$CONFIGS_SRC_DIR/$key" "$CONFIGS_DST_DIR/${files_map[${key}]}"
-  done
-
-  echo ">>> done"
-}
-
-function link_scripts() {
-  echo ">>> Link scripts"
-
-  if [ ! -d "$SCRIPTS_DST_DIR" ]; then
-    mkdir -p "$SCRIPTS_DST_DIR"
+    echo "Skipped. Link exists at ${dst}"
   fi
 
-  cd "$SCRIPTS_SRC_DIR"
-
-  for script in "$SCRIPTS_SRC_DIR"/*; do
-    scriptname="$(basename "$script")"
-    create_link "$script" "$SCRIPTS_DST_DIR/$scriptname"
-  done
-
-  echo ">>> done"
 }
 
-function link_vscode_settings(){
+link_config_files() {
+  local config_files_directory="${DOTFILES_HOME}/config"
 
+  echo "Link config files:"
+  for file in "${!files_map[@]}"; do
+    create_link "${config_files_directory}/${file}" "${HOME}/${files_map[${file}]}"
+  done
+
+  echo "======================================================================"
+
+}
+
+link_scripts() {
+  local scripts_directory="${DOTFILES_HOME}/scripts"
+  local home_bin="${HOME}/bin"
+
+  if [ ! -d "${home_bin}" ]; then
+    mkdir -p "${home_bin}"
+    echo "${home_bin} created."
+  fi
+
+  echo "Link scripts:"
+  for script in "${scripts_directory}"/*; do
+    scriptname="$(basename "${script}")"
+    create_link "${script}" "${home_bin}/${scriptname}"
+  done
+
+  echo "======================================================================"
+}
+
+link_vscode_settings() {
+  ### TODO: find better way to sync vscode settings, extentions and others
+  local config_files_directory="${DOTFILES_HOME}/config"
+
+  echo "Link vscode settings:"
   # Load OS specific configuration
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    create_link  "$CONFIGS_SRC_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-  elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    create_link "$CONFIGS_SRC_DIR/vscode/settings.json" "$HOME/.config/Code/User/settings.json"
+  if [[ "${OSTYPE}" == "darwin"* ]]; then
+    create_link "${config_files_directory}/vscode/settings.json" "${HOME}/Library/Application Support/Code/User/settings.json"
+  elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
+    create_link "${config_files_directory}/vscode/settings.json" "${HOME}/.config/Code/User/settings.json"
   fi
+
+  echo "======================================================================"
 }
 
-# MAIN
-link_scripts
-link_config_files
-link_vscode_settings
+main() {
+  link_config_files
+  link_scripts
+  link_vscode_settings
+}
+
+main "$@"
