@@ -1,3 +1,5 @@
 # dotfiles
 
-Clone the repo and run `dotfiles.sh` to symlink the configuration.
+```bash
+curl -fsSL -o install.sh https://raw.githubusercontent.com/bboykov/dotfiles/master/install.sh && bash install.sh
+```
