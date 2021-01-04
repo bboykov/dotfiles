@@ -84,7 +84,7 @@ fi
 
 # Load alias functions
 if [ -f ~/.bash_aliases ]; then
-  source "$HOME/.bash_alias_funcs"
+  source "$HOME/.bash_alias_funcs.bash"
 fi
 
 # Load base16 shell
