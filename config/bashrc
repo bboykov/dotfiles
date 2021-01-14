@@ -75,7 +75,7 @@ export notes="$HOME/drive/notes/$(date +%Y)"
 export wd="$HOME/wd"
 
 # Load todo-txt configuration file
-export TODOTXT_CFG_FILE=$HOME/dotfiles/todo.cfg
+export TODOTXT_CFG_FILE=$HOME/dotfiles/config/todo.cfg
 
 # Load alias definitions
 if [ -f ~/.bash_aliases ]; then

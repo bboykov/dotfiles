@@ -9,6 +9,8 @@ case "$OSTYPE" in
     alias todoadd='todo-txt -t add'
     alias tododo='todo-txt -a do'
     alias todo='todo-txt'
+    alias todoxp='todo-txt xp -o 10'
+    alias todoprojectview='todo-txt projectview'
     alias fopen='xdg-open'
     ;;
   darwin*)
@@ -17,6 +19,8 @@ case "$OSTYPE" in
     alias todoadd='todo.sh -t add'
     alias tododo='todo.sh -a do'
     alias todo='todo.sh'
+    alias todoxp='todo.sh xp -o 10'
+    alias todoprojectview='todo.sh projectview'
     alias tcopy='pbcopy'
     alias tpaste='pbpaste'
     alias fopen='open'
