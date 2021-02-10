@@ -15,6 +15,7 @@
   pull-rebase = pull --rebase
   merge-no-ff = merge --no-ff
   fcommit = commit --fixup
+  fcommit-head = commit --fixup HEAD
   fpush= push --force-with-lease
   unstage = reset HEAD --
   uncommit-soft = reset --soft HEAD^

@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# Create a note file with timestamp and top heading
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly MY_DRIVE_NOTES="$HOME/drive/notes/$(date +%Y)"
+
+is_journal_note=0
+
+case "$OSTYPE" in
+  linux*)
+    copy_to_clipboard_command='xclip -selection clipboard'
+    ;;
+  darwin*)
+    copy_to_clipboard_command='pbcopy'
+    ;;
+esac
+
+positional_parameters=()
+while [[ ${#} -gt 0 ]]; do
+  __option="${1:-}"
+  case "${__option}" in
+    -j | --journal)
+      is_journal_note=1
+      ;;
+    -*)
+      printf "Unexpected option: %s\\n" "${__option}"
+      exit 1
+      ;;
+    *)
+      positional_parameters+=("${__option}")
+      ;;
+  esac
+  shift
+done
+
+set -- "${positional_parameters[@]}"
+if [ $# -gt 1 ]; then
+  printf "Too many positional parameters"
+  exit 1
+fi
+
+file_root="${1-note}"
+
+if [[ ${is_journal_note} -eq 1 ]]; then
+  filename="$(date +%d-%m-%Y).md"
+  file_path="${MY_DRIVE_NOTES}/journal/${filename}"
+
+  read -r -d '' file_body <<EOM || true
+# $(date +%a) ${filename%.*} ${file_root}
+
+EOM
+else
+  filename="${file_root}-$(date +%Y-%m-%d).md"
+  file_path="${MY_DRIVE_NOTES}/${filename}"
+
+  read -r -d '' file_body <<EOM || true
+# ${file_root}
+
+EOM
+fi
+
+if [[ ! -f ${file_path} ]]; then
+
+  cat <<EOF >"${file_path}"
+${file_body}
+EOF
+
+  echo "${file_path}" | eval ${copy_to_clipboard_command}
+  echo "Note ${filename} created and path copied to the clipboard."
+
+else
+  echo "Note exists."
+  exit 0
+fi

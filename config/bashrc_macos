@@ -1,8 +1,7 @@
 # vi:syntax=sh
-#
-### Upgrade Bash
-#https://kubernetes.io/docs/tasks/tools/install-kubectl/#upgrade-bash
 
+### Upgrade Bash
+### https://kubernetes.io/docs/tasks/tools/install-kubectl/#upgrade-bash
 
 # Set up locales
 export LC_ALL=en_US.UTF-8

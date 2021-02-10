@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly DOTFILES_HOME="${HOME}/dotfiles"
+readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
+
+# shellcheck source=../lib/functions.bash
+source "${DOTFILES_HOME}/lib/functions.bash"
+
+declare -A bash_config_files
+scripts_directory="${DOTFILES_HOME}/scripts"
+home_bin="${HOME}/bin"
+
+while IFS=' ' read -r target link_name; do
+  bash_config_files[${target}]=${link_name}
+done <<EOL
+bashrc                .bashrc
+bash_profile          .bash_profile
+bash_aliases          .bash_aliases
+bash_functions.bash   .bash_functions.bash
+bashrc_macos          .bashrc_macos
+bashrc_linux          .bashrc_linux
+liquidpromptrc        .liquidpromptrc
+inputrc               .inputrc
+gitconfig             .gitconfig
+gitmessage.txt        .gitmessage.txt
+gitignore_global      .gitignore_global
+EOL
+
+for file in "${!bash_config_files[@]}"; do
+  bash scripts/dotfiles-link-dotfile "${DOTFILES_CONFIG}/${file}" "${HOME}/${bash_config_files[${file}]}"
+done
+
+if [ ! -d "${home_bin}" ]; then
+  mkdir -p "${home_bin}"
+  echo "${home_bin} created."
+fi
+
+for script in "${scripts_directory}"/*; do
+  scriptname="$(basename "${script}")"
+  bash scripts/dotfiles-link-dotfile "${script}" "${home_bin}/${scriptname}"
+done
+
+liquidprompt_install_dir="$HOME/liquidprompt"
+if [[ ! -d "${liquidprompt_install_dir}" ]]; then
+  util::info_message "Clone to ${liquidprompt_install_dir}"
+  git clone \
+    --depth 1 \
+    --branch master \
+    https://github.com/bboykov/liquidprompt.git \
+    "${liquidprompt_install_dir}" >/dev/null 2>&1
+else
+  util::info_message "Direcotry ${liquidprompt_install_dir} exists."
+fi
+
+base16_shell_install_path="$HOME/.config/base16-shell"
+if [[ ! -d "${base16_shell_install_path}" ]]; then
+  util::info_message "Clone to ${base16_shell_install_path}"
+  git clone \
+    --depth 1 \
+    --branch master \
+    https://github.com/chriskempson/base16-shell.git \
+    "${base16_shell_install_path}" >/dev/null 2>&1
+
+  bash -i -c "base16_monokai"
+else
+  util::info_message "Direcotry ${base16_shell_install_path} exists."
+fi
+
+
