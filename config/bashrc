@@ -114,3 +114,6 @@ fi
 
 # Invoking GPG-AGENT
 export GPG_TTY=$(tty)
+
+# krew's installation directory to your PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

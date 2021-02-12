@@ -33,7 +33,6 @@
     "shellformat.flag": "-i 2 -ci",
     "editor.wordWrap": "on",
     "git.autofetch": true,
-    "window.zoomLevel": 0,
     "vim.useSystemClipboard": true,
     "vs-kubernetes": {
         "vs-kubernetes.minikube-path.mac": "/Users/bboykov/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
