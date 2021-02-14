@@ -113,7 +113,16 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Invoking GPG-AGENT
-export GPG_TTY=$(tty)
+if gpg -k D6216BC60F893846900CC372BEBE631857194F24 >/dev/null 2>&1 ;then
+  export GPG_TTY=$(tty)
 
-# krew's installation directory to your PATH
+  export GPGKEY="D6216BC60F893846900CC372BEBE631857194F24"
+fi
+
+ #krew's installation directory to your PATH
+if gpg -k D6216BC60F893846900CC372BEBE631857194F24 >/dev/null 2>&1 ;then
+  export GPG_TTY=$(tty)
+  export GPGKEY="D6216BC60F893846900CC372BEBE631857194F24"
+fi
+
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
