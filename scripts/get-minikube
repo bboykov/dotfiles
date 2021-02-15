@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+install_dir="/usr/local/bin"
+
+
+if [[ "${OSTYPE}" == linux* ]]; then
+  os_platform="linux"
+elif [[ "${OSTYPE}" == darwin* ]]; then
+  os_platform="darwin"
+else
+  echo "OS type ${OSTYPE} not supported by the script. Exiting."
+  exit 1
+fi
+
+binary_url="https://storage.googleapis.com/minikube/releases/latest/minikube-${os_platform}-amd64"
+
+curl -LO ${binary_url}
+sudo install "minikube-${os_platform}-amd64" "${install_dir}/minikube"
+rm minikube-${os_platform}-amd64
+

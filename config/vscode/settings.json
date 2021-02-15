@@ -35,10 +35,15 @@
     "git.autofetch": true,
     "vim.useSystemClipboard": true,
     "vs-kubernetes": {
-        "vs-kubernetes.minikube-path.mac": "/Users/bboykov/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+        "vs-kubernetes.minikube-path.mac": "/Users/bboykov/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.knownKubeconfigs": [
+            "/Users/bboykov/.kube/config"
+        ],
+        "vs-kubernetes.kubeconfig": "/Users/bboykov/.kube/config"
     },
     "vim.hlsearch": true,
     "editor.fontSize": 14,
     "editor.suggest.localityBonus": true,
-    "cSpell.allowCompoundWords": true
+    "cSpell.allowCompoundWords": true,
+    "redhat.telemetry.enabled": true
 }
