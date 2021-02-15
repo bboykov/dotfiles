@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+desired_version="v0.10.0"
+install_dir="/usr/local/bin"
+
+if [[ "${OSTYPE}" == linux* ]]; then
+  os_platform="linux"
+elif [[ "${OSTYPE}" == darwin* ]]; then
+  os_platform="darwin"
+else
+  echo "OS type ${OSTYPE} not supported by the script. Exiting."
+  exit 1
+fi
+
+binary_url="https://kind.sigs.k8s.io/dl/${desired_version}/kind-${os_platform}-amd64"
+
+curl -Lo ./kind ${binary_url}
+chmod +x ./kind
+sudo mv ./kind "${install_dir}/kind"
+
