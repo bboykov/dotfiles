@@ -77,7 +77,7 @@ if [[ -f "${__DOTFILES_HOME}/lib/functions.bash" ]]; then
 
   export __DOTFILES_OS_PLATFORM=$(util::detect_platform)
 else
-  echo "[ERROR] dotfiles is not found at ${DOTFILES_HOME}. Abort."
+  echo "[ERROR] dotfiles is not found at ${__DOTFILES_HOME}. Abort."
   exit 0
 fi
 
