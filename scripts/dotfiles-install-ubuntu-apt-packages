@@ -5,16 +5,6 @@ IFS=$'\n\t'
 
 readonly DOTFILES_HOME="${HOME}/dotfiles"
 readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
-readonly default_ubuntu_apt_packages=(
-  curl
-  wget
-  git
-  bash-completion
-  htop
-  todotxt-cli
-  xsel
-  xclip
-)
 
 # shellcheck source=lib/functions.bash
 source "${DOTFILES_HOME}/lib/functions.bash"
@@ -24,6 +14,33 @@ platform="$(util::detect_platform)"
 if [[ "${platform}" != ubuntu && "${platform}" != wsl-ubuntu ]]; then
   util::die "This script run only on Ubuntu"
 fi
+
+case "${platform}" in
+  ubuntu)
+    default_ubuntu_apt_packages=(
+      curl
+      wget
+      git
+      bash-completion
+      htop
+      todotxt-cli
+      xsel
+      xclip
+    )
+    ;;
+  wsl-ubuntu)
+    default_ubuntu_apt_packages=(
+      curl
+      wget
+      git
+      bash-completion
+      todotxt-cli
+    )
+    ;;
+  macos)
+    echo "Detected platform: macos. Skip."
+    ;;
+esac
 
 if [[ -n $* ]]; then
   ubuntu_apt_packages=("$@")
