@@ -6,15 +6,15 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+  *i*) ;;
+  *) return ;;
 esac
 
 # Update window size after every command
 shopt -s checkwinsize
 
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
+shopt -s nocaseglob
 
 # Perform file completion in a case insensitive fashion
 bind "set completion-ignore-case on"
@@ -39,9 +39,6 @@ shopt -s histappend
 
 # Save multi-line commands as one command
 shopt -s cmdhist
-
-# Save and reload the history after each command finishes
-# PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Record each line as it gets issued
 PROMPT_COMMAND='history -a'
@@ -74,28 +71,35 @@ export dotfiles="$HOME/dotfiles"
 export notes="$HOME/drive/notes/$(date +%Y)"
 export wd="$HOME/wd"
 
-# Load todo-txt configuration file
-export TODOTXT_CFG_FILE=$HOME/dotfiles/config/todo.cfg
+export __DOTFILES_HOME="${HOME}/dotfiles"
+if [[ -f "${__DOTFILES_HOME}/lib/functions.bash" ]]; then
+  source "${__DOTFILES_HOME}/lib/functions.bash"
+
+  export __DOTFILES_OS_PLATFORM=$(util::detect_platform)
+else
+  echo "[ERROR] dotfiles is not found at ${DOTFILES_HOME}. Abort."
+  exit 0
+fi
 
 # Load alias definitions
-if [ -f ~/.bash_aliases ]; then
+if [[ -f $HOME/.bash_aliases ]]; then
   source "$HOME/.bash_aliases"
 fi
 
-# Load alias functions
-if [ -f ~/.bash_aliases ]; then
-  source "$HOME/.bash_alias_funcs.bash"
+# Load custom functions
+if [[ -f $HOME/.bash_functions.bash ]]; then
+  source "$HOME/.bash_functions.bash"
+fi
+
+# Load liquidprompt
+if [ -f "$HOME/liquidprompt/liquidprompt" ]; then
+  source "$HOME/liquidprompt/liquidprompt"
 fi
 
 # Load base16 shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 if [ -s $BASE16_SHELL/profile_helper.sh ]; then
   eval "$($BASE16_SHELL/profile_helper.sh)"
-fi
-
-# Load liquidprompt
-if [ -f "$HOME/liquidprompt/liquidprompt" ]; then
-  source "$HOME/liquidprompt/liquidprompt"
 fi
 
 # Load OS specific configuration
@@ -105,6 +109,11 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   source "$HOME/.bashrc_linux"
 fi
 
+### Load todo-txt configuration file
+### This assumes the network drive is mounted
+export TODOTXT_CFG_FILE="$HOME/dotfiles/config/todo.cfg"
+
+
 # Load local configuration
 if [ -n "$BASH" ] && [ -r "$HOME/.bashrc_local" ]; then
   source "$HOME/.bashrc_local"
@@ -112,17 +121,7 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Invoking GPG-AGENT
-if gpg -k D6216BC60F893846900CC372BEBE631857194F24 >/dev/null 2>&1 ;then
-  export GPG_TTY=$(tty)
-
-  export GPGKEY="D6216BC60F893846900CC372BEBE631857194F24"
-fi
-
- #krew's installation directory to your PATH
 if gpg -k D6216BC60F893846900CC372BEBE631857194F24 >/dev/null 2>&1 ;then
   export GPG_TTY=$(tty)
   export GPGKEY="D6216BC60F893846900CC372BEBE631857194F24"
 fi
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

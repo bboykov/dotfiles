@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly DOTFILES_HOME="${HOME}/dotfiles"
+readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
+tpm_install_path="$HOME/.tmux/plugins/tpm"
+
+# shellcheck source=lib/functions.bash
+source "${DOTFILES_HOME}/lib/functions.bash"
+
+platform="$(util::detect_platform)"
+
+case "${platform}" in
+  ubuntu)
+    bash scripts/dotfiles-install-ubuntu-apt-packages tmux
+    ;;
+  wsl-ubuntu)
+    bash scripts/dotfiles-install-ubuntu-apt-packages tmux
+    ;;
+  macos)
+    echo "Detected platform: macos. Skip package installation"
+    ;;
+esac
+
+bash scripts/dotfiles-link-dotfile "${DOTFILES_CONFIG}/tmux.conf" "${HOME}/.tmux.conf"
+
+if [[ ! -d "${tpm_install_path}" ]]; then
+  util::info_message "Clone to ${tpm_install_path}"
+  git clone \
+    --depth 1 \
+    --branch master \
+    https://github.com/tmux-plugins/tpm \
+  "${tpm_install_path}" >/dev/null 2>&1
+
+  tmux new-session -d "sleep 1"
+  sleep 0.1
+  tmux source ~/.tmux.conf
+
+  tmux new-session -d "sleep 1"
+  sleep 0.1
+  bash $HOME/.tmux/plugins/tpm/bin/install_plugins
+  # bash $HOME/.tmux/plugins/tpm/bin/update_plugins all
+  # bash $HOME/.tmux/plugins/tpm/bin/clean_plugins
+else
+  util::info_message "Direcotry ${tpm_install_path} exists."
+fi

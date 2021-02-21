@@ -1,58 +1,59 @@
-# vi:syntax=sh
+#!/usr/bin/env bash
 # Alias definitions.
+
+case "${__DOTFILES_OS_PLATFORM}" in
+  ubuntu)
+    alias fopen='xdg-open'
+
+    alias tcopy='xclip -selection clipboard'
+    alias tpaste='xclip -selection clipboard -o'
+
+    todotxt_executable="todo-txt"
+    ;;
+
+  wsl-ubuntu)
+    alias fopen='start'
+
+    alias tcopy='clip.exe'
+
+    todotxt_executable="todo-txt"
+    ;;
+
+  macos)
+    alias fopen='open'
+
+    alias tcopy='pbcopy'
+    alias tpaste='pbpaste'
+
+    todotxt_executable="todo.sh"
+    ;;
+esac
+
+alias todo="${todotxt_executable}"
+alias todoadd="${todotxt_executable} -t add"
+alias tododo="${todotxt_executable} -a do"
+alias todoxp="${todotxt_executable} xp -o 10"
+alias todoprojectview="${todotxt_executable} projectview"
+
 case "$OSTYPE" in
   linux*)
     alias ls='ls --color=auto'
     alias ll='ls -alF'
     alias la='ls -A'
     alias l='ls -CF'
-    alias todoadd='todo-txt -t add'
-    alias tododo='todo-txt -a do'
-    alias todo='todo-txt'
-    alias todoxp='todo-txt xp -o 10'
-    alias todoprojectview='todo-txt projectview'
-    alias fopen='xdg-open'
+    alias base64-decode='base64 -d'
+
     ;;
   darwin*)
     alias ls='ls -G'
     alias ll='ls -al'
-    alias todoadd='todo.sh -t add'
-    alias tododo='todo.sh -a do'
-    alias todo='todo.sh'
-    alias todoxp='todo.sh xp -o 10'
-    alias todoprojectview='todo.sh projectview'
-    alias tcopy='pbcopy'
-    alias tpaste='pbpaste'
-    alias fopen='open'
+    alias base64-decode='base64 -D'
     ;;
 esac
-
-# Detect Windows WSL. https://stackoverflow.com/questions/38859145/detect-ubuntu-on-windows-vs-native-ubuntu-from-bash-script
-if [[ -f /proc/version ]]; then
-  grep -q microsoft /proc/version
-  IS_WSL=$?
-  if [[ $IS_WSL -eq 0 ]]; then
-    alias tcopy='clip.exe'
-    alias fopen='start'
-  elif [[ $OSTYPE =~ linux* ]]; then
-    alias tcopy='xclip -selection clipboard'
-    alias tpaste='xclip -selection clipboard -o'
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-  fi
-elif [[ $OSTYPE =~ darwin* ]]; then
-  alias grep='grep --color=auto'
-fi
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Ansible
-alias ansible-local="ansible-playbook -i localhost, -c local --ask-become-pass"
-
-## Misc
-alias set-kubeconfig-default='export KUBECONFIG=~/.kube/config'
 alias watchit='watch --color -n 1 '
-alias real-python-book='fopen ~/Downloads/python-basics-2020-03-18.pdf'
 alias codediff='touch  /tmp/diff-file1 /tmp/diff-file2 && code -n --diff /tmp/diff-file1 /tmp/diff-file2'

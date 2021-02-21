@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly DOTFILES_HOME="${HOME}/dotfiles"
+readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
+
+# shellcheck source=lib/functions.bash
+source "${DOTFILES_HOME}/lib/functions.bash"
+
+target=$1
+link_name=$2
+link_dirname="${link_name%/*}"
+link_filename="${link_name##*/}"
+backup_directory="${HOME}/.old_dotfiles_backup_directory"
+
+if [[ ! -f "${target}" || -d "${target}" ]]; then
+  util::error_message "Target file not found: ${target}"
+  exit 0
+elif [[ ! -d "${link_dirname}" ]]; then
+  util::error_message "Destination directory does not exist: ${link_dirname}"
+  exit 0
+fi
+
+util::debug_message "Check if file ${link_name} exists."
+if [[ -e "${link_name}" && ! -L "${link_name}" ]]; then
+  util::info_message "File ${link_name} exists."
+
+  if [ ! -d "${backup_directory}" ]; then
+    mkdir -p "${backup_directory}"
+  fi
+
+  backup_path="${backup_directory}/${link_filename}-$(date +%Y%m%d-%H%M%S)"
+
+  mv "${link_name}" "${backup_path}"
+  util::info_message "The ${link_filename} is moved to ${backup_path}"
+fi
+
+util::debug_message "Check if there is a healthy ${link_name} symlink"
+if [[ ! -L "${link_name}" ]]; then
+  ln -sf "${target}" "${link_name}"
+  util::info_message "Symlink created ${link_name}"
+else
+  util::info_message "Skipped. Link exists at ${link_name}"
+fi
+

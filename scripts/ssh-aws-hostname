@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### Transform AWS FQDN to IP and ssh
+### Usage:
+### ssh-aws-hostname ip-10-169-3-253.eu-west-1.compute.internal
+
+hostname=${1}
+hostip="$(echo "${hostname%%.*}" | sed -e 's/ip-//' -e 's/-/./g')"
+
+ssh ec2-user@"${hostip}"
