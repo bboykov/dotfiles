@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly DOTFILES_HOME="${HOME}/dotfiles"
+readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
+
+# shellcheck source=../lib/functions.bash
+source "${DOTFILES_HOME}/lib/functions.bash"
+
+if [[ -d /home/linuxbrew/.linuxbrew || ! -d /usr/local/Homebrew ]] ; then
+  util::info_message "homebrew is already installed"
+else
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+platform="$(util::detect_platform)"
+
+case "${platform}" in
+  ubuntu)
+    default_homebrew_packages=(
+      gcc
+      shfmt
+    )
+    ;;
+  wsl-ubuntu)
+    default_homebrew_packages=(
+      gcc
+      shfmt
+    )
+    ;;
+  macos)
+    default_homebrew_packages=(
+      gcc
+      shfmt
+    )
+    ;;
+esac
+
+if [[ -n $* ]]; then
+  homebrew_packages=("$@")
+else
+  homebrew_packages=("${default_homebrew_packages[@]}")
+fi
+
+homebrew_packages_sring=$(printf "%s " "${homebrew_packages[@]}")
+util::info_message "Installing packages: ${homebrew_packages_sring}"
+
+if ((${SET_DEBUG:-0})); then
+  brew update
+  brew install "${homebrew_packages[@]}"
+else
+  brew update >/dev/null 2>&1
+  brew install -q "${homebrew_packages[@]}" >/dev/null 2>&1
+fi
+
+util::info_message "Packages installed."

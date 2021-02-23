@@ -26,6 +26,10 @@ case "${platform}" in
       todotxt-cli
       xsel
       xclip
+      build-essential
+      gcc
+      file
+      git
     )
     ;;
   wsl-ubuntu)
@@ -35,6 +39,10 @@ case "${platform}" in
       git
       bash-completion
       todotxt-cli
+      build-essential
+      gcc
+      file
+      git
     )
     ;;
   macos)

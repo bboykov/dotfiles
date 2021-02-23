@@ -30,7 +30,7 @@ gitignore_global      .gitignore_global
 EOL
 
 for file in "${!bash_config_files[@]}"; do
-  bash scripts/dotfiles-link-dotfile "${DOTFILES_CONFIG}/${file}" "${HOME}/${bash_config_files[${file}]}"
+  bash dotfiles-link-dotfile "${DOTFILES_CONFIG}/${file}" "${HOME}/${bash_config_files[${file}]}"
 done
 
 if [ ! -d "${home_bin}" ]; then
@@ -40,7 +40,7 @@ fi
 
 for script in "${scripts_directory}"/*; do
   scriptname="$(basename "${script}")"
-  bash scripts/dotfiles-link-dotfile "${script}" "${home_bin}/${scriptname}"
+  bash dotfiles-link-dotfile "${script}" "${home_bin}/${scriptname}"
 done
 
 liquidprompt_install_dir="$HOME/liquidprompt"

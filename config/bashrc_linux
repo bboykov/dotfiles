@@ -9,5 +9,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 # vi:syntax=sh

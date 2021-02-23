@@ -13,10 +13,10 @@ platform="$(util::detect_platform)"
 
 case "${platform}" in
   ubuntu)
-    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk npm
+    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk npm shellcheck
     ;;
   wsl-ubuntu)
-    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk npm
+    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk npm shellcheck
     ;;
   macos)
     echo "Detected platform: macos. Skip package installation"
