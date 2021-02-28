@@ -27,6 +27,54 @@ util::die() {
 
 #######################################
 # Description:
+#  Check the bash version and exit if the version is less than required.
+# Usage:
+#   util::require_bash_version 4.3
+#   util::require_bash_version 4.0 "assosiative arrays"
+# Globals:
+#   BASH_VERSINFO buildin
+#   BASH_VERSION buildin
+# Arguments:
+#   $1: Required. Version number in <major>.<minor> form
+#   $2: Optional. Add required for feature to the error message.
+# Outputs:
+#   None
+#######################################
+util::require_bash_version() {
+  local version=${1}
+  local feature=${2:-"this script to work properly."}
+  local -i major minor
+  IFS=. read -r major minor <<<"${version}"
+
+  if ((BASH_VERSINFO[0] < major)) ||
+    ((BASH_VERSINFO[0] == major && BASH_VERSINFO[1] < minor)); then
+
+    util::die "This is $BASH_VERSION. Bash version $1 is required for ${feature}"
+
+  fi
+
+}
+
+#######################################
+# Description:
+#   Evaluate an arithmetic expression.
+#   If it results in non-zero (or false), error and exit.
+# Usage:
+#   util::assert "$# > 0" "Provide at least one argument"
+# Globals:
+#   None
+# Arguments:
+#   first: arithmetic expression
+#   second: Message to print in case of false result.
+# Outputs:
+#  If it results in false print error message and exit.
+#######################################
+util::assert() {
+  (($1)) || util::die "$2"
+}
+
+#######################################
+# Description:
 #   Execute a command and print to standard error. The command is expected to
 #   print a message and should typically be either `echo`, `printf`, or `cat`.
 #
@@ -51,6 +99,61 @@ util::debug() {
       printf "―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――\\n"
     } 1>&2
   fi
+}
+
+#######################################
+# Description:
+#   Join elements of an array into a single string
+#
+#   usage: str::join "," "${fields[@]}"
+# Globals:
+#   None
+# Arguments:
+#   - character to join with
+#   - elements to join
+# Outputs:
+#   Prints the joined string
+#######################################
+str::join() {
+  local IFS=$1
+  shift
+  echo "$*"
+}
+
+#######################################
+# Description:
+#   Trim whitespace from the ends of a string
+#
+# Usage:
+#   string=$(str::trim " a string ")
+# Globals:
+#   None
+# Arguments:
+#   - String to trim
+# Outputs:
+#   Prints the trimmed string
+#######################################
+str::trimright() { echo "${1/%+([[:space:]])/}"; }
+str::trimleft() { echo "${1/#+([[:space:]])/}"; }
+str::trim() { str::trimleft "$(str::trimright "$1")"; }
+
+#######################################
+# Description:
+#   Check that the parameter is a valid integer
+#
+# Usage:
+#   str::is_int 5 ; is_5_int_out=$? ; echo $is_5_int_out
+# Globals:
+#   None
+# Arguments:
+#   - String to inspect
+# Outputs:
+#   Returns true or false
+#######################################
+str::is_int() { [[ $1 == ?([-+])+([[:digit:]]) ]]; }
+str::is_float() {
+  [[ $1 == ?([-+])+([[:digit:]])?(.*([[:digit:]])) ]] ||
+    [[ $1 == ?([-+])*([[:digit:]]).+([[:digit:]]) ]]
 }
 
 #######################################
@@ -124,7 +227,7 @@ util::detect_platform() {
 #######################################
 # Description:
 #   None
-#   
+#
 # Globals:
 #   None
 #
@@ -133,7 +236,7 @@ util::detect_platform() {
 #
 # Outputs:
 #   None
-#   
+#
 #######################################
 util::ensure_directories_exists() {
   directories=("$@")
