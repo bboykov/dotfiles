@@ -69,4 +69,14 @@ else
   util::info_message "Direcotry ${base16_shell_install_path} exists."
 fi
 
+todo_actions_dir="$HOME/.todo.actions.d"
+if [[ ! -d "${todo_actions_dir}" ]]; then
+  mkdir -p "${todo_actions_dir}"
+
+  wget https://raw.githubusercontent.com/gr0undzer0/xp/stable/xp -O "${todo_actions_dir}/xp" >/dev/null 2>&1
+  chmod +x "${todo_actions_dir}/xp"
+
+else
+  util::info_message "Todo txt actions are already installed."
+fi
 

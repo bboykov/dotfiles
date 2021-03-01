@@ -33,7 +33,6 @@ alias todo="${todotxt_executable}"
 alias todoadd="${todotxt_executable} -t add"
 alias tododo="${todotxt_executable} -a do"
 alias todoxp="${todotxt_executable} xp -o 10"
-alias todoprojectview="${todotxt_executable} projectview"
 
 case "$OSTYPE" in
   linux*)
