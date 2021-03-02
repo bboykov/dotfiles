@@ -96,3 +96,44 @@ inverted      () { false; }
 ```
 
 Source: [glennj's solution to the grep task](https://exercism.io/tracks/bash/exercises/grep/solutions/1b6e4d45871a4810829d0294ae7112da)
+
+### Format script output
+
+[Bash printf syntax basics](https://linuxconfig.org/bash-printf-syntax-basics-with-examples)
+
+Simple table. Format names to 7 places nad max 7 characters and format
+floating point number to 9 places with 2 decimals. More complicated sample
+script using printf formatting to create a table with multiple items. Save as
+a script make executable and run:
+
+```shell
+#/bin/bash
+divider===============================
+divider=$divider$divider
+
+header="\n %-10s %8s %10s %11s\n"
+format=" %-10s %08d %10s %11.2f\n"
+
+width=43
+
+printf "$header" "ITEM NAME" "ITEM ID" "COLOR" "PRICE"
+
+printf "%$width.${width}s\n" "$divider"
+
+printf "$format" \
+Triangle 13  red 20 \
+Oval 204449 "dark blue" 65.656 \
+Square 3145 orange .7
+```
+
+Output:
+
+```text
+$ ./table
+
+ ITEM NAME   ITEM ID      COLOR       PRICE
+===========================================
+ Triangle   00000013        red       20.00
+ Oval       00204449  dark blue       65.66
+ Square     00003145     orange        0.70
+```
