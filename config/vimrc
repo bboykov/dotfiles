@@ -351,7 +351,7 @@ let g:ale_set_highlights=0
 nmap <silent> <space>aj :ALENext<cr>
 nmap <silent> <space>ak :ALEPrevious<cr>
 nmap <silent> <space>af :ALEFix<cr>
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 """ Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
