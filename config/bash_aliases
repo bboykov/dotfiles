@@ -56,3 +56,11 @@ alias egrep='egrep --color=auto'
 
 alias watchit='watch --color -n 1 '
 alias codediff='touch  /tmp/diff-file1 /tmp/diff-file2 && code -n --diff /tmp/diff-file1 /tmp/diff-file2'
+alias opentodos='
+  cd $HOME/drive/notes/todo-txt &&
+  vim \
+    todo.txt \
+    routines.todo.txt \
+    projects.todo.txt \
+    someday.todo.txt
+  '
