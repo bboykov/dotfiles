@@ -125,3 +125,10 @@ if gpg -k D6216BC60F893846900CC372BEBE631857194F24 >/dev/null 2>&1 ;then
   export GPG_TTY=$(tty)
   export GPGKEY="D6216BC60F893846900CC372BEBE631857194F24"
 fi
+
+
+# Load pyenv automatically by adding
+# the following to ~/.bashrc:
+export PATH="/home/bboykov/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

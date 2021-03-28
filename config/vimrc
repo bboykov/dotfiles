@@ -297,13 +297,14 @@ let g:terraform_commentstring='# %s'
 """ Terraform }
 
 """ Coc autocompletion {
-""" curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash
+""" curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
 \ 'coc-json',
 \ 'coc-dictionary',
 \ 'coc-ultisnips',
 \ 'coc-snippets',
+\ 'coc-pyright',
 \ ]
 
 """ Use tab for trigger completion with characters ahead and navigate.
@@ -350,7 +351,7 @@ let g:ale_set_highlights=0
 nmap <silent> <space>aj :ALENext<cr>
 nmap <silent> <space>ak :ALEPrevious<cr>
 nmap <silent> <space>af :ALEFix<cr>
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 """ Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 

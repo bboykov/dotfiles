@@ -13,10 +13,12 @@ platform="$(util::detect_platform)"
 
 case "${platform}" in
   ubuntu)
-    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk npm shellcheck
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   wsl-ubuntu)
-    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk npm shellcheck
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+    bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   macos)
     echo "Detected platform: macos. Skip package installation"
