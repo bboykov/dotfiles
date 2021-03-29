@@ -129,6 +129,6 @@ fi
 
 # Load pyenv automatically by adding
 # the following to ~/.bashrc:
-export PATH="/home/bboykov/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
