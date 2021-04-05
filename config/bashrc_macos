@@ -15,3 +15,6 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 if type kubectl  > /dev/null 2>&1 ; then
   kubectl completion bash >/usr/local/etc/bash_completion.d/kubectl
 fi
+
+### Add pipenv installation directory on Mac
+export PATH="$HOME/.local/bin:$PATH"
