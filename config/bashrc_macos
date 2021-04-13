@@ -18,3 +18,6 @@ fi
 
 ### Add pipenv installation directory on Mac
 export PATH="$HOME/.local/bin:$PATH"
+
+### Add $HOME/bin to the PATH
+export PATH="$HOME/bin:$PATH"
