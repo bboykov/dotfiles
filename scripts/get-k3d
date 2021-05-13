@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+desired_version="v4.4.3"
+
+wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | TAG="${desired_version}" bash
