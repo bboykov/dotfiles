@@ -49,7 +49,7 @@ if [[ ! -d "${liquidprompt_install_dir}" ]]; then
   git clone \
     --depth 1 \
     --branch master \
-    https://github.com/bboykov/liquidprompt.git \
+    https://github.com/nojhan/liquidprompt.git \
     "${liquidprompt_install_dir}" >/dev/null 2>&1
 else
   util::info_message "Direcotry ${liquidprompt_install_dir} exists."

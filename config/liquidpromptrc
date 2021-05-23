@@ -1,14 +1,10 @@
 # Default behavior is in ~/liquidprompt/liquidpromptrc-dist
-LP_ENABLE_JOBS=0
-LP_ENABLE_TIME=0
+LP_ENABLE_DETACHED_SESSIONS=0
 
-# Default theme is in ~/liquidprompt/liquid.theme
 LP_MARK_STASH=" +"
 
 LP_PS1_PREFIX="┌─"
 LP_PS1_POSTFIX="\n└▪ "
-
-# Default prompt is in ~/liquidprompt/liquid.ps1
 PS2=" ┃ "
 
 LP_ENABLE_KUBECONTEXT=1
