@@ -10,8 +10,9 @@ set hidden        " Allow buffers to be hidden if modified
 set modeline      " Read infile vim settings
 set mouse=a       " Automatically enable mouse usage
 set mousehide     " Hide the mouse cursor while typing
+set visualbell    " Disable the beep
 
-""" Display
+"" Display
 set number        " Show line numbers
 set showmatch     " Highlight matching brace
 set wildmenu      " Enhanced command-line completion

@@ -5,14 +5,24 @@ set -euo pipefail
 IFS=$'\n\t'
 
 readonly MY_DRIVE_NOTES="$HOME/drive/notes/$(date +%Y)"
+readonly DOTFILES_HOME="${HOME}/dotfiles"
+
+# shellcheck source=lib/functions.bash
+source "${DOTFILES_HOME}/lib/functions.bash"
 
 is_journal_note=0
 
-case "$OSTYPE" in
-  linux*)
+
+platform="$(util::detect_platform)"
+
+case "${platform}" in
+  ubuntu)
     copy_to_clipboard_command='xclip -selection clipboard'
     ;;
-  darwin*)
+  wsl-ubuntu)
+    copy_to_clipboard_command='clip.exe'
+    ;;
+  macos)
     copy_to_clipboard_command='pbcopy'
     ;;
 esac

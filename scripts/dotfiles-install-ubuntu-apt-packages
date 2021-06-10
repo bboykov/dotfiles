@@ -38,6 +38,7 @@ case "${platform}" in
       wget
       git
       bash-completion
+      htop
       todotxt-cli
       build-essential
       gcc
