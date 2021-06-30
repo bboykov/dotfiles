@@ -21,7 +21,8 @@ case "${platform}" in
     bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   macos)
-    echo "Detected platform: macos. Skip package installation"
+    bash scripts/dotfiles-install-homebrew-packages node@12
+    brew link node@12
     ;;
 esac
 

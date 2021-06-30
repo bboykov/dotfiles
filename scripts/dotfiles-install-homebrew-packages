@@ -34,6 +34,7 @@ case "${platform}" in
     default_homebrew_packages=(
       gcc
       shfmt
+      pyenv
     )
     ;;
 esac

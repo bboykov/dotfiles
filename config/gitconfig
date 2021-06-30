@@ -1,7 +1,7 @@
 [user]
   name = Boyko Boykov
   email = boyko.boykov@gmail.com
-  signingkey = BEBE631857194F24
+#  signingkey = BEBE631857194F24
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global

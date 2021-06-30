@@ -20,6 +20,10 @@ configure_wsl_ubuntu() {
   ln -sf /mnt/c/Users/bboykov/drive "$HOME/drive"
 }
 
+configure_macos() {
+  bash scripts/dotfiles-install-homebrew-packages
+}
+
 main() {
   local platform
   ensure_directories=(
@@ -38,6 +42,9 @@ main() {
       ;;
     wsl-ubuntu)
       configure_wsl_ubuntu
+      ;;
+    macos)
+      configure_macos
       ;;
   esac
 

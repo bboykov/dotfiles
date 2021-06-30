@@ -20,7 +20,7 @@ case "${platform}" in
     bash scripts/dotfiles-install-ubuntu-apt-packages tmux
     ;;
   macos)
-    echo "Detected platform: macos. Skip package installation"
+    bash scripts/dotfiles-install-homebrew-packages tmux
     ;;
 esac
 
