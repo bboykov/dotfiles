@@ -8,8 +8,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 ### Enable kubectl autocompletion by adding the the completion script
 if type kubectl  > /dev/null 2>&1 ; then

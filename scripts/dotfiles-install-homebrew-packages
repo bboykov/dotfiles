@@ -32,8 +32,13 @@ case "${platform}" in
     ;;
   macos)
     default_homebrew_packages=(
+      bash-completion
       gcc
       shfmt
+      wget
+      todo-txt
+      k9s
+      kubie
       pyenv
     )
     ;;

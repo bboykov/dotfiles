@@ -306,8 +306,8 @@ let g:coc_global_extensions = [
 \ 'coc-dictionary',
 \ 'coc-ultisnips',
 \ 'coc-snippets',
-\ 'coc-pyright',
 \ ]
+" \ 'coc-pyright', # 2021-07-01: failed to install
 
 """ Use tab for trigger completion with characters ahead and navigate.
 """ Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
