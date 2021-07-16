@@ -40,6 +40,8 @@ case "${platform}" in
       k9s
       kubie
       pyenv
+      tfenv
+      the_silver_searcher
     )
     ;;
 esac
