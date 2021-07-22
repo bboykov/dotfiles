@@ -10,4 +10,3 @@ if [ -f ~/.profile ]; then
 elif [ -f "$HOME/.bashrc" ]; then
   . "$HOME/.bashrc"
 fi
-
