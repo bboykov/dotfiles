@@ -60,6 +60,28 @@ if [[ ${is_journal_note} -eq 1 ]]; then
   read -r -d '' file_body <<EOM || true
 # $(date +%a) ${filename%.*} ${file_root}
 
+## Standup
+
+### Yesterday
+
+- None
+
+## Today
+
+- None
+
+### Added during the day
+
+- None
+
+### Blockers
+
+- None
+
+### Questions
+
+- None
+
 EOM
 else
   filename="${file_root}-$(date +%Y-%m-%d).md"
