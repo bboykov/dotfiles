@@ -10,6 +10,11 @@ export LANGUAGE=en_US.UTF-8
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# Add homebrew M1 chip bin dir to PATH
+if [ -d /opt/homebrew/bin  ] ; then
+  PATH=/opt/homebrew/bin:$PATH
+fi
+
 ### Enable kubectl autocompletion by adding the the completion script
 if type kubectl  > /dev/null 2>&1 ; then
   kubectl completion bash >/usr/local/etc/bash_completion.d/kubectl
