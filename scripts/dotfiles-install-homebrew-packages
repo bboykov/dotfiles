@@ -43,6 +43,7 @@ case "${platform}" in
       pyenv
       tfenv
       the_silver_searcher
+      htop
     )
     ;;
 esac
