@@ -20,3 +20,10 @@ binary_url="https://storage.googleapis.com/kubernetes-release/release/${desired_
 
 sudo wget "${binary_url}" -O "${install_dir}/kubectl"
 sudo chmod +x "${install_dir}/kubectl"
+
+### Enable kubectl autocompletion by adding the the completion script
+if type kubectl  > /dev/null 2>&1 ; then
+  if [[ ! -z $BASH_COMPLETION_COMPAT_DIR ]]
+    kubectl completion bash >${BASH_COMPLETION_COMPAT_DIR}/kubectl
+  fi
+fi
