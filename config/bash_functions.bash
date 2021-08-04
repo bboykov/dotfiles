@@ -63,3 +63,6 @@ k3d_delete_local_multi_node_k3d_cluster() {
   k3d cluster delete local-multi-node-k3d-cluster
 }
 
+get_date_tt() {
+  date +%Y-%m-%d | tcopy
+}
