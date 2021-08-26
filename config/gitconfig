@@ -1,16 +1,30 @@
 [user]
+# Multiple users
+# https://gist.github.com/oanhnn/80a89405ab9023894df7
+# https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/
+# https://stackoverflow.com/questions/3860112/multiple-github-accounts-on-the-same-computer
   name = Boyko Boykov
   email = boyko.boykov@gmail.com
-#  signingkey = BEBE631857194F24
+  signingkey = BEBE631857194F24
+
+# work account settings
+## Switch ssh keys
+# ssh-add -D && ssh-add ~/.ssh/id_ed25519_github_bboykov_via &&  ssh-add -l
+[includeIf "gitdir:~/via/"]
+    path = ~/wd/via/.gitconfig
+
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
+
 [merge]
   tool = vimdiff
   conflictstyle = diff3
+
 [mergetool]
   prompt = false
   keepBackup = false
+
 [alias]
   pull-rebase = pull --rebase
   merge-no-ff = merge --no-ff
@@ -26,6 +40,7 @@
   lll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   la = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
   wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
+
 [commit]
   template = ~/.gitmessage.txt
   verbose = true
