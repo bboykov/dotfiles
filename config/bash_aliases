@@ -12,7 +12,7 @@ case "${__DOTFILES_OS_PLATFORM}" in
     ;;
 
   wsl-ubuntu)
-    alias fopen='start'
+    alias fopen='wslview'
 
     alias tcopy='clip.exe'
 
