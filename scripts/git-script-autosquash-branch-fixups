@@ -4,6 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
+git remote set-head origin --auto # sync this symbolic ref from upstream
 default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
 number_of_commits=$(git log "${default_branch}".."${current_branch}" --pretty=oneline | wc -l | sed 's/ //g')
 
