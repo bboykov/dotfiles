@@ -44,4 +44,4 @@
 [commit]
   template = ~/.gitmessage.txt
   verbose = true
-  gpgsign = true
+  # gpgsign = true
