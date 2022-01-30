@@ -20,8 +20,8 @@ fi
 tar_file_name="k9s_${os_platform}_${arch_string}.tar.gz"
 binary_url="https://github.com/derailed/k9s/releases/download/${desired_version}/${tar_file_name}"
 
-wget ${binary_url}
-tar -xf "${tar_file_name}"
-rm -f "${tar_file_name}"
-chmod +x k9s
-sudo mv ./k9s "${install_dir}/k9s"
+tempdir=$(mktemp -d /tmp/get-k9s.XXXXXXXX)
+wget ${binary_url} -O "${tempdir}/${tar_file_name}"
+tar -xf "${tempdir}/${tar_file_name}"
+chmod +x "${tempdir}/k9s"
+sudo mv "${tempdir}/k9s" "${install_dir}/k9s"
