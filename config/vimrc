@@ -11,6 +11,7 @@ set modeline      " Read infile vim settings
 set mouse=a       " Automatically enable mouse usage
 set mousehide     " Hide the mouse cursor while typing
 set visualbell    " Disable the beep
+set autochdir     " Change the current directory
 
 "" Display
 set number        " Show line numbers
@@ -198,7 +199,8 @@ let g:NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1 " Making it prettier
 let NERDTreeDirArrows = 1 " Making it prettier
 let NERDTreeSortOrder = ['\/$','[[-timestamp]]']
-map <space>ft :NERDTreeToggle<CR>
+let NERDTreeChDirMode = 2
+map <space>ft :NERDTreeToggle $PWD<CR>
 
 """ nerdtree }
 
@@ -291,7 +293,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':
 Plug 'hashivim/vim-terraform'
 let g:terraform_align=1
 let g:terraform_fold_sections=1
-"let g:terraform_fmt_on_save=1 # Disabled because of misformats tfvars files
+let g:terraform_fmt_on_save=1
 let g:terraform_commentstring='# %s'
 
 
