@@ -10,6 +10,7 @@
 # work account settings
 ## Switch ssh keys
 # ssh-add -D && ssh-add ~/.ssh/id_ed25519_github_bboykov_via &&  ssh-add -l
+# ssh-add -D && ssh-add ~/.ssh/id_ed25519 &&  ssh-add -l
 [includeIf "gitdir:~/via/"]
     path = ~/wd/via/.gitconfig
 
