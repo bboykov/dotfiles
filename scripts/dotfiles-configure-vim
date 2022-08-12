@@ -21,8 +21,8 @@ case "${platform}" in
     bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   macos)
-    bash scripts/dotfiles-install-homebrew-packages node@12
-    brew link node@12
+    bash scripts/dotfiles-install-homebrew-packages node@14
+    brew link node@14
     ;;
 esac
 
