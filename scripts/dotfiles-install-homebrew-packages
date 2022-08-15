@@ -35,6 +35,7 @@ case "${platform}" in
       bash-completion
       gcc
       shfmt
+      vim
       wget
       curl
       todo-txt
@@ -65,5 +66,10 @@ else
   brew update >/dev/null 2>&1
   brew install -q "${homebrew_packages[@]}" >/dev/null 2>&1
 fi
+
+# util::info_message "Reinstall vim."
+# # brew remove vim
+# brew cleanup
+# brew install vim --with-python
 
 util::info_message "Packages installed."
