@@ -46,6 +46,7 @@ case "${platform}" in
       the_silver_searcher
       htop
       shellcheck
+      bash-completion@2
     )
     ;;
 esac
