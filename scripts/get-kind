@@ -3,19 +3,36 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-desired_version="v0.11.1"
+desired_version="v0.15.0"
 install_dir="/usr/local/bin"
 
 if [[ "${OSTYPE}" == linux* ]]; then
   os_platform="linux"
+  echo "Running on Linux"
 elif [[ "${OSTYPE}" == darwin* ]]; then
   os_platform="darwin"
+  arch_name="$(uname -m)"
+  if [ "${arch_name}" = "x86_64" ]; then
+      if [ "$(sysctl -in sysctl.proc_translated)" = "1" ]; then
+          echo "Running on Rosetta 2"
+          arch_codename="amd64"
+      else
+          echo "Running on native Intel"
+          arch_codename="amd64"
+      fi
+  elif [ "${arch_name}" = "arm64" ]; then
+      echo "Running on ARM"
+          arch_codename="arm64"
+  else
+      echo "Unknown architecture: ${arch_name}"
+      exit 1
+  fi
 else
   echo "OS type ${OSTYPE} not supported by the script. Exiting."
   exit 1
 fi
 
-binary_url="https://kind.sigs.k8s.io/dl/${desired_version}/kind-${os_platform}-amd64"
+binary_url="https://kind.sigs.k8s.io/dl/${desired_version}/kind-${os_platform}-${arch_codename}"
 
 curl -Lo ./kind ${binary_url}
 chmod +x ./kind
