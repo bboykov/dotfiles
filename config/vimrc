@@ -300,7 +300,7 @@ let g:terraform_commentstring='# %s'
 """ Terraform }
 
 """ Coc autocompletion {
-""" For Ubuntu: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+""" For Ubuntu: curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
 """ For Mac: brew install node
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
