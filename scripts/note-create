@@ -62,23 +62,23 @@ if [[ ${is_journal_note} -eq 1 ]]; then
 
 ## Standup
 
-### Yesterday
+**Yesterday**:
 
 - None
 
-### Today
+**Today**:
 
 - None
 
-### Added during the day
+**Added during the day**:
 
 - None
 
-### Blockers
+**Blockers**:
 
 - None
 
-### Questions
+**Questions**:
 
 - None
 
