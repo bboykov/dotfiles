@@ -28,4 +28,4 @@ fi
 release_url="https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/${desired_version}/kustomize_${desired_version}_${os_platform}_amd64.tar.gz"
 
 curl --silent --location "${release_url}" | tar xz -C /tmp
-mv /tmp/${binary} ${install_dir}
+sudo mv /tmp/${binary} ${install_dir}

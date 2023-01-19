@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Strict Mode - http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+IFS=$'\n\t'
+
+kind delete cluster --name local-multi-node-kind-cluster
