@@ -11,8 +11,12 @@
 ## Switch ssh keys
 # ssh-add -D && ssh-add ~/.ssh/id_ed25519_github_bboykov_via &&  ssh-add -l
 # ssh-add -D && ssh-add ~/.ssh/id_ed25519 &&  ssh-add -l
-[includeIf "gitdir:~/via/"]
-    path = ~/wd/via/.gitconfig
+[includeIf "gitdir:~/wd/shipcars/"]
+    path = ~/wd/shipcars/.gitconfig
+# └▪ cat /Users/bboykov/wd/shipcars/.gitconfig
+# [user]
+#   email = boyko.boykov@ship.cars
+#   name = Boyko Boykov
 
 [core]
   editor = vim
