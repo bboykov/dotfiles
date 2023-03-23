@@ -9,4 +9,5 @@ PS2=" ┃ "
 
 LP_ENABLE_KUBECONTEXT=1
 LP_DELIMITER_KUBECONTEXT=.
+LP_ENABLE_TIME=1
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
