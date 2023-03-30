@@ -29,6 +29,9 @@ main() {
   ensure_directories=(
     "${HOME}/bin"
     "${HOME}/wd/me"
+    "${HOME}/wd/github"
+    "${HOME}/wd/gitlab"
+    "${HOME}/wd/gogs"
   )
 
   util::info_message "dotfiles begin"
