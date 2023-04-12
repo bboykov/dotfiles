@@ -3,7 +3,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-desired_version=${1:-v1.19.6}
+desired_version=${1:-v1.24.12}
 install_dir="/usr/local/bin"
 
 
