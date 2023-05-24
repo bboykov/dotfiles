@@ -22,6 +22,8 @@ case "${platform}" in
     default_homebrew_packages=(
       gcc
       shfmt
+      kubie
+      k9s
     )
     ;;
   wsl-ubuntu)
