@@ -6,24 +6,40 @@ IFS=$'\n\t'
 desired_version=${1:-v1.24.12}
 install_dir="/usr/local/bin"
 
-
 if [[ "${OSTYPE}" == linux* ]]; then
   os_platform="linux"
+  echo "Running on Linux"
 elif [[ "${OSTYPE}" == darwin* ]]; then
   os_platform="darwin"
+  arch_name="$(uname -m)"
+  if [ "${arch_name}" = "x86_64" ]; then
+      if [ "$(sysctl -in sysctl.proc_translated)" = "1" ]; then
+          echo "Running on Rosetta 2"
+          arch_codename="amd64"
+      else
+          echo "Running on native Intel"
+          arch_codename="amd64"
+      fi
+  elif [ "${arch_name}" = "arm64" ]; then
+      echo "Running on ARM"
+          arch_codename="arm64"
+  else
+      echo "Unknown architecture: ${arch_name}"
+      exit 1
+  fi
 else
   echo "OS type ${OSTYPE} not supported by the script. Exiting."
   exit 1
 fi
 
-binary_url="https://storage.googleapis.com/kubernetes-release/release/${desired_version}/bin/${os_platform}/amd64/kubectl"
+binary_url="https://storage.googleapis.com/kubernetes-release/release/${desired_version}/bin/${os_platform}/${arch_codename}/kubectl"
 
-sudo wget "${binary_url}" -O "${install_dir}/kubectl"
+echo sudo wget "${binary_url}" -O "${install_dir}/kubectl"
 sudo chmod +x "${install_dir}/kubectl"
 
-### Enable kubectl autocompletion by adding the the completion script
-if type kubectl  > /dev/null 2>&1 ; then
-  if [[ ! -z $BASH_COMPLETION_COMPAT_DIR ]] ; then
-    kubectl completion bash >${BASH_COMPLETION_COMPAT_DIR}/kubectl
-  fi
-fi
+# ### Enable kubectl autocompletion by adding the the completion script
+# if type kubectl  > /dev/null 2>&1 ; then
+#   if [[ ! -z $BASH_COMPLETION_COMPAT_DIR ]] ; then
+#     kubectl completion bash >${BASH_COMPLETION_COMPAT_DIR}/kubectl
+#   fi
+# fi
