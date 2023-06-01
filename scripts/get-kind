@@ -3,11 +3,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-desired_version="v0.17.0"
+desired_version="v0.19.0"
 install_dir="/usr/local/bin"
 
 if [[ "${OSTYPE}" == linux* ]]; then
   os_platform="linux"
+  arch_codename="amd64"
   echo "Running on Linux"
 elif [[ "${OSTYPE}" == darwin* ]]; then
   os_platform="darwin"
