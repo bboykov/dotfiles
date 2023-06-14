@@ -13,11 +13,11 @@ platform="$(util::detect_platform)"
 
 case "${platform}" in
   ubuntu)
-    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
     bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   wsl-ubuntu)
-    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
     bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   macos)
