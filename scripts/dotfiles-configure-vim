@@ -21,7 +21,7 @@ case "${platform}" in
     bash scripts/dotfiles-install-ubuntu-apt-packages vim-gtk nodejs shellcheck
     ;;
   fedora)
-    bash scripts/dotfiles-install-fedora-dnf-packages nodejs vim-enhanced ShellCheck
+    bash scripts/dotfiles-install-fedora-dnf-packages nodejs vim-X11 ShellCheck
     ;;
   macos)
     bash scripts/dotfiles-install-homebrew-packages node@14

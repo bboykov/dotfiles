@@ -19,6 +19,22 @@ case "${__DOTFILES_OS_PLATFORM}" in
     todotxt_executable="todo-txt"
     ;;
 
+  fedora)
+    alias fopen='xdg-open'
+
+    alias tcopy='xclip -selection clipboard'
+    alias tpaste='xclip -selection clipboard -o'
+
+    todotxt_executable="todo.sh"
+
+    # https://sophieau.com/article/how-to-get-the-system-clipboard-working-in-vim-on-fedora/
+    alias vim='gvim -v'
+    export EDITOR="gvim -v"
+    export VISUAL="$EDITOR"
+
+    ;;
+
+
   macos)
     alias fopen='open'
 

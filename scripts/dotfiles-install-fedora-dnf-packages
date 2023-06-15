@@ -15,7 +15,6 @@ if [[ "${platform}" != fedora ]]; then
   util::die "This script runs only on Fedora"
 fi
 
-# TODO: install todo-txt package via brew
 default_fedora_dnf_packages=(
   curl
   wget
@@ -23,6 +22,7 @@ default_fedora_dnf_packages=(
   bash-completion
   htop
   xsel
+  xclip
   gcc
   file
   git
