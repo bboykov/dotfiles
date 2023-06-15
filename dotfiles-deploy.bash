@@ -10,6 +10,14 @@ source "${DOTFILES_HOME}/lib/functions.bash"
 
 configure_ubuntu() {
   bash scripts/dotfiles-install-ubuntu-apt-packages
+
+  bash scripts/dotfiles-configure-bash
+
+  bash scripts/dotfiles-install-homebrew-packages
+
+  bash scripts/dotfiles-configure-vim
+  bash scripts/dotfiles-configure-tmux
+
 }
 
 configure_wsl_ubuntu() {
@@ -18,10 +26,28 @@ configure_wsl_ubuntu() {
   # This task assumes that the src direcory is manually configured with cloud
   # storage service.
   ln -sf /mnt/c/Users/bboykov/drive "$HOME/drive"
+
+  bash scripts/dotfiles-configure-bash
+  bash scripts/dotfiles-configure-vim
+  bash scripts/dotfiles-configure-tmux
+
+}
+
+configure_fedora() {
+  export SET_DEBUG=1
+  bash scripts/dotfiles-install-fedora-dnf-packages
+  bash scripts/dotfiles-configure-bash
+  bash scripts/dotfiles-install-homebrew-packages
+  bash scripts/dotfiles-configure-vim
+  bash scripts/dotfiles-configure-tmux
 }
 
 configure_macos() {
   bash scripts/dotfiles-install-homebrew-packages
+
+  bash scripts/dotfiles-configure-bash
+  bash scripts/dotfiles-configure-vim
+  bash scripts/dotfiles-configure-tmux
 }
 
 main() {
@@ -46,14 +72,13 @@ main() {
     wsl-ubuntu)
       configure_wsl_ubuntu
       ;;
+    fedora)
+      configure_fedora
+      ;;
     macos)
       configure_macos
       ;;
   esac
-
-  bash scripts/dotfiles-configure-bash
-  bash scripts/dotfiles-configure-vim
-  bash scripts/dotfiles-configure-tmux
 
   util::info_message "dotfiles-deploy.bash successfully finished!"
 

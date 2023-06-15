@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+readonly DOTFILES_HOME="${HOME}/dotfiles"
+readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
+
+# shellcheck source=lib/functions.bash
+source "${DOTFILES_HOME}/lib/functions.bash"
+
+platform="$(util::detect_platform)"
+
+if [[ "${platform}" != fedora ]]; then
+  util::die "This script runs only on Fedora"
+fi
+
+# TODO: install todo-txt package via brew
+default_fedora_dnf_packages=(
+  curl
+  wget
+  git
+  bash-completion
+  htop
+  xsel
+  gcc
+  file
+  git
+)
+
+if [[ -n $* ]]; then
+  fedora_dnf_packages=("$@")
+else
+  fedora_dnf_packages=("${default_fedora_dnf_packages[@]}")
+fi
+
+fedora_dnf_packages_string=$(printf "%s " "${fedora_dnf_packages[@]}")
+util::info_message "Installing dnf packages: ${fedora_dnf_packages_string}"
+if ((${SET_DEBUG:-0})); then
+  sudo dnf install -y "${fedora_dnf_packages[@]}"
+else
+  sudo dnf install -y "${fedora_dnf_packages[@]}" >/dev/null 2>&1
+fi
+
+util::info_message "Packages installed."

@@ -203,14 +203,16 @@ util::detect_platform() {
       ;;
     linux*)
       local distro
-      distro=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+      distro=$(awk -F= '/^ID/{print $2}' /etc/os-release)
 
-      if [[ ${distro} =~ "Ubuntu" ]]; then
+      if [[ ${distro} =~ "ubuntu" ]]; then
         if [[ $(cat /proc/version) =~ "microsoft" ]]; then
           readonly platform="wsl-ubuntu"
         else
           readonly platform="ubuntu"
         fi
+      elif [[ ${distro} =~ "fedora" ]]; then
+          readonly platform="fedora"
       else
         platform="unsupported"
       fi

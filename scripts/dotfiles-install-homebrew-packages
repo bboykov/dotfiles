@@ -9,10 +9,17 @@ readonly DOTFILES_CONFIG="${DOTFILES_HOME}/config"
 # shellcheck source=../lib/functions.bash
 source "${DOTFILES_HOME}/lib/functions.bash"
 
-if [[ -d /home/linuxbrew/.linuxbrew || ! -d /usr/local/Homebrew ]] ; then
+
+set +e
+command -v brew >/dev/null 2>&1
+brew_installed=$?
+set -e
+
+if [[ ${brew_installed} -eq 0 ]] ; then
   util::info_message "homebrew is already installed"
 else
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  source "${HOME}/.bashrc"
 fi
 
 platform="$(util::detect_platform)"
@@ -30,6 +37,12 @@ case "${platform}" in
     default_homebrew_packages=(
       gcc
       shfmt
+    )
+    ;;
+  fedora)
+    default_homebrew_packages=(
+      shfmt
+      todo-txt
     )
     ;;
   macos)
