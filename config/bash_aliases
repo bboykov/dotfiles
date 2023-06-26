@@ -28,6 +28,7 @@ case "${__DOTFILES_OS_PLATFORM}" in
     todotxt_executable="todo.sh"
 
     # https://sophieau.com/article/how-to-get-the-system-clipboard-working-in-vim-on-fedora/
+    # https://vi.stackexchange.com/a/2065 # How do I get +clipboard support in Fedora 20?
     alias vim='vimx'
     export EDITOR="vimx"
     export VISUAL="$EDITOR"
