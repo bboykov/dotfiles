@@ -22,6 +22,9 @@ case "${platform}" in
   wsl-ubuntu)
     copy_to_clipboard_command='clip.exe'
     ;;
+  fedora)
+    copy_to_clipboard_command='xclip -selection clipboard'
+    ;;
   macos)
     copy_to_clipboard_command='pbcopy'
     ;;

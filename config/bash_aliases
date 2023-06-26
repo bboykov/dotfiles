@@ -28,10 +28,9 @@ case "${__DOTFILES_OS_PLATFORM}" in
     todotxt_executable="todo.sh"
 
     # https://sophieau.com/article/how-to-get-the-system-clipboard-working-in-vim-on-fedora/
-    alias vim='gvim -v'
-    export EDITOR="gvim -v"
+    alias vim='vimx'
+    export EDITOR="vimx"
     export VISUAL="$EDITOR"
-
     ;;
 
 
