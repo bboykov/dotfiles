@@ -47,7 +47,7 @@ case "${platform}" in
     ;;
   macos)
     default_homebrew_packages=(
-      bash-completion
+      bash-completion@2
       gcc
       shfmt
       vim
@@ -61,7 +61,6 @@ case "${platform}" in
       the_silver_searcher
       htop
       shellcheck
-      bash-completion@2
     )
     ;;
 esac
