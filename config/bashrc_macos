@@ -32,6 +32,12 @@ if [ -d /opt/homebrew/bin  ] ; then
   PATH=/opt/homebrew/bin:$PATH
 fi
 
+# Add openvpn client binary path if installed
+# brew install openvpn
+if [ -d  /opt/homebrew/opt/openvpn/sbin/ ]; then
+  PATH=/opt/homebrew/opt/openvpn/sbin/:$PATH
+fi
+
 ### Add pipenv installation directory on Mac
 export PATH="$HOME/.local/bin:$PATH"
 
