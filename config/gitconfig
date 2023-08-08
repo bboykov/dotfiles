@@ -1,22 +1,19 @@
 [user]
-# Multiple users
-# https://gist.github.com/oanhnn/80a89405ab9023894df7
-# https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/
-# https://stackoverflow.com/questions/3860112/multiple-github-accounts-on-the-same-computer
   name = Boyko Boykov
   email = 15034216+bboykov@users.noreply.github.com
   # signingkey = BEBE631857194F24
 
-# work account settings
-## Switch ssh keys
-# ssh-add -D && ssh-add ~/.ssh/id_ed25519_github_bboykov_via &&  ssh-add -l
+# Multiple users, accounts and git configurations
+# https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/
+## Switch ssh keys use the `switch-ssh-keys` or for example:
+# ssh-add -D && ssh-add ~/.ssh/id_ed25519_github_bboykov_zenfinex &&  ssh-add -l
 # ssh-add -D && ssh-add ~/.ssh/id_ed25519 &&  ssh-add -l
-[includeIf "gitdir:~/wd/shipcars/"]
-    path = ~/wd/shipcars/.gitconfig
+[includeIf "gitdir:~/wd/zenfinex/"]
+    path = ~/wd/zenfinex/github/.gitconfig
 [includeIf "gitdir:~/wd/me/github"]
     path = ~/wd/me/github/.gitconfig
 [includeIf "gitdir:~/wd/me/gitlab/"]
-    path = ~/wd/me/gitlab/.gitconfig
+    path = ~/wd/me/gitlab-com/.gitconfig
 
 [core]
   editor = vim

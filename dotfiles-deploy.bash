@@ -55,9 +55,10 @@ main() {
   ensure_directories=(
     "${HOME}/bin"
     "${HOME}/wd/me"
-    "${HOME}/wd/github"
-    "${HOME}/wd/gitlab"
-    "${HOME}/wd/gogs"
+    "${HOME}/wd/me/github"
+    "${HOME}/wd/me/gitlab-com"
+    "${HOME}/wd/me/gogs"
+    "${HOME}/work"
   )
 
   util::info_message "dotfiles begin"
