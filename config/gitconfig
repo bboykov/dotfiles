@@ -3,18 +3,6 @@
   email = 15034216+bboykov@users.noreply.github.com
   # signingkey = BEBE631857194F24
 
-# Multiple users, accounts and git configurations
-# https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/
-## Switch ssh keys use the `switch-ssh-keys` or for example:
-# ssh-add -D && ssh-add ~/.ssh/id_ed25519_github_bboykov_zenfinex &&  ssh-add -l
-# ssh-add -D && ssh-add ~/.ssh/id_ed25519 &&  ssh-add -l
-[includeIf "gitdir:~/wd/zenfinex/"]
-    path = ~/wd/zenfinex/github/.gitconfig
-[includeIf "gitdir:~/wd/me/github"]
-    path = ~/wd/me/github/.gitconfig
-[includeIf "gitdir:~/wd/me/gitlab/"]
-    path = ~/wd/me/gitlab-com/.gitconfig
-
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
@@ -47,3 +35,15 @@
   template = ~/.gitmessage.txt
   verbose = true
   # gpgsign = true
+
+
+# Multiple users, accounts and git configurations
+# https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects
+[includeIf "gitdir:~/wd/zenfinex/github/"]
+    path = ~/wd/zenfinex/github/.gitconfig
+[includeIf "gitdir:~/wd/me/github/"]
+    path = ~/wd/me/github/.gitconfig
+[includeIf "gitdir:~/wd/me/gitlab/"]
+    path = ~/wd/me/gitlab/.gitconfig
+
+
