@@ -35,6 +35,7 @@ fi
 binary_url="https://storage.googleapis.com/kubernetes-release/release/${desired_version}/bin/${os_platform}/${arch_codename}/kubectl"
 
 echo sudo wget "${binary_url}" -O "${install_dir}/kubectl"
+sudo wget "${binary_url}" -O "${install_dir}/kubectl"
 sudo chmod +x "${install_dir}/kubectl"
 
 # TODO: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
