@@ -29,9 +29,10 @@ set incsearch     " Searches for strings incrementally
 set autoindent    " Indentation
 set smarttab      " Enable smart-tabs
 set smartindent   " Enable smart-indent
-set expandtab     " Use spaces instead of tabs
+set tabstop=2     " Number of spaces that a <Tab> in the file counts for
 set softtabstop=2 " Number of auto-indent spaces
-set shiftwidth=2  " Number of spaces per Tab
+set shiftwidth=2  " Number of spaces per Tab while editing
+set expandtab     " Use spaces instead of tabs
 """ Set tabs instead of spaces for Makefiles
 autocmd FileType make setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
 
@@ -256,8 +257,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 """ https://dev.to/konstantin/taking-notes-in-vim-revisited-558k
 
 nnoremap <space>ni :e $HOME/drive/notes/index.md<cr>
+
+let g:markdown_recommended_style = 0 " Disable tpope/vim-markdown style
 Plug 'pbrisbin/vim-mkdir', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 
 let g:vim_markdown_fenced_languages = [
   \ 'sh',

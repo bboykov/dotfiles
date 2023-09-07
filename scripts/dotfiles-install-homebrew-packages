@@ -31,18 +31,21 @@ case "${platform}" in
       shfmt
       kubie
       k9s
+      markdownlint-cli
     )
     ;;
   wsl-ubuntu)
     default_homebrew_packages=(
       gcc
       shfmt
+      markdownlint-cli
     )
     ;;
   fedora)
     default_homebrew_packages=(
       shfmt
       todo-txt
+      markdownlint-cli
     )
     ;;
   macos)
@@ -61,6 +64,7 @@ case "${platform}" in
       the_silver_searcher
       htop
       shellcheck
+      markdownlint-cli
     )
     ;;
 esac
