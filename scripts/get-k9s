@@ -22,6 +22,7 @@ binary_url="https://github.com/derailed/k9s/releases/download/${desired_version}
 
 tempdir=$(mktemp -d /tmp/get-k9s.XXXXXXXX)
 wget ${binary_url} -O "${tempdir}/${tar_file_name}"
-tar -xf "${tempdir}/${tar_file_name}"
+cd "${tempdir}"
+tar -zxvf "${tempdir}/${tar_file_name}"
 chmod +x "${tempdir}/k9s"
 sudo mv "${tempdir}/k9s" "${install_dir}/k9s"
