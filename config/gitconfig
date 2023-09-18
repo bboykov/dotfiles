@@ -46,4 +46,3 @@
 [includeIf "gitdir:~/wd/me/gitlab/"]
     path = ~/wd/me/gitlab/.gitconfig
 
-
