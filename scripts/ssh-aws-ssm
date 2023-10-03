@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### SSH to instance via SSM
+### Usage:
+### ssh-aws-ssm ip-10-169-3-253.eu-west-1.compute.internal
+
+instance_id=${1}
+aws_region=${2:-${AWS_REGION}}
+
+aws ssm start-session --target "${instance_id}" --region "${aws_region}"
