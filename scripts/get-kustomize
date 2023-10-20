@@ -1,31 +1,17 @@
 #!/usr/bin/env bash
-# Install kustomize on linux or macos. Usage:
+# Install kustomize Usage:
 # Execute from the scripts directory and optionally provide version:
-# ./get-kustomize.bash [v3.8.9]
-
-# Note that kustomize release URIs have changed for v3.2.1. Then again for
-# v3.3.0. When upgrading to versions >= v3.3.0 please change the URI format. And
-# also note that as of version v3.3.0, assets are in .tar.gz form.
-# v3.2.0 = https://github.com/kubernetes-sigs/kustomize/releases/download/v3.2.0/kustomize_3.2.0_linux_amd64
-# v3.2.1 = https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.2.1/kustomize_kustomize.v3.2.1_linux_amd64
-# v3.3.0 = https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v3.3.0/kustomize_v3.3.0_linux_amd64.tar.gz
+# ./get-kustomize.bash [v5.2.1]
 
 set -euo pipefail
+IFS=$'\n\t'
 
-desired_version=${1:-v4.2.0}
+
+desired_version=${1:-v5.2.1}
 install_dir="/usr/local/bin"
 binary="kustomize"
 
-if [[ "${OSTYPE}" == linux* ]]; then
-  os_platform="linux"
-elif [[ "${OSTYPE}" == darwin* ]]; then
-  os_platform="darwin"
-else
-  echo "OS type ${OSTYPE} not supported by the script. Exiting."
-  exit 1
-fi
-
-release_url="https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/${desired_version}/kustomize_${desired_version}_${os_platform}_amd64.tar.gz"
-
-curl --silent --location "${release_url}" | tar xz -C /tmp
+cd /tmp/
+wget "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"
+sudo bash install_kustomize.sh "${desired_version#v}"
 sudo mv /tmp/${binary} ${install_dir}
