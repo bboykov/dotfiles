@@ -38,3 +38,6 @@ INSTALL_DIR="/usr/local/bin"
 curl -sSL -o argocd "https://github.com/argoproj/argo-cd/releases/download/${DESIRED_VERSION}/argocd-${os_platform}-${arch_codename}"
 sudo install -m 555 argocd "${INSTALL_DIR}/argocd"
 rm argocd
+
+echo "argocd cli installed! Version:"
+argocd version --client

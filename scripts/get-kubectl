@@ -45,3 +45,6 @@ sudo chmod +x "${install_dir}/kubectl"
 #     kubectl completion bash >${BASH_COMPLETION_COMPAT_DIR}/kubectl
 #   fi
 # fi
+
+echo "kubectl client installed! Version:"
+kubectl version --client

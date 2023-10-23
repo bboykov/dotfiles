@@ -15,3 +15,6 @@ cd /tmp/
 wget "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"
 sudo bash install_kustomize.sh "${desired_version#v}"
 sudo mv /tmp/${binary} ${install_dir}
+
+echo "kustomize installed! Version:"
+kustomize version
