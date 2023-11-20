@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+### Releases:
+### eksctl: https://github.com/eksctl-io/eksctl/releases
+
+set -euo pipefail
+IFS=$'\n\t'
+
+if [[ "${OSTYPE}" == linux* ]]; then
+  OS_PLATFORM="Linux"
+  echo "Running on Linux"
+elif [[ "${OSTYPE}" == darwin* ]]; then
+  OS_PLATFORM="Darwin"
+  ARCH_NAME="$(uname -m)"
+  if [ "${ARCH_NAME}" = "x86_64" ]; then
+      if [ "$(sysctl -in sysctl.proc_translated)" = "1" ]; then
+          echo "Running on Rosetta 2"
+          ARCH_CODENAME="amd64"
+      else
+          echo "Running on native Intel"
+          ARCH_CODENAME="amd64"
+      fi
+  elif [ "${ARCH_NAME}" = "arm64" ]; then
+      echo "Running on ARM"
+          ARCH_CODENAME="arm64"
+  else
+      echo "Unknown architecture: ${ARCH_NAME}"
+      exit 1
+  fi
+else
+  echo "OS type ${OSTYPE} not supported by the script. Exiting."
+  exit 1
+fi
+
+DESIRED_VERSION=${1:-v0.164.0}
+INSTALL_DIR="/usr/local/bin"
+PKG_URL="https://github.com/eksctl-io/eksctl/releases/download/${DESIRED_VERSION}/eksctl_${OS_PLATFORM}_${ARCH_CODENAME}.tar.gz"
+
+curl -sLO "${PKG_URL}"
+tar -xzf eksctl_${OS_PLATFORM}_${ARCH_CODENAME}.tar.gz -C /tmp && rm eksctl_${OS_PLATFORM}_${ARCH_CODENAME}.tar.gz
+sudo mv /tmp/eksctl ${INSTALL_DIR}
+
+echo "eksctl installed! Version:"
+eksctl version
