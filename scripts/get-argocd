@@ -32,7 +32,7 @@ else
   exit 1
 fi
 
-DESIRED_VERSION="${1:-v2.8.4}" # Select desired TAG from https://github.com/argoproj/argo-cd/releases
+DESIRED_VERSION="${1:-v2.10.1}" # Select desired TAG from https://github.com/argoproj/argo-cd/releases
 INSTALL_DIR="/usr/local/bin"
 
 curl -sSL -o argocd "https://github.com/argoproj/argo-cd/releases/download/${DESIRED_VERSION}/argocd-${os_platform}-${arch_codename}"

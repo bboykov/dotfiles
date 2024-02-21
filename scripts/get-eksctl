@@ -32,7 +32,7 @@ else
   exit 1
 fi
 
-DESIRED_VERSION=${1:-v0.164.0}
+DESIRED_VERSION=${1:-v0.171.0}
 INSTALL_DIR="/usr/local/bin"
 PKG_URL="https://github.com/eksctl-io/eksctl/releases/download/${DESIRED_VERSION}/eksctl_${OS_PLATFORM}_${ARCH_CODENAME}.tar.gz"
 
