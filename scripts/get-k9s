@@ -3,21 +3,38 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-desired_version="v0.25.18"
+desired_version="v0.32.5"
 install_dir="/usr/local/bin"
 
 if [[ "${OSTYPE}" == linux* ]]; then
-  os_platform="Linux"
-  arch_string="x86_64"
+  os_platform="linux"
+  arch_codename="amd64"
+  echo "Running on Linux"
 elif [[ "${OSTYPE}" == darwin* ]]; then
-  os_platform="Darwin"
-  arch_string="x86_64"
+  os_platform="darwin"
+  arch_name="$(uname -m)"
+  if [ "${arch_name}" = "x86_64" ]; then
+      if [ "$(sysctl -in sysctl.proc_translated)" = "1" ]; then
+          echo "Running on Rosetta 2"
+          arch_codename="amd64"
+      else
+          echo "Running on native Intel"
+          arch_codename="amd64"
+      fi
+  elif [ "${arch_name}" = "arm64" ]; then
+      echo "Running on ARM"
+          arch_codename="arm64"
+  else
+      echo "Unknown architecture: ${arch_name}"
+      exit 1
+  fi
 else
   echo "OS type ${OSTYPE} not supported by the script. Exiting."
   exit 1
 fi
 
-tar_file_name="k9s_${os_platform}_${arch_string}.tar.gz"
+
+tar_file_name="k9s_${os_platform}_${arch_codename}.tar.gz"
 binary_url="https://github.com/derailed/k9s/releases/download/${desired_version}/${tar_file_name}"
 
 tempdir=$(mktemp -d /tmp/get-k9s.XXXXXXXX)
