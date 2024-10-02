@@ -3,7 +3,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-desired_version="v0.20.0"
+desired_version="0.24.0"
 install_dir="/usr/local/bin"
 
 if [[ "${OSTYPE}" == linux* ]]; then
