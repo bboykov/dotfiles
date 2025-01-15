@@ -84,3 +84,4 @@ alias opentodos='
 # So I don't need to remember the options to tar every time
 alias untar='tar xzvf'
 alias tarup='tar czvf'
+alias git-pick-branch='git branch | fzf | sed '\''s+remotes/origin/++g'\'' | xargs git checkout'
