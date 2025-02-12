@@ -42,6 +42,7 @@ case "${__DOTFILES_OS_PLATFORM}" in
     alias tpaste='pbpaste'
 
     todotxt_executable="todo.sh"
+    alias k9s="TERM=xterm-256color k9s" # force k9s to use true colors
     ;;
 esac
 
