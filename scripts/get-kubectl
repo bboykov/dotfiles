@@ -32,7 +32,8 @@ else
   exit 1
 fi
 
-binary_url="https://storage.googleapis.com/kubernetes-release/release/${desired_version}/bin/${os_platform}/${arch_codename}/kubectl"
+binary_url="https://dl.k8s.io/release/${desired_version}/bin/${os_platform}/${arch_codename}/kubectl"
+
 
 echo sudo wget "${binary_url}" -O "${install_dir}/kubectl"
 sudo wget "${binary_url}" -O "${install_dir}/kubectl"
