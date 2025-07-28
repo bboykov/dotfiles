@@ -65,6 +65,8 @@ case "${platform}" in
       htop
       shellcheck
       markdownlint-cli
+      yq
+      jq
     )
     ;;
 esac

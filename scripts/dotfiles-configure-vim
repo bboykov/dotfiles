@@ -24,8 +24,8 @@ case "${platform}" in
     bash scripts/dotfiles-install-fedora-dnf-packages nodejs vim-enhanced vim-X11 ShellCheck
     ;;
   macos)
-    bash scripts/dotfiles-install-homebrew-packages node@14
-    brew link node@14
+    bash scripts/dotfiles-install-homebrew-packages node@22
+    brew link node@22
     ;;
 esac
 

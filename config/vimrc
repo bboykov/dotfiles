@@ -63,9 +63,11 @@ endif
 """ General }
 
 """ WSL specifics {
-""" Set browser in WSL
+""" Set browser in WSL or macOS for gx
 if filereadable("/mnt/c/Windows/System32/clip.exe")
   let g:netrw_browsex_viewer="cmd.exe /C start"
+elseif has('macunix')
+  let g:netrw_browsex_viewer = "open"
 endif
 
 """ WSL vim to windows clipboard

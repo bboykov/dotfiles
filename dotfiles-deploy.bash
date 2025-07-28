@@ -43,6 +43,7 @@ configure_fedora() {
 }
 
 configure_macos() {
+  export PATH=/opt/homebrew/bin:$PATH # Ensure Homebrew is in the PATH and bash is installed
   bash scripts/dotfiles-install-homebrew-packages
 
   bash scripts/dotfiles-configure-bash
