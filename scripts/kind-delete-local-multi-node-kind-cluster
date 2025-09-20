@@ -4,4 +4,4 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-kind delete cluster --name local-multi-node-kind-cluster
+kind-manage-local-multi-node-kind-cluster.bash delete
