@@ -121,7 +121,8 @@ nnoremap <space>fed :vsplit $MYVIMRC<cr>
 nnoremap <space>fds :source $MYVIMRC<cr>
 
 """ Open my GTD files
-nnoremap <space>fet :sp $HOME/drive/notes/todo-txt/todo.txt<cr>
+"nnoremap <space>fet :sp $HOME/drive/notes/todo-txt/todo.txt<cr>
+nnoremap <space>fet :sp $HOME/syncthing/gtd/todo-txt/todo.txt<cr>
 
 """ Insert current date with week day
 nnoremap <space>tT "=strftime("%a %Y-%m-%d")<CR>P
@@ -258,7 +259,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 """ Markdown {
 """ https://dev.to/konstantin/taking-notes-in-vim-revisited-558k
 
-nnoremap <space>ni :e $HOME/drive/notes/index.md<cr>
+""" nnoremap <space>ni :e $HOME/drive/notes/index.md<cr>
+nnoremap <space>ni :e $HOME/syncthing/gtd/notes/index.md<cr>
 
 let g:markdown_recommended_style = 0 " Disable tpope/vim-markdown style
 Plug 'pbrisbin/vim-mkdir', { 'for': 'markdown' }

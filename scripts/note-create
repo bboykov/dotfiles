@@ -4,7 +4,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-readonly MY_DRIVE_NOTES="$HOME/drive/notes/$(date +%Y)"
+### readonly MY_DRIVE_NOTES="$HOME/drive/notes/$(date +%Y)"
+readonly MY_DRIVE_NOTES="$HOME/syncthing/gtd/notes/$(date +%Y)"
 readonly DOTFILES_HOME="${HOME}/dotfiles"
 
 # shellcheck source=lib/functions.bash

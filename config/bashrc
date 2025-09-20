@@ -68,7 +68,9 @@ CDPATH=".:~/wd"
 shopt -s cdable_vars
 
 export dotfiles="$HOME/dotfiles"
-export notes="$HOME/drive/notes/$(date +%Y)"
+### export notes="$HOME/drive/notes/$(date +%Y)"
+export notes="$HOME/syncthing/gtd/notes/$(date +%Y)"
+
 export wd="$HOME/wd"
 
 # set PATH so it includes user's private bin if it exists

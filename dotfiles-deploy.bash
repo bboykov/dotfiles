@@ -26,6 +26,7 @@ configure_wsl_ubuntu() {
   # This task assumes that the src direcory is manually configured with cloud
   # storage service.
   ln -sf /mnt/c/Users/bboykov/drive "$HOME/drive"
+  ln -sf /mnt/c/Users/bboykov/syncthing "$HOME/syncthing"
 
   bash scripts/dotfiles-configure-bash
   bash scripts/dotfiles-configure-vim
