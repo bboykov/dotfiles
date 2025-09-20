@@ -370,7 +370,7 @@ nmap <silent> <space>af :ALEFix<cr>
 let g:airline#extensions#ale#enabled = 1
 
 Plug 'prettier/vim-prettier', {
-\ 'do': 'npm install',
+\ 'do': 'yarn install --frozen-lockfile --production',
 \ 'for': [
   \ 'less',
   \ 'json',
