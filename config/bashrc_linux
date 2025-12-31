@@ -12,4 +12,7 @@ fi
 if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
+
+# opencode
+export PATH=/home/bboykov/.opencode/bin:$PATH
 # vi:syntax=sh
