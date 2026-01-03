@@ -144,3 +144,6 @@ if [[ -d "${PYENV_ROOT}" ]] ; then
 fi
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# opencode
+export PATH=/Users/bboykov/.opencode/bin:$PATH
