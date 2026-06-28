@@ -58,8 +58,8 @@ case "${platform}" in
       curl
       todo-txt
       k9s
+      uv
       kubie
-      pyenv
       tfenv
       the_silver_searcher
       htop
